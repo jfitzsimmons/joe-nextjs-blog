@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: test-repo #TEST JPF CHANGE BACK TO git-gateway
   branch: master
 media_folder: public/images
 public_folder: /images
@@ -139,3 +139,50 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+        
+  - name: "articles"
+    label: "Articles"
+    folder: "content/articles/"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        dateFormat: "YYYY-MM-DD"
+        timeFormat: false
+      - label: Author
+        name: "author"
+        widget: relation
+        collection: "meta"
+        file: "authors"
+        searchFields:
+          - "authors.*.name"
+        displayFields:
+          - "authors.*.name"
+        valueField: "authors.*.slug"
+      - label: Sections
+        label_singular: "Section" #better Name?
+        name: "sections"
+        widget: list
+        summary: "{{fields.section}}"
+        field:
+          label: Section
+          name: section
+          widget: relation
+          collection: "posts"
+          search_fields: ["post.date", "post.title"]
+          value_field: "post.title"
+          display_fields: ["post.body"]
+        
