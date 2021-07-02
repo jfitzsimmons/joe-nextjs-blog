@@ -1,5 +1,5 @@
 backend:
-  name: test-repo #TEST JPF CHANGE BACK TO git-gateway
+  name: git-gateway #TEST JPF CHANGE BACK TO git-gateway / test-repo
   branch: master
 media_folder: public/images
 public_folder: /images
