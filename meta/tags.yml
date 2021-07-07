@@ -11,5 +11,9 @@ tags:
     name: mdx
   - slug: markdown
     name: markdown
+  - slug: music
+    name: music
+  - slug: art
+    name: art
   - slug: inspiration
     name: inspiration

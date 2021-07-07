@@ -4,16 +4,20 @@ import PostItem from "./PostItem";
 import TagLink from "./TagLink";
 import Pagination from "./Pagination";
 import { TagContent } from "../lib/tags";
+import { CatContent } from "../lib/categories";
 
 type Props = {
   posts: PostContent[];
   tags: TagContent[];
+  cats: CatContent[];
   pagination: {
     current: number;
     pages: number;
   };
 };
-export default function PostList({ posts, tags, pagination }: Props) {
+export default function PostList({ posts, tags, cats, pagination }: Props) {
+  //console.log('cats');
+  //console.dir(cats);
   return (
     <div className={"container"}>
       <div className={"posts"}>
@@ -40,6 +44,15 @@ export default function PostList({ posts, tags, pagination }: Props) {
           </li>
         ))}
       </ul>
+
+      <ul className={"categories"}>
+        {cats.map((it, i) => (
+          <li key={i}>
+            <TagLink tag={it} />
+          </li>
+        ))}
+      </ul>
+
       <style jsx>{`
         .container {
           display: flex;

@@ -7,17 +7,19 @@ import PostList from "../../components/PostList";
 import config from "../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../lib/posts";
 import { listTags, TagContent } from "../../lib/tags";
+import { listCats, CatContent } from "../../lib/categories";
 import Head from "next/head";
 
 type Props = {
   posts: PostContent[];
   tags: TagContent[];
+  categories: CatContent[];
   pagination: {
     current: number;
     pages: number;
   };
 };
-export default function Index({ posts, tags, pagination }: Props) {
+export default function Index({ posts, categories, tags, pagination }: Props) {
   const url = "/posts";
   const title = "All posts";
   return (
@@ -25,13 +27,14 @@ export default function Index({ posts, tags, pagination }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <PostList posts={posts} tags={tags} pagination={pagination} />
+      <PostList posts={posts} cats={categories} tags={tags} pagination={pagination} />
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = listPostContent(1, config.posts_per_page);
+  const categories = listCats();
   const tags = listTags();
   const pagination = {
     current: 1,
@@ -40,6 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       posts,
+      categories,
       tags,
       pagination,
     },

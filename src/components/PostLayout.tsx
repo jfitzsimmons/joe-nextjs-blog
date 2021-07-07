@@ -4,6 +4,7 @@ import Author from "./Author";
 import Copyright from "./Copyright";
 import Date from "./Date";
 import Layout from "./Layout";
+import Chapter from "./Chapter";
 import BasicMeta from "./meta/BasicMeta";
 import JsonLdMeta from "./meta/JsonLdMeta";
 import OpenGraphMeta from "./meta/OpenGraphMeta";
@@ -18,21 +19,29 @@ type Props = {
   date: Date;
   slug: string;
   tags: string[];
+  chapters: Array<Chapter>;
   author: string;
   description?: string;
   children: React.ReactNode;
 };
+type Chapter =  {
+  body: string,
+  chapterTitle: string,
+  category: string,
+}
 export default function PostLayout({
   title,
   date,
   slug,
   author,
   tags,
+  chapters,
   description = "",
   children,
 }: Props) {
   const keywords = tags.map(it => getTag(it).name);
   const authorName = getAuthor(author).name;
+  //console.dir(chapters);
   return (
     <Layout>
       <BasicMeta
@@ -72,7 +81,23 @@ export default function PostLayout({
               </div>
             </div>
           </header>
-          <div className={styles.content}>{children}</div>
+          {/**<div className={styles.content}>{children}</div>
+           * 
+           * 
+           * .section. is a limitiation with CMS "types"
+           * 
+           * **/}
+          <div className={styles.content}>
+            {chapters.map((it, i) => (
+              <div key={i}>
+                <Chapter 
+                  body={it.section.body} 
+                  title={it.section.chapterTitle}
+                  category={it.section.category}
+                />
+              </div>
+            ))}
+          </div>
           <ul className={"tag-list"}>
             {tags.map((it, i) => (
               <li key={i}>

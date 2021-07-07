@@ -1,0 +1,16 @@
+{
+  "chapters": [
+    {
+      "chapterTitle": "This is an important chapter title",
+      "body": "This is an important chapter body",
+      "summary": "This is an important chapter summary"
+    }
+  ],
+  "date": "2021-07-07",
+  "title": "Second Test No Categories",
+  "author": "wutali",
+  "slug": "second-test-no-categories",
+  "tags": [
+    "style"
+  ]
+}

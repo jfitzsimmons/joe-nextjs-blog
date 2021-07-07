@@ -1,0 +1,15 @@
+categories:
+  - slug: journal
+    name: journal
+  - slug: code
+    name: code
+  - slug: inspiration
+    name: inspiration
+  - slug: writing
+    name: writing
+  - slug: references
+    name: references
+  - slug: music
+    name: music
+  - slug: art
+    name: art

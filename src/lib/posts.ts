@@ -10,6 +10,7 @@ export type PostContent = {
   readonly title: string;
   readonly slug: string;
   readonly tags?: string[];
+  readonly category?: string;
   readonly fullPath: string;
 };
 
@@ -22,28 +23,45 @@ export function fetchPostContent(): PostContent[] {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames
-    .filter((it) => it.endsWith(".mdx"))
+    .filter((it) => it.endsWith(".json"))
     .map((fileName) => {
       // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
+      //console.log('fileContents');
+      //console.log(fileContents);
 
       // Use gray-matter to parse the post metadata section
+      /** 
       const matterResult = matter(fileContents, {
         engines: {
           yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
         },
       });
-      const matterData = matterResult.data as {
+      **/
+     /**
+      * no long using gray-matter.  Remove it, rename variables
+      */
+      const matterResult= JSON.parse(fileContents);
+      const matterData = matterResult as {
         date: string;
         title: string;
         tags: string[];
+        category: string;
         slug: string;
         fullPath: string,
       };
       matterData.fullPath = fullPath;
 
-      const slug = fileName.replace(/\.mdx$/, "");
+
+      /**
+       * why is there slog and data slug?
+       * probably don't need.  Jsut use data slug.
+       * data slug should probably be auto built through template tags
+       * not cms slug field
+       * whats with the condtional??? (Validate slug string)
+       */
+      const slug = fileName.replace(/\.json$/, "");
 
       // Validate slug string
       if (matterData.slug !== slug) {
@@ -66,17 +84,25 @@ export function fetchPostContent(): PostContent[] {
 }
 
 export function countPosts(tag?: string): number {
+ //console.log('tag?')
+  //console.log(tag)
   return fetchPostContent().filter(
-    (it) => !tag || (it.tags && it.tags.includes(tag))
+    //compares to tags and not at all to category!!!
+    //(it) => !tag || (it.tags && it.tags.includes(tag))
+    (it) => !tag || (it.category && it.category === tag)
   ).length;
 }
 
 export function listPostContent(
   page: number,
   limit: number,
-  tag?: string
+  tag?: string,
 ): PostContent[] {
   return fetchPostContent()
-    .filter((it) => !tag || (it.tags && it.tags.includes(tag)))
+    .filter(
+      //same tag / post issue as fetchPostContent
+      //(it) => !tag || (it.tags && it.tags.includes(tag))
+      (it) => !tag || (it.category && it.category === tag)
+      )
     .slice((page - 1) * limit, page * limit);
 }

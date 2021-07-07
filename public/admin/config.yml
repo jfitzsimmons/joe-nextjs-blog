@@ -1,6 +1,7 @@
 backend:
   name: git-gateway #TEST JPF CHANGE BACK TO git-gateway / test-repo
   branch: master
+local_backend: true #npx netlify-cms-proxy-server
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
@@ -87,13 +88,33 @@ collections:
                 name: "name"
                 widget: "string"
                 hint: "Tag name for displaying on the site"
+      - name: "categories"
+        label: "Categories"
+        file: "meta/categories.yml"
+        description: "List of categories"
+        fields:
+          - name: categories
+            label: Categories
+            label_singular: "Category"
+            widget: list
+            fields:
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the category"
+              - label: "Display Name"
+                name: "name"
+                widget: "string"
+                hint: "Category name for displaying on the site"
 
-  - name: "posts"
+  - name: "posts" #post need a category lke image, code snippet, footnote, etc...
     label: "Posts"
     folder: "content/posts/"
-    extension: "mdx"
-    format: "frontmatter"
+    extension: "json"
+    format: "json"
     create: true
+    editor:
+      preview: false
     slug: "{{slug}}"
     identifier_field: slug
     summary: "{{title}}"
@@ -115,11 +136,22 @@ collections:
         widget: relation
         collection: "meta"
         file: "authors"
+        default: "Joe Fitzsimmons"
         searchFields:
           - "authors.*.name"
         displayFields:
           - "authors.*.name"
         valueField: "authors.*.slug"
+      - label: Category
+        name: "category"
+        widget: relation
+        collection: "meta"
+        file: "categories"
+        searchFields:
+            - "categories.*.name"
+        displayFields:
+            - "categories.*.name"
+        valueField: "categories.*.slug"
       - label: Tags
         label_singular: "Tag"
         name: "tags"
@@ -136,9 +168,76 @@ collections:
           displayFields:
             - "tags.*.name"
           valueField: "tags.*.slug"
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
+      
+      
+      - label: "Chapters"
+        name: "chapters"
+        widget: "list"
+        #summary: "{{fields.chapterTitle}}"
+        types:
+          - label: 'New Chapter'
+            name: 'newChapter'
+            widget: object
+            fields:
+            - label: 'Section'
+              name: 'section'
+              widget: object
+              fields:
+                - {label: Chapter Title, name: chapterTitle, widget: string, default: "Act 1"}
+                - label: "Featured Image"
+                  name: "thumbnail"
+                  required: false
+                  widget: "image"
+                  media_library:
+                    config:
+                      multiple: true
+                - {label: Body, name: body, widget: markdown}
+                - {label: Summary, name: summary, required: false, widget: text}
+                - label: Caegory
+                  name: "category"
+                  widget: relation
+                  collection: "meta"
+                  file: "categories"
+                  searchFields:
+                      - "categories.*.name"
+                  displayFields:
+                      - "categories.*.name"
+                  valueField: "categories.*.slug"
+                - label: Tags
+                  label_singular: "Tag"
+                  name: "tags"
+                  widget: list
+                  summary: "{{fields.tag}}"
+                  field:
+                    label: Tag
+                    name: tag
+                    widget: relation
+                    collection: "meta"
+                    file: "tags"
+                    searchFields:
+                      - "tags.*.name"
+                    displayFields:
+                      - "tags.*.name"
+                    valueField: "tags.*.slug"
+          - label: Old Chapter
+            #label_singular: "Section" #better Name?
+            name: "oldChapter"
+            widget: object
+            #ummary: "{{fields.section}}"
+            field:
+              label: Section
+              name: section
+              required: false
+              widget: relation
+              collection: "posts"
+              searchFields: ["chapters.*.chapterTitle"]
+              displayFields: ["chapters.*.chapterTitle"]
+              valueField: "chapters.*"
+
+  # - label: "Body" #instead of Body being a markdown widget, make it an object widgetthat contains a markdown widget
+      
+     #name: "body"
+     #   widget: "markdown"
         
   - name: "articles"
     label: "Articles"
@@ -172,6 +271,12 @@ collections:
         displayFields:
           - "authors.*.name"
         valueField: "authors.*.slug"
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        media_library:
+          config:
+            multiple: true
       - label: Sections
         label_singular: "Section" #better Name?
         name: "sections"
@@ -182,7 +287,7 @@ collections:
           name: section
           widget: relation
           collection: "posts"
-          search_fields: ["post.date", "post.title"]
-          value_field: "post.title"
-          display_fields: ["post.body"]
+          searchFields: ["chapters.*.chapterTitle"]
+          displayFields: ["{{chapterTitle}}"]
+          valueField: "{{chapter}}"
         
