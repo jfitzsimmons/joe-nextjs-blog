@@ -37,12 +37,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const posts = listPostContent(
     page ? parseInt(page as string) : 1,
     config.posts_per_page,
-    slug
+    slug,
+    'tags'
   );
   const tag = getTag(slug);
   const pagination = {
     current: page ? parseInt(page as string) : 1,
-    pages: Math.ceil(countPosts(slug) / config.posts_per_page),
+    pages: Math.ceil(countPosts(slug,'tags') / config.posts_per_page),
   };
   const props: {
     posts: PostContent[];
@@ -60,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = listTags().flatMap((tag) => {
-    const pages = Math.ceil(countPosts(tag.slug) / config.posts_per_page);
+    const pages = Math.ceil(countPosts(tag.slug,'tags') / config.posts_per_page);
     return Array.from(Array(pages).keys()).map((page) =>
       page === 0
         ? {

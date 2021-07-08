@@ -17,3 +17,12 @@ tags:
     name: art
   - slug: inspiration
     name: inspiration
+  - slug: acoustic
+    name: acoustic
+  - slug: orchestral
+    name: orchestral
+  - slug: rock
+    name: rock
+  - slug: rendition
+    name: rendition
+  

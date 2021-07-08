@@ -1,0 +1,26 @@
+{
+  "author": "fitzsimmons",
+  "date": "2021-07-08",
+  "category": "code",
+  "tags": [
+    "inspiration",
+    "style"
+  ],
+  "chapters": [
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Act 1",
+        "body": "<p>I had an interview with a small \"studio\" that specialized in Wordpress builds.  I had make many Wordpress sites a while ago but it had been a decade or so since I had.  I hadn't made one since headless was an option and that had been on my bucket list to do. So I did some research.  I was going to do a JAMStack version headless Wordpress site.  I found an article from one of my favorite sites.</p>\n\n<a href=\"https://www.smashingmagazine.com/2020/02/headless-wordpress-site-jamstack/\">Smashing Magazine: How To Create A Headless WordPress Site On The JAMstack</a>\n\n<p>I used Vue With Nuxt for the front-end.  I was looking to learn more Vue.  I ostly use React, and have only dabbled with Vue a few times.  The Vue LifeCycle has always confused me in the past.</p>\n\n<p>Design wise, I was inspired by Mosaic Magazine.</p>\n\n<a href=\"https://mosaicscience.com/\">Mosaic</a>\n\n<p> <img src=\"/images/mosaic-home.jpg\" alt=\"Screenshot of Mosaic Magazine&#39;s Homepage\" title=\"Screenshot of Mosaic Magazine&#39;s Homepage\"> </p>\n\n<p>I liked the pixelated and overlapping borders.  No two patterns seem the same.  I wanted to create a non-repeating pattern like that with just css.  It was a cool aesthetic that I wanted to steal. I made a number of plaid repeating linear gradients and applied them as background images to html elements.  I tried this with four different color pallettes as a proof of concept.  </p>\n\n<p class=\"codepen\" data-height=\"500\" data-default-tab=\"result\" data-slug-hash=\"YzWMWzV\" data-preview=\"true\" data-user=\"jfitzsimmons\" style=\"height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;\">\n  <span>See the Pen <a href=\"https://codepen.io/jfitzsimmons/pen/YzWMWzV\">\n  repeating linear gradient designs</a> by jfitzsimmons (<a href=\"https://codepen.io/jfitzsimmons\">@jfitzsimmons</a>)\n  on <a href=\"https://codepen.io\">CodePen</a>.</span>\n</p>\n<script async src=\"https://cpwebassets.codepen.io/assets/embed/ei.js\"></script>\n\n<p>\\\nSo now I need to use the WordPress API.  I could do self hosted and run everything locally, but I want it to be online and free.  So I created a wordpress.com site and had to use the v1 api which is more limited than a self hosted v2 solution. That's one way I deviated from the Smashing tutorial.\\\n</p>\n\n<a href=\"https://developer.wordpress.com/docs/api/\">WordPress.com REST API</a>\n\n<p>\\\n\\\n</p>",
+        "thumbnail": "/images/mosaic-menu.jpg",
+        "category": "code",
+        "tags": [
+          "style"
+        ]
+      }
+    }
+  ],
+  "title": "Headless WordPress plus a mindless developer equals a failed job interview",
+  "slug": "2021-07-08_headless-wordpress-plus-a-mindless-developer ",
+  "description": "I try a WordPress Site On The JAMstack with Nuxt"
+}

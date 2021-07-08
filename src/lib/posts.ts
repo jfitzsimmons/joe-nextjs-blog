@@ -61,14 +61,16 @@ export function fetchPostContent(): PostContent[] {
        * not cms slug field
        * whats with the condtional??? (Validate slug string)
        */
-      const slug = fileName.replace(/\.json$/, "");
+       matterData.slug = fileName.replace(/\.json$/, "");
 
       // Validate slug string
+      /** 
       if (matterData.slug !== slug) {
         throw new Error(
           "slug field not match with the path of its content source"
         );
       }
+      **/
 
       return matterData;
     });
@@ -83,26 +85,32 @@ export function fetchPostContent(): PostContent[] {
   return postCache;
 }
 
-export function countPosts(tag?: string): number {
+export function countPosts(
+  slug?: string,
+  meta?: string,
+  ): number {
  //console.log('tag?')
   //console.log(tag)
   return fetchPostContent().filter(
     //compares to tags and not at all to category!!!
-    //(it) => !tag || (it.tags && it.tags.includes(tag))
-    (it) => !tag || (it.category && it.category === tag)
+    (meta === 'tags') ?
+    (it) => !slug || (it.tags && it.tags.includes(slug)) :
+    (it) => !slug || (it.category && it.category === slug)
   ).length;
 }
 
 export function listPostContent(
   page: number,
   limit: number,
-  tag?: string,
+  slug?: string,
+  meta?: string,
 ): PostContent[] {
   return fetchPostContent()
     .filter(
       //same tag / post issue as fetchPostContent
-      //(it) => !tag || (it.tags && it.tags.includes(tag))
-      (it) => !tag || (it.category && it.category === tag)
+      (meta === 'tags') ?
+      (it) => !slug || (it.tags && it.tags.includes(slug)) :
+      (it) => !slug || (it.category && it.category === slug)
       )
     .slice((page - 1) * limit, page * limit);
 }

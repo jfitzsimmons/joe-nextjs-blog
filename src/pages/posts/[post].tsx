@@ -82,7 +82,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 //fetchPostContent is all posts, not just a single post
   const paths = fetchPostContent().map(it => "/posts/" + it.slug);
   return {
-    paths,
+    paths, 
     fallback: false,
   };
 };

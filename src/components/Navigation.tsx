@@ -1,9 +1,16 @@
+import { GetStaticProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
 import { useState } from "react";
 
+import { listCats } from "../lib/categories";
+
+
+
 export default function Navigation() {
+  const categories = listCats();
+  //console.log(categories);//
   const router = useRouter();
   const [active, setActive] = useState(false);
   return (
@@ -27,6 +34,21 @@ export default function Navigation() {
               </a>
             </Link>
           </li>
+         
+          {categories.map((it, i) => (
+            <li key={i}>
+              <Link href={`/posts/categories/${it.slug}`}>
+                <a
+                  className={
+                    router.pathname.startsWith(`/posts/categories/${it.slug}`) ? "active" : null
+                  }
+                >
+                  {it.name}
+                </a>
+              </Link>
+            </li>
+          ))}
+
         </ul>
         <style jsx>
           {`

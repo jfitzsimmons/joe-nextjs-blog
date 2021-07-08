@@ -1,0 +1,42 @@
+{
+  "author": "fitzsimmons",
+  "date": "2021-07-08",
+  "category": "music",
+  "tags": [
+    "rock",
+    "rendition",
+    "acoustic",
+    "orchestral"
+  ],
+  "chapters": [
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Coheed and Cambria perform Mother Superior inside a shoe repair shop.",
+        "body": "I've never been much for Star Wars.  I saw The Phantom Menace and Jar Jar Binks and never felt strongly of either.  I never once thought about harassing a child actor until they gave up on their dreams.  What fulfills my inner infant is Coheed and Cambria and if you feel otherwise I will harass your first born into the second-coming of Kafka.  \n\nThey are a blend of Prog Rock, English Folk and Power Pop.  They are often compared to Rush.  Rush rocks.  I don't take pride in their libertarianism or an association with basement dwellers, but I have dwelled, and I love Sci-fi concepts. \n\nCoheed is my Star Wars.\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/Gj-M4iU6ckU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "summary": "Coheed is my Star Wars.",
+        "tags": [
+          "rock",
+          "acoustic"
+        ],
+        "category": "music"
+      }
+    },
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "A Favor House Atlantic - Vitamin String Quartet Tribute to Coheed and Cambria",
+        "body": "Going down the rabbit hole of invasive, technocratic targeting, I was delivered a circus from god Google.  It's pretty great.  I'm a sucker for all things strings so here enters Vitamin String Quartet, \"A classical crossover force in contemporary music.\"\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/BfSh4unhD4g\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "summary": "I'm a sucker for all things strings.",
+        "tags": [
+          "orchestral",
+          "rendition"
+        ],
+        "category": "music"
+      }
+    }
+  ],
+  "description": "I came across a video that helped ease my cynicism and combated my disdain for nostalgia.",
+  "title": "I love Coheed and Cambria and I don't care who knows.",
+  "slug": "2021-07-08_i-love-coheed-and-cambria-and-i-dont-care-who-knows-it"
+}
