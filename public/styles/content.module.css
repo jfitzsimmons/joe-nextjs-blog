@@ -42,26 +42,19 @@
 
 .content pre {
   display: block;
-  background-color: rgba(27, 31, 35, 0.05);
+  background: black;
+  color: #eaeaea;
   line-height: 1.25rem;
   padding: 1rem;
   overflow: auto;
   margin: 1.75rem 0 0 0;
+  white-space: pre-wrap;
 }
 
 .content pre code {
   background-color: transparent;
   font-size: 100%;
   padding: 0;
-}
-
-.content code {
-  font-family: "Ubuntu Mono", monospace;
-  font-size: 85%;
-  padding: 0.2em 0.4em;
-  margin: 0;
-  background-color: rgba(27, 31, 35, 0.05);
-  border-radius: 3px;
 }
 
 .content blockquote {

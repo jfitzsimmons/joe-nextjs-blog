@@ -11,7 +11,7 @@ type Props = {
 export default function Chapter({ body, title, category }: Props) {
   return (
     <div className={`act-${category}`}>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         <div dangerouslySetInnerHTML={{__html: body}}></div>
         <a href="">{category}</a>
     </div>

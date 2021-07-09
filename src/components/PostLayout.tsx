@@ -161,99 +161,99 @@ export default function PostLayout({
       <style global jsx>
         {`
             /* Syntax highlighting */
-            .token.comment,
-            .token.prolog,
-            .token.doctype,
-            .token.cdata,
-            .token.plain-text {
+            .hljs-comment,
+            .hljs-prolog,
+            .hljs-doctype,
+            .hljs-cdata,
+            .hljs-plain-text {
               color: #6a737d;
             }
 
-            .token.atrule,
-            .token.attr-value,
-            .token.keyword,
-            .token.operator {
+            .hljs-atrule,
+            .hljs-attr-value,
+            .hljs-keyword,
+            .hljs-operator {
               color: #d73a49;
             }
 
-            .token.property,
-            .token.tag,
-            .token.boolean,
-            .token.number,
-            .token.constant,
-            .token.symbol,
-            .token.deleted {
+            .hljs-property,
+            .hljs-tag,
+            .hljs-boolean,
+            .hljs-number,
+            .hljs-constant,
+            .hljs-symbol,
+            .hljs-deleted {
               color: #22863a;
             }
 
-            .token.selector,
-            .token.attr-name,
-            .token.string,
-            .token.char,
-            .token.builtin,
-            .token.inserted {
+            .hljs-selector,
+            .hljs-attr,
+            .hljs-string,
+            .hljs-char,
+            .hljs-builtin,
+            .hljs-inserted {
               color: #032f62;
             }
 
-            .token.function,
-            .token.class-name {
+            .hljs-function,
+            .hljs-class-name {
               color: #6f42c1;
             }
 
             /* language-specific */
 
             /* JSX */
-            .language-jsx .token.punctuation,
-            .language-jsx .token.tag .token.punctuation,
-            .language-jsx .token.tag .token.script,
-            .language-jsx .token.plain-text {
+            .lang-javascript .hljs-punctuation,
+            .lang-javascript .hljs-tag .hljs-punctuation,
+            .lang-javascript .hljs-tag .hljs-script,
+            .lang-javascript .hljs-plain-text {
               color: #24292e;
             }
 
-            .language-jsx .token.tag .token.attr-name {
+            .lang-javascript .hljs-tag .hljs-attr {
               color: #6f42c1;
             }
 
-            .language-jsx .token.tag .token.class-name {
+            .lang-javascript .hljs-tag .hljs-class-name {
               color: #005cc5;
             }
 
-            .language-jsx .token.tag .token.script-punctuation,
-            .language-jsx .token.attr-value .token.punctuation:first-child {
+            .lang-javascript .hljs-tag .hljs-script-punctuation,
+            .lang-javascript .hljs-attr-value .hljs-punctuation:first-child {
               color: #d73a49;
             }
 
-            .language-jsx .token.attr-value {
+            .lang-javascript .hljs-attr-value {
               color: #032f62;
             }
 
-            .language-jsx span[class="comment"] {
+            .lang-javascript span[class="comment"] {
               color: pink;
             }
 
             /* HTML */
-            .language-html .token.tag .token.punctuation {
+            .language-html .hljs-tag .hljs-punctuation {
               color: #24292e;
             }
 
-            .language-html .token.tag .token.attr-name {
+            .language-html .hljs-tag .hljs-attr {
               color: #6f42c1;
             }
 
-            .language-html .token.tag .token.attr-value,
+            .language-html .hljs-tag .hljs-attr-value,
             .language-html
-              .token.tag
-              .token.attr-value
-              .token.punctuation:not(:first-child) {
+              .hljs-tag
+              .hljs-attr-value
+              .hljs-punctuation:not(:first-child) {
               color: #032f62;
             }
 
             /* CSS */
-            .language-css .token.selector {
+            .language-css .hljs-selector {
               color: #6f42c1;
             }
 
-            .language-css .token.property {
+            .language-css .hljs-property {
               color: #005cc5;
             }
           `}
