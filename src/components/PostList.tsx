@@ -19,7 +19,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
   return (
     <div className={"container"}>
       <div className={"posts"}>
-        <ul className={"post-list"}>
+        <ul className={"post-list card"}>
           {posts.map((it, i) => (
             <li key={i}>
               <PostItem post={it} />
@@ -35,7 +35,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
           }}
         />
       </div>
-      <ul className={"categories"}>
+      <ul className={"categories card"}>
         {tags.map((it, i) => (
           <li key={i}>
             <TagLink tag={it} />
@@ -47,9 +47,10 @@ export default function PostList({ posts, tags, pagination }: Props) {
         .container {
           display: flex;
           margin: 0 auto;
-          max-width: 1200px;
           width: 100%;
           padding: 0 1.5rem;
+          justify-content: space-around;
+          align-items: center;
         }
         ul {
           margin: 0;
@@ -61,13 +62,11 @@ export default function PostList({ posts, tags, pagination }: Props) {
         .posts {
           display: flex;
           flex-direction: column;
-          flex: 1 1 auto;
+          justify-content: space-between;
+          max-width: 1200px;
         }
         .posts li {
           margin-bottom: 1.5rem;
-        }
-        .post-list {
-          flex: 1 0 auto;
         }
         .categories {
           display: none;
@@ -78,7 +77,14 @@ export default function PostList({ posts, tags, pagination }: Props) {
 
         @media (min-width: 769px) {
           .categories {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            max-height: 250px;
+            flex-wrap: wrap;
+            flex-direction: row;
+            max-height: 300px;
+            -webkit-flex-wrap: wrap;
+            writing-mode: sideways-lr;
           }
         }
       `}</style>

@@ -69,7 +69,7 @@ export default function PostLayout({
         description={description}
       />
       <div className={"container"}>
-        <article>
+        <article className={"card"}>
           <header>
             <h1>{title}</h1>
             <div className={"metadata"}>
