@@ -8,7 +8,6 @@ import config from "../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../lib/posts";
 import { listTags, TagContent } from "../../lib/tags";
 import { listCats, CatContent } from "../../lib/categories";
-import Head from "next/head";
 
 type Props = {
   posts: PostContent[];
@@ -27,7 +26,7 @@ export default function Index({ posts, categories, tags, pagination }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <PostList posts={posts} cats={categories} tags={tags} pagination={pagination} />
+      <PostList posts={posts} tags={tags} pagination={pagination} />
     </Layout>
   );
 }

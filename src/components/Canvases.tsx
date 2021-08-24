@@ -296,8 +296,8 @@ const draw = ctx => {
 export default function Canvases() {
   return (
     <>
-      <Canvas draw={draw} height={h} width={w} fader={24000} animation/>
-      <Canvas draw={draw} height={h} width={w} fader={16000} />
+      <Canvas draw={draw} height={h} width={w} fader={24000} animation={true}/>
+      <Canvas draw={draw} height={h} width={w} fader={16000} animation={false}/>
     </>
   );
 }

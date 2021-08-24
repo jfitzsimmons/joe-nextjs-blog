@@ -16,7 +16,7 @@ export default function PostItem({ post }: Props) {
           <h2>{post.title}</h2>
         </a>
       </Link>
-      <Link href={"/categories/" + post.category}>
+      <Link href={"/posts/categories/" + post.category}>
         <a className="category-link">
           {post.category}
         </a>
