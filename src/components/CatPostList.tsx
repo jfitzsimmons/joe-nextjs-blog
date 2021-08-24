@@ -18,9 +18,9 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
       <h1>
         All posts / <span>{tag.name}</span>
       </h1>
-      <ul className="card">
+      <ul>
         {posts.map((it, i) => (
-          <li key={i}>
+          <li key={i} className="card">
             <PostItem post={it} />
           </li>
         ))}
@@ -54,6 +54,7 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
             font-weight: 100;
             font-size: 1.75rem;
             color: #9b9b9b;
+            text-shadow: 1px 1px 5px #fff;
           }
           h1 span {
             font-weight: bold;
@@ -61,11 +62,11 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
           }
           ul {
             margin: 0;
-            padding: 1rem;
           }
           li {
             list-style: none;
             margin-bottom: 1.5rem;
+            padding: 1rem;
           }
 
           @media (min-width: 769px) {

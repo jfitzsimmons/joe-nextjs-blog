@@ -18,9 +18,9 @@ export default function PostList({ posts, tags, pagination }: Props) {
   return (
     <div className={"container"}>
       <div className={"posts"}>
-        <ul className={"post-list card"}>
+        <ul className={"post-list"}>
           {posts.map((it, i) => (
-            <li key={i}>
+            <li key={i} className={"card"}>
               <PostItem post={it} />
             </li>
           ))}
@@ -63,11 +63,9 @@ export default function PostList({ posts, tags, pagination }: Props) {
           justify-content: space-between;
           max-width: 1200px;
         }
-        .post-list {
-          padding: 1rem;
-        }
         .posts li {
           margin-bottom: 1.5rem;
+          padding: 1rem;
         }
         .categories {
           display: none;

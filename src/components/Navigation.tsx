@@ -22,7 +22,7 @@ export default function Navigation() {
             <Link href="/posts">
               <a
                 className={
-                  router.pathname.startsWith("/posts") ? "active" : null
+                  router.pathname.endsWith("/posts") ? "active" : null
                 }
               >
                 blog
@@ -34,10 +34,10 @@ export default function Navigation() {
               <Link href={`/posts/categories/${it.slug}`}>
                 <a
                   className={
-                    router.pathname.startsWith(`/posts/categories/${it.slug}`) ? "active" : null
+                    router.asPath.endsWith(`categories/${it.slug}`) ? "active" : null
                   }
                 >
-                  {it.name}
+                  {(it.color) && <span style={{ color: '#'+it.color }}> &bull; </span> }{it.name}
                 </a>
               </Link>
             </li>
@@ -54,7 +54,7 @@ export default function Navigation() {
               text-align: right;
               list-style: none;
               margin: 0;
-              padding: 0;
+              padding: 1rem;
               position: fixed;
               top: 0;
               display: flex;
@@ -63,6 +63,7 @@ export default function Navigation() {
               z-index: 3;
               transform: translateY(100%);
               transition: opacity 200ms;
+              box-sizing: border-box;
             }
             .active ul {
               opacity: 1;

@@ -1,7 +1,5 @@
 import fs from "fs";
-import matter from "gray-matter";
 import path from "path";
-import yaml from "js-yaml";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
@@ -11,6 +9,7 @@ export type PostContent = {
   readonly slug: string;
   readonly tags?: string[];
   readonly category?: string;
+  readonly description?: string;
   readonly fullPath: string;
 };
 
@@ -28,52 +27,22 @@ export function fetchPostContent(): PostContent[] {
       // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-      //console.log('fileContents');
-      //console.log(fileContents);
-
-      // Use gray-matter to parse the post metadata section
-      /** 
-      const matterResult = matter(fileContents, {
-        engines: {
-          yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
-        },
-      });
-      **/
-     /**
-      * no long using gray-matter.  Remove it, rename variables
-      */
       const matterResult= JSON.parse(fileContents);
       const matterData = matterResult as {
         date: string;
         title: string;
         tags: string[];
         category: string;
+        description: string;
         slug: string;
         fullPath: string,
       };
       matterData.fullPath = fullPath;
-
-
-      /**
-       * why is there slog and data slug?
-       * probably don't need.  Jsut use data slug.
-       * data slug should probably be auto built through template tags
-       * not cms slug field
-       * whats with the condtional??? (Validate slug string)
-       */
-       matterData.slug = fileName.replace(/\.json$/, "");
-
-      // Validate slug string
-      /** 
-      if (matterData.slug !== slug) {
-        throw new Error(
-          "slug field not match with the path of its content source"
-        );
-      }
-      **/
+      matterData.slug = fileName.replace(/\.json$/, "");
 
       return matterData;
     });
+
   // Sort posts by date
   postCache = allPostsData.sort((a, b) => {
     if (a.date < b.date) {
@@ -89,8 +58,6 @@ export function countPosts(
   slug?: string,
   meta?: string,
   ): number {
- //console.log('tag?')
-  //console.log(tag)
   return fetchPostContent().filter(
     //compares to tags and not at all to category!!!
     (meta === 'tags') ?
@@ -107,7 +74,6 @@ export function listPostContent(
 ): PostContent[] {
   return fetchPostContent()
     .filter(
-      //same tag / post issue as fetchPostContent
       (meta === 'tags') ?
       (it) => !slug || (it.tags && it.tags.includes(slug)) :
       (it) => !slug || (it.category && it.category === slug)

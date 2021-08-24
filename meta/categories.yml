@@ -3,6 +3,7 @@ categories:
     name: journal
   - slug: code
     name: code
+    color: 6FEEEC
   - slug: inspiration
     name: inspiration
   - slug: writing
@@ -11,5 +12,6 @@ categories:
     name: references
   - slug: music
     name: music
+    color: F99EBC
   - slug: art
     name: art

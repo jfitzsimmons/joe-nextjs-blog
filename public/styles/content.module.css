@@ -26,7 +26,7 @@
 .content h3,
 .content h4,
 .content h5 {
-  margin: 2rem 0 0 0;
+  margin: 2rem 0 1rem;
   line-height: 1.25em;
 }
 
@@ -118,7 +118,17 @@
 }
 
 .content img {
+  width: auto;
+  max-height: 500px;
+  display: block;
+  margin: 1.5rem auto 0rem;
+}
+
+.content iframe {
+  margin: 1.5rem auto 0rem;
+  display: flex;
   width: 100%;
+  max-width: 560px;
 }
 
 @media (min-width: 769px) {

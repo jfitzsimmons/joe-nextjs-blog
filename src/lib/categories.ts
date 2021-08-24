@@ -3,6 +3,7 @@ import categories from "../../meta/categories.yml";
 export type CatContent = {
   readonly slug: string;
   readonly name: string;
+  readonly color: string;
 };
 
 const catMap: { [key: string]: CatContent } = generateCatMap();
