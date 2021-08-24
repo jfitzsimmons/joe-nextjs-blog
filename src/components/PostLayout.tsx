@@ -37,11 +37,9 @@ export default function PostLayout({
   tags,
   chapters,
   description = "",
-  children,
 }: Props) {
   const keywords = tags.map(it => getTag(it).name);
   const authorName = getAuthor(author).name;
-  //console.dir(chapters);
   return (
     <Layout>
       <BasicMeta
@@ -81,11 +79,8 @@ export default function PostLayout({
               </div>
             </div>
           </header>
-          {/**<div className={styles.content}>{children}</div>
-           * 
-           * 
+          {/**
            * .section. is a limitiation with CMS "types"
-           * 
            * **/}
           <div className={styles.content}>
             {chapters.map((it, i) => (
@@ -130,6 +125,7 @@ export default function PostLayout({
             }
             article {
               flex: 1 0 auto;
+              padding: 1rem;
             }
             h1 {
               margin: 0 0 0.5rem;

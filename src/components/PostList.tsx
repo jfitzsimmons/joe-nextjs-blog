@@ -13,9 +13,8 @@ type Props = {
     pages: number;
   };
 };
+
 export default function PostList({ posts, tags, pagination }: Props) {
-  //console.log('cats');
-  //console.dir(cats);
   return (
     <div className={"container"}>
       <div className={"posts"}>
@@ -42,7 +41,6 @@ export default function PostList({ posts, tags, pagination }: Props) {
           </li>
         ))}
       </ul>
-
       <style jsx>{`
         .container {
           display: flex;
@@ -65,6 +63,9 @@ export default function PostList({ posts, tags, pagination }: Props) {
           justify-content: space-between;
           max-width: 1200px;
         }
+        .post-list {
+          padding: 1rem;
+        }
         .posts li {
           margin-bottom: 1.5rem;
         }
@@ -74,9 +75,9 @@ export default function PostList({ posts, tags, pagination }: Props) {
         .categories li {
           margin-bottom: 0.75em;
         }
-
         @media (min-width: 769px) {
           .categories {
+            padding: 1rem;
             display: flex;
             flex-direction: column;
             max-height: 250px;

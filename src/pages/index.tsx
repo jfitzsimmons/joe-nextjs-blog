@@ -28,6 +28,9 @@ export default function Index() {
           flex: 1 1 auto;
           padding: 0 1.5rem;
         }
+        .card {
+          padding: 1rem;
+        }
         h1 {
           font-size: 2.5rem;
           margin: 0;
@@ -39,7 +42,7 @@ export default function Index() {
           line-height: 1.25;
         }
         .fancy {
-          color: #15847d;
+          color: #118381;
         }
         .handle {
           display: inline-block;

@@ -13,13 +13,12 @@ type Props = {
   };
 };
 export default function TagPostList({ posts, tag, pagination }: Props) {
-  //console.dir(posts);
   return (
     <div className={"container"}>
       <h1>
         All posts / <span>{tag.name}</span>
       </h1>
-      <ul>
+      <ul className="card">
         {posts.map((it, i) => (
           <li key={i}>
             <PostItem post={it} />
@@ -46,6 +45,8 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
             padding: 0 1.5rem;
             display: flex;
             flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
           }
           h1 {
             margin: 0 0 2rem;
@@ -60,8 +61,7 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
           }
           ul {
             margin: 0;
-            padding: 0;
-            flex: 1 0 auto;
+            padding: 1rem;
           }
           li {
             list-style: none;
