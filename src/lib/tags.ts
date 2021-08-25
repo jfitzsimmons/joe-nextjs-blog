@@ -3,6 +3,7 @@ import tags from "../../meta/tags.yml";
 export type TagContent = {
   readonly slug: string;
   readonly name: string;
+  readonly parent: string;
 };
 
 const tagMap: { [key: string]: TagContent } = generateTagMap();
@@ -21,4 +22,8 @@ export function getTag(slug: string) {
 
 export function listTags(): TagContent[] {
   return tags.tags;
+}
+
+export function childTags(p): TagContent[] {
+  return tags.tags.filter(t => t.parent === p);
 }

@@ -84,6 +84,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
             max-height: 300px;
             -webkit-flex-wrap: wrap;
             writing-mode: sideways-lr;
+            margin-left: 1.5rem;
           }
         }
       `}</style>

@@ -19,10 +19,19 @@ tags:
     name: inspiration
   - slug: acoustic
     name: acoustic
+    parent: music
   - slug: orchestral
     name: orchestral
+    parent: music
   - slug: rock
     name: rock
+    parent: music
   - slug: rendition
     name: rendition
-  
+    parent: music
+  - slug: generative
+    name: generative
+    parent: code
+  - slug: creative-code
+    name: creative-code
+    parent: code

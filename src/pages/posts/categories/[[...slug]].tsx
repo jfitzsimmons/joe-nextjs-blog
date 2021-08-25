@@ -7,19 +7,19 @@ import CatPostList from "../../../components/CatPostList";
 import config from "../../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../../lib/posts";
 import { getCat, listCats, CatContent } from "../../../lib/categories";
-import Head from "next/head";
+import { TagContent, childTags } from "../../../lib/tags";
 
 type Props = {
   posts: PostContent[];
   category: CatContent;
+  tags: TagContent[];
   page?: string;
   pagination: {
     current: number;
     pages: number;
   };
 };
-export default function Index({ posts, category, pagination, page }: Props) {
-  //console.log(posts);
+export default function Index({ posts, category, tags, pagination, page }: Props) {
   const url = `/posts/categories/${category.name}` + (page ? `/${page}` : "");
   const title = category.name;
   return (
@@ -27,8 +27,7 @@ export default function Index({ posts, category, pagination, page }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      {/** CHANGE LAYOUT PROBABLY!?!?!? TESTJPF*/}
-      <CatPostList posts={posts} tag={category} pagination={pagination} />
+      <CatPostList posts={posts} cat={category} tags={tags} pagination={pagination} />
     </Layout>
   );
 }
@@ -42,6 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     slug
   );
   const category = getCat(slug);
+  const tags = childTags(category.name);
   const pagination = {
     current: page ? parseInt(page as string) : 1,
     pages: Math.ceil(countPosts(slug) / config.posts_per_page),
@@ -49,9 +49,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const props: {
     posts: PostContent[];
     category: CatContent;
+    tags: TagContent[];
     pagination: { current: number; pages: number };
     page?: string;
-  } = { posts, category, pagination };
+  } = { posts, category, tags, pagination };
   if (page) {
     props.page = page;
   }
