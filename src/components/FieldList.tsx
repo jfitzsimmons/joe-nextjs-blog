@@ -1,5 +1,5 @@
 import React from "react";
-import { PostContent } from "../lib/posts";
+import { PostContent, Field } from "../lib/posts";
 import { CatContent } from "../lib/categories";
 import { TagContent } from "../lib/tags";
 import { FieldContent } from "../lib/fields";
@@ -9,7 +9,7 @@ import TagLink from "./TagLink";
 import Pagination from "./Pagination";
 
 type Props = {
-  fields: PostContent[];
+  fields: Field[];
   field: FieldContent;
   cat: CatContent;
   tags: TagContent[];

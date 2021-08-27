@@ -1,4 +1,4 @@
-import { PostContent } from "../lib/posts";
+import { PostContent,Field } from "../lib/posts";
 import Date from "./Date";
 import Link from "next/link";
 import { parseISO } from "date-fns";
@@ -8,15 +8,17 @@ import { getTag } from "../lib/tags";
 import { getCat } from "../lib/categories";
 
 type Props = {
-  field: PostContent;
+  field: Field;
 };
+
+
 
 export default function ReferenceItem({ field }: Props) {
   return (
     <>
       <Link href={field.reference.url}>
         <a className="card top" >
-          <span style={{fontWeight: "500"}}>{field.reference.title}</span> | {field.reference.source} | <Date date={parseISO(field.reference.date)} />
+          <span style={{fontWeight: 500}}>{field.reference.title}</span> | {field.reference.source} | <Date date={parseISO(field.reference.date)} />
         </a> 
       </Link>
       {/**<CategoryButton cat={getCat(field.category)} />**/}

@@ -56,6 +56,21 @@ export function countRefs(
   ).length;
 }
 
+export type Field =  {
+  category: string;
+  date: string;
+  tags: string[];
+  title: string;
+  url: string;
+  reference: {
+    index: number;
+    date: string;
+    source: string;
+    title: string;
+    url: string;
+  },
+}
+
 export function listPostRefs(
   page: number,
   limit: number,
