@@ -5,15 +5,12 @@ categories:
   - slug: code
     name: code
     color: 6FEDEB
-  - slug: inspiration
-    name: inspiration
   - slug: writing
     name: writing
     color: EDC3FF
-  - slug: references
-    name: references
   - slug: music
     name: music
     color: 6DCFFF
   - slug: art
     name: art
+    color: ff9e9e

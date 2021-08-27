@@ -1,0 +1,55 @@
+{
+  "chapters": [
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Test Act 1",
+        "body": "Test Body",
+        "category": "journal",
+        "tags": [
+          "mdx"
+        ]
+      }
+    }
+  ],
+  "references": [
+    {
+      "index": 0,
+      "date": "2021-08-27T18:35:21.765Z",
+      "title": "Test Reference 1",
+      "url": "http://wikipeda.org",
+      "source": "Wikipedia"
+    },
+    {
+      "index": 1,
+      "date": "2021-08-27T18:35:25.915Z",
+      "title": "Test Reference 2",
+      "url": "https://mosaicscience.com/about-mosaic/",
+      "source": "Mosaic"
+    },
+    {
+      "index": 2,
+      "date": "2021-08-27T18:35:26.798Z",
+      "url": "https://www.netlifycms.org/",
+      "title": "Netlify CMS",
+      "source": "Netlify"
+    },
+    {
+      "index": 4,
+      "date": "2021-08-27T18:39:37.708Z",
+      "title": "Digg",
+      "url": "http://digg.com",
+      "source": "Digg"
+    }
+  ],
+  "author": "fitzsimmons",
+  "slug": "2021-08-27_test-post-for-journal-and-multiple-references",
+  "date": "2021-08-27",
+  "title": "Test Post for journal and multiple references",
+  "tags": [
+    "markdown",
+    "mdx"
+  ],
+  "description": "Test Description",
+  "category": "journal"
+}

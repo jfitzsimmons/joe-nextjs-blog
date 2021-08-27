@@ -1,7 +1,7 @@
 backend:
   name: git-gateway #TEST JPF CHANGE BACK TO git-gateway / test-repo
   branch: master
-local_backend: true #npx netlify-cms-proxy-server
+#local_backend: true #npx netlify-cms-proxy-server
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
@@ -42,7 +42,6 @@ collections:
           - label: "GitHub account"
             name: "github_account"
             widget: "string"
-
   - name: "meta"
     label: "Meta"
     delete: false
@@ -123,7 +122,7 @@ collections:
                 hint: "Color associated with category's style"
                 required: false
 
-  - name: "posts" #post need a category lke image, code snippet, footnote, etc...
+  - name: "posts"
     label: "Posts"
     folder: "content/posts/"
     extension: "json"
@@ -173,7 +172,7 @@ collections:
         displayFields:
             - "categories.*.name"
         valueField: "categories.*.slug"
-      - label: Tags
+      - label: "Tags"
         label_singular: "Tag"
         name: "tags"
         widget: list
@@ -188,13 +187,10 @@ collections:
             - "tags.*.name"
           displayFields:
             - "tags.*.name"
-          valueField: "tags.*.slug"
-      
-      
+          valueField: "tags.*.slug"  
       - label: "Chapters"
         name: "chapters"
         widget: "list"
-        #summary: "{{fields.chapterTitle}}"
         types:
           - label: 'New Chapter'
             name: 'newChapter'
@@ -241,10 +237,8 @@ collections:
                       - "tags.*.name"
                     valueField: "tags.*.slug"
           - label: Old Chapter
-            #label_singular: "Section" #better Name?
             name: "oldChapter"
             widget: object
-            #ummary: "{{fields.section}}"
             field:
               label: Section
               name: section
@@ -254,12 +248,31 @@ collections:
               searchFields: ["chapters.*.chapterTitle"]
               displayFields: ["chapters.*.chapterTitle"]
               valueField: "chapters.*"
-
-  # - label: "Body" #instead of Body being a markdown widget, make it an object widgetthat contains a markdown widget
-      
-     #name: "body"
-     #   widget: "markdown"
-        
+      - label: "References"
+        label_singular: "Reference"
+        name: "references"
+        widget: list
+        summary: "{{fields.references}}"
+        fields: 
+          - label: "Index"
+            name: "index"
+            widget: number
+            default: 0
+            value_type: "int"
+            step: 1
+          - label: "Title"
+            name: "title"
+            widget: string
+          - label: "URL"
+            name: "url"
+            widget: string
+          - label: "Source"
+            name: "source"
+            widget: string
+          - label: 'Date'
+            name: 'date'
+            widget: 'date'
+            required: false
   - name: "articles"
     label: "Articles"
     folder: "content/articles/"
@@ -299,7 +312,7 @@ collections:
           config:
             multiple: true
       - label: Sections
-        label_singular: "Section" #better Name?
+        label_singular: "Section"
         name: "sections"
         widget: list
         summary: "{{fields.section}}"

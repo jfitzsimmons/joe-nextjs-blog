@@ -1,11 +1,4 @@
 {
-  "author": "fitzsimmons",
-  "date": "2021-07-08",
-  "category": "code",
-  "tags": [
-    "inspiration",
-    "style"
-  ],
   "chapters": [
     {
       "type": "newChapter",
@@ -21,7 +14,30 @@
       }
     }
   ],
-  "title": "Headless WordPress plus a mindless developer equals a failed job interview",
+  "author": "fitzsimmons",
   "slug": "2021-07-08_headless-wordpress-plus-a-mindless-developer ",
-  "description": "I try a WordPress Site On The JAMstack with Nuxt"
+  "references": [
+    {
+      "index": 0,
+      "date": "2020-02-26T06:00:00.000Z",
+      "title": "How To Create A Headless WordPress Site On The JAMstack",
+      "url": "https://www.smashingmagazine.com/2020/02/headless-wordpress-site-jamstack/",
+      "source": "Smashing Magazine"
+    },
+    {
+      "index": 1,
+      "date": "2021-08-26T16:48:15.825Z",
+      "title": "WordPress.com REST API",
+      "url": "https://developer.wordpress.com/docs/api/",
+      "source": "WordPress"
+    }
+  ],
+  "date": "2021-07-08",
+  "title": "Headless WordPress plus a mindless developer equals a failed job interview",
+  "tags": [
+    "inspiration",
+    "style"
+  ],
+  "description": "I try a WordPress Site On The JAMstack with Nuxt",
+  "category": "code"
 }

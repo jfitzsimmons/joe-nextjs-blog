@@ -25,10 +25,13 @@ type Props = {
   children: React.ReactNode;
 };
 type Chapter =  {
-  body: string,
-  chapterTitle: string,
-  category: string,
+  section?: {
+    body: string,
+    chapterTitle: string,
+    category: string,
+  },
 }
+
 export default function PostLayout({
   title,
   date,
@@ -36,7 +39,7 @@ export default function PostLayout({
   author,
   tags,
   chapters,
-  description = "",
+  description,
 }: Props) {
   const keywords = tags.map(it => getTag(it).name);
   const authorName = getAuthor(author).name;
@@ -79,9 +82,6 @@ export default function PostLayout({
               </div>
             </div>
           </header>
-          {/**
-           * .section. is a limitiation with CMS "types"
-           * **/}
           <div className={styles.content}>
             {chapters.map((it, i) => (
               <div key={i}>

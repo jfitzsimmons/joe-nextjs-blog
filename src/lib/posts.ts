@@ -10,6 +10,7 @@ export type PostContent = {
   readonly tags?: string[];
   readonly category?: string;
   readonly description?: string;
+  readonly references?: object[];
   readonly fullPath: string;
 };
 
@@ -19,28 +20,17 @@ export function fetchPostContent(): PostContent[] {
   if (postCache) {
     return postCache;
   }
-  // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames
     .filter((it) => it.endsWith(".json"))
     .map((fileName) => {
-      // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-      const matterResult= JSON.parse(fileContents);
-      const matterData = matterResult as {
-        date: string;
-        title: string;
-        tags: string[];
-        category: string;
-        description: string;
-        slug: string;
-        fullPath: string,
-      };
-      matterData.fullPath = fullPath;
-      matterData.slug = fileName.replace(/\.json$/, "");
+      const result= JSON.parse(fileContents);
+      result.fullPath = fullPath;
+      result.slug = fileName.replace(/\.json$/, "");
 
-      return matterData;
+      return result;
     });
 
   // Sort posts by date
@@ -51,7 +41,43 @@ export function fetchPostContent(): PostContent[] {
       return -1;
     }
   });
+
   return postCache;
+}
+
+export function countRefs(
+  slug?: string,
+  meta?: string,
+  ): number {
+  return fetchPostContent().filter(
+    (meta === 'tags') ?
+    (it) => !slug || (it.tags && it.tags.includes(slug)) :
+    (it) => !slug || (it.category && it.category === slug)
+  ).length;
+}
+
+export function listPostRefs(
+  page: number,
+  limit: number,
+  slug?: string,
+  meta?: string,
+): PostContent[] {
+  let refs = [];
+  let postsWithRefs = fetchPostContent().filter((it) => !slug || (it.references));
+  postsWithRefs.forEach( p => {
+    p.references.forEach((r) => {
+      refs.push({
+        reference: r,
+        url: p.slug,
+        category: p.category,
+        date: p.date,
+        tags: p.tags,
+        title: p.title,
+      })
+    });
+  });
+  refs.slice((page - 1) * limit, page * limit);
+  return refs
 }
 
 export function countPosts(
@@ -59,7 +85,6 @@ export function countPosts(
   meta?: string,
   ): number {
   return fetchPostContent().filter(
-    //compares to tags and not at all to category!!!
     (meta === 'tags') ?
     (it) => !slug || (it.tags && it.tags.includes(slug)) :
     (it) => !slug || (it.category && it.category === slug)
