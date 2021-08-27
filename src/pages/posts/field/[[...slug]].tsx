@@ -5,12 +5,12 @@ import OpenGraphMeta from "../../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../../components/meta/TwitterCardMeta";
 import FieldList from "../../../components/FieldList";
 import config from "../../../lib/config";
-import { countPosts, listPostRefs, PostContent } from "../../../lib/posts";
+import { countPosts, listPostRefs, PostContent, Field } from "../../../lib/posts";
 import { getField, listFields, FieldContent } from "../../../lib/fields";
 import { TagContent, childTags } from "../../../lib/tags";
 
 type Props = {
-  posts: PostContent[];
+  posts: Field[];
   field: FieldContent;
   tags: TagContent[];
   page?: string;

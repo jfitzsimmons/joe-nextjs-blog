@@ -11,8 +11,8 @@ import Pagination from "./Pagination";
 type Props = {
   fields: Field[];
   field: FieldContent;
-  cat: CatContent;
-  tags: TagContent[];
+  //cat: CatContent;
+  //tags: TagContent[];
   pagination: {
     current: number;
     pages: number;
