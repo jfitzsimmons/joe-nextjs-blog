@@ -18,6 +18,7 @@ a {
   color: #9b9b9b;
   text-decoration: none;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 a:active,

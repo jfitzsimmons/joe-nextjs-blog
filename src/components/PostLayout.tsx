@@ -13,6 +13,9 @@ import { SocialList } from "./SocialList";
 import TagButton from "./TagButton";
 import { getAuthor } from "../lib/authors";
 import { getTag } from "../lib/tags";
+import { getCat } from "../lib/categories";
+import { Reference } from "../lib/posts"
+import { parseISO } from "date-fns";
 
 type Props = {
   title: string;
@@ -21,7 +24,9 @@ type Props = {
   tags: string[];
   chapters: Array<Chapter>;
   author: string;
+  category: string;
   description?: string;
+  references?: Reference[];
   children: React.ReactNode;
 };
 type Chapter =  {
@@ -39,6 +44,8 @@ export default function PostLayout({
   author,
   tags,
   chapters,
+  references,
+  category,
   description,
 }: Props) {
   const keywords = tags.map(it => getTag(it).name);
@@ -69,7 +76,7 @@ export default function PostLayout({
         author={authorName}
         description={description}
       />
-      <div className={"container"}>
+      <div className={"container"}  style={{borderTop: ".5rem solid #" + getCat(category).color}}>
         <article className={"card"}>
           <header>
             <h1>{title}</h1>
@@ -101,6 +108,17 @@ export default function PostLayout({
             ))}
           </ul>
         </article>
+        {(references) &&
+        <>
+          <h3>References</h3>
+          <ol className={"ref-list card"}>
+            {references.map((it, i) => (
+              <li key={i}>
+                <a href={"#ref" + it.index} title={"go to reference for " + it.title}>^</a> <a href={it.url} title={it.title}>{it.title}</a> <i>{it.source}</i> (<Date date={parseISO(it.date)} />)
+              </li>
+            ))}
+          </ol>
+        </> }
         <footer>
           <div className={"social-list"}>
             <SocialList />
@@ -115,7 +133,7 @@ export default function PostLayout({
               max-width: 66rem;
               width: 100%;
               margin: 0 auto;
-              padding: 0 1.5rem;
+              padding: 1rem 1.5rem 0;
               box-sizing: border-box;
               z-index: 0;
             }
@@ -141,12 +159,21 @@ export default function PostLayout({
               display: inline-block;
               margin-left: 0.5rem;
             }
+            .ref-list {
+              padding: 1rem;
+            }
+            .ref-list li{
+              margin: 0 0 .5rem 1rem;
+            }
             .social-list {
               margin-top: 3rem;
               text-align: center;
             }
 
             @media (min-width: 769px) {
+              ol {
+                margin: 0;
+              }
               .container {
                 display: flex;
                 flex-direction: column;

@@ -1,12 +1,12 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { GetStaticProps } from "next";
 import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { SocialList } from "../components/SocialList";
-import { countPosts, latestPostContent, PostContent } from "../lib/posts";
-import { CatContent, listCats } from "../lib/categories";
+import { latestPostContent, PostContent } from "../lib/posts";
+import { listCats } from "../lib/categories";
 import { listTags, TagContent } from "../lib/tags";
 import PostList from "../components/PostList";
 import Canvas from "../components/Canvas";
@@ -14,11 +14,10 @@ import { mountains } from "../utils/mountains";
 
 type Props = {
   posts: PostContent[];
-  cats: CatContent[];
   tags: TagContent[];
 };
 
-export default function Index({ posts, cats, tags }: Props) {
+export default function Index({ posts, tags }: Props) {
   const [width, setWidth] = useState(0);
   const div = useRef(null);
 
@@ -40,7 +39,7 @@ export default function Index({ posts, cats, tags }: Props) {
             <Canvas draw={mountains} height={200} width={width} fader={0} animation={false} instance={"home"}/>
           </div>
           <div className="card">
-            <span className="handle">@nextjs-netlify-blog </span>
+            {/*<span className="handle">@nextjs-netlify-blog </span>*/}
             <h2>A website so novel, it's arguably a complete waste of time!</h2>
             <SocialList />
           </div>
@@ -63,6 +62,7 @@ export default function Index({ posts, cats, tags }: Props) {
         }
         .card {
           padding: 1rem;
+          border-radius: 0 0 12px 12px;
         }
         h1 {
           font-size: 2.5rem;
@@ -111,7 +111,6 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       posts,
-      cats,
       tags,
     },
   };

@@ -1,24 +1,18 @@
 import React from "react";
-import { PostContent, Field } from "../lib/posts";
-import { CatContent } from "../lib/categories";
-import { TagContent } from "../lib/tags";
+import { Field } from "../lib/posts";
 import { FieldContent } from "../lib/fields";
-
 import ReferenceItem from "./ReferenceItem";
-import TagLink from "./TagLink";
 import Pagination from "./Pagination";
 
 type Props = {
   fields: Field[];
   field: FieldContent;
-  //cat: CatContent;
-  //tags: TagContent[];
   pagination: {
     current: number;
     pages: number;
   };
 };
-export default function TagPostList({ fields, /**cat, tags,**/ pagination, field }: Props) {
+export default function FieldPostList({ fields, /**cat, tags,**/ pagination, field }: Props) {
   return (
     <div className={"container"}>
       <div className={"posts"}>
@@ -78,8 +72,8 @@ export default function TagPostList({ fields, /**cat, tags,**/ pagination, field
             margin: 0;
             padding: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(396px,1fr));
-            grid-gap: 5px;
+            grid-template-columns: repeat(auto-fit,minmax(388px,1fr));
+            grid-gap: 1rem;
           }
           li {
             list-style: none;

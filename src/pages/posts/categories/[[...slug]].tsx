@@ -3,15 +3,15 @@ import Layout from "../../../components/Layout";
 import BasicMeta from "../../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../../components/meta/TwitterCardMeta";
-import CatPostList from "../../../components/CatPostList";
+import PostList from "../../../components/PostList";
 import config from "../../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../../lib/posts";
-import { getCat, listCats, CatContent } from "../../../lib/categories";
+import { getCat, listCats, FilterContent } from "../../../lib/categories";
 import { TagContent, childTags } from "../../../lib/tags";
 
 type Props = {
   posts: PostContent[];
-  category: CatContent;
+  category: FilterContent;
   tags: TagContent[];
   page?: string;
   pagination: {
@@ -28,7 +28,7 @@ export default function Index({ posts, category, tags, pagination, page }: Props
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <CatPostList posts={posts} cat={category} tags={tags} pagination={pagination} />
+      <PostList posts={posts} filter={category} type="categories" tags={tags} pagination={pagination} />
     </Layout>
   );
 }
@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
   const props: {
     posts: PostContent[];
-    category: CatContent;
+    category: FilterContent;
     tags: TagContent[];
     pagination: { current: number; pages: number };
     page?: string;

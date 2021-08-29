@@ -3,6 +3,7 @@ import { fetchPostContent } from "../../lib/posts";
 import fs from "fs";
 import { parseISO } from 'date-fns';
 import PostLayout from "../../components/PostLayout";
+import { Reference } from "../../lib/posts"
 
 export type Props = {
   title: string;
@@ -13,6 +14,7 @@ export type Props = {
   chapters: object[];
   author: string;
   description?: string;
+  references?: Reference[];
 };
 
 const slugToPostContent = (postContents => {
@@ -30,6 +32,7 @@ export default function Post({
   chapters,
   author,
   description,
+  references,
 }: Props) {
   return (
     <PostLayout
@@ -39,7 +42,9 @@ export default function Post({
       tags={tags}
       chapters={chapters}
       author={author}
+      category={category}
       description={description}
+      references={references}
     >
     </PostLayout>
   )
@@ -62,11 +67,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       title: data.title,
       dateString: data.date,
       slug: data.slug,
-      description: "",
+      description: data.description,
       tags: data.tags,
       category: data.category,
       author: data.author,
       chapters: data.chapters,
+      references: (data.references) ? data.references : null,
     },
   };
 };

@@ -4,20 +4,27 @@ import PostItem from "./PostItem";
 import TagLink from "./TagLink";
 import Pagination from "./Pagination";
 import { TagContent } from "../lib/tags";
+import { FilterContent } from "../lib/categories";
 
 type Props = {
   posts: PostContent[];
-  tags: TagContent[];
+  tags?: TagContent[];
+  cat?: FilterContent;
+  filter?: FilterContent;
+  type?: string;
   pagination?: {
     current: number;
     pages: number;
   };
 };
 
-export default function PostList({ posts, tags, pagination }: Props) {
+export default function PostList({ posts, tags, filter, type, cat, pagination }: Props) {
   return (
     <div className={"container with-posts"}>
       <div className={"posts"}>
+        <h1>
+          All posts{(type) && <span> / {filter.name}</span>}
+        </h1>
         <ul className={"post-list"}>
           {posts.map((it, i) => (
             <li key={i} className={"card"}>
@@ -26,23 +33,33 @@ export default function PostList({ posts, tags, pagination }: Props) {
           ))}
         </ul>
         {(pagination) &&
-        <Pagination
-          current={pagination.current}
-          pages={pagination.pages}
-          link={{
-            href: (page) => (page === 1 ? "/posts" : "/posts/page/[page]"),
-            as: (page) => (page === 1 ? null : "/posts/page/" + page),
-          }}
-        />
-      }
+          <Pagination
+            current={pagination.current}
+            pages={pagination.pages}
+            link={
+              (type) ? {
+                href: () => "/posts/"+type+"/[[...slug]]",
+                as: (page) =>
+                  page === 1
+                    ? "/posts/"+type+"/" + filter.slug
+                    : `/posts/${type}/${filter.slug}/${page}`,
+              } : {
+                href: (page) => (page === 1 ? "/posts" : "/posts/page/[page]"),
+                as: (page) => (page === 1 ? null : "/posts/page/" + page),
+              }
+            }
+          />
+        }
       </div>
-      <ul className={"categories card"}>
-        {tags.map((it, i) => (
-          <li key={i}>
-            <TagLink tag={it} />
-          </li>
-        ))}
-      </ul>
+      {(tags) &&
+        <ul className={"categories card"}>
+          {tags.map((it, i) => (
+            <li key={i}>
+              <TagLink tag={it} />
+            </li>
+          ))}
+        </ul>
+      }
       <style jsx>{`
         .container {
           display: flex;
