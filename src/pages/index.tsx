@@ -45,6 +45,7 @@ export default function Index({ posts, tags }: Props) {
           </div>
         </div>
       </div>
+      <h2 className={"heading"}>One of each:</h2>
       <PostList posts={posts} tags={tags} />
       <style jsx>{`
         .container {
@@ -90,7 +91,11 @@ export default function Index({ posts, tags }: Props) {
           color: #9b9b9b;
           letter-spacing: 0.05em;
         }
-
+        .heading {
+          width: 100%;
+          text-align: center;
+          margin: 0;
+        }
         @media (min-width: 769px) {
           h1 {
             font-size: 3rem;

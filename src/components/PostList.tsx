@@ -23,7 +23,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
     <div className={"container with-posts"}>
       <div className={"posts"}>
         <h1>
-          All posts{(type) && <span> / {filter.name}</span>}
+          {(type) && <span> / {filter.name}</span>}
         </h1>
         <ul className={"post-list"}>
           {posts.map((it, i) => (

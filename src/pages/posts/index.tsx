@@ -24,7 +24,26 @@ export default function Index({ posts, tags, pagination }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
+      <h2 className={"heading"}>All Posts:</h2>
       <PostList posts={posts} tags={tags} pagination={pagination} />
+      <style jsx>{`
+        h2 {
+          font-size: 1.75rem;
+          font-weight: 400;
+          line-height: 1.25;
+          
+        }
+        .heading {
+          width: 100%;
+          text-align: center;
+          margin: 1rem 0 0;
+        }
+        @media (min-width: 769px) {
+          h2 {
+            font-size: 2.25rem;
+          }
+        }
+      `}</style>
     </Layout>
   );
 }

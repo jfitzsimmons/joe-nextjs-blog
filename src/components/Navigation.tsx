@@ -23,9 +23,13 @@ export default function Navigation() {
       <Burger active={active} onClick={() => setActive(!active)} />
       <div style={{color: "white"}} className="logo-container">
         <Canvas draw={mountains} height={100} width={112} fader={0} animation={false} instance={"logo"}/>
-        <h1>
-          In<span className="fancy">En</span>
-        </h1>
+        <Link href="/">
+          <a>
+            <h1>
+              In<span className="fancy">En</span>
+            </h1>
+          </a>
+        </Link>
       </div>
       <div className={"container  " + (active ? "active" : "")}>
         <ul className={(active ? "card-dark" : "")}>
