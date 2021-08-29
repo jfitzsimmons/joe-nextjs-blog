@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { CatContent } from "./categories";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
@@ -71,30 +72,6 @@ export type Field =  {
   },
 }
 
-export function listPostRefs(
-  page: number,
-  limit: number,
-  slug?: string,
-  meta?: string,
-): PostContent[] {
-  let refs = [];
-  let postsWithRefs = fetchPostContent().filter((it) => !slug || (it.references));
-  postsWithRefs.forEach( p => {
-    p.references.forEach((r) => {
-      refs.push({
-        reference: r,
-        url: p.slug,
-        category: p.category,
-        date: p.date,
-        tags: p.tags,
-        title: p.title,
-      })
-    });
-  });
-  refs.slice((page - 1) * limit, page * limit);
-  return refs
-}
-
 export function countPosts(
   slug?: string,
   meta?: string,
@@ -119,4 +96,39 @@ export function listPostContent(
       (it) => !slug || (it.category && it.category === slug)
       )
     .slice((page - 1) * limit, page * limit);
+}
+
+export function listPostRefs(
+  page: number,
+  limit: number,
+  slug?: string,
+  meta?: string,
+): PostContent[] {
+  let refs = [];
+  let postsWithRefs = fetchPostContent().filter((it) => !slug || (it.references));
+  postsWithRefs.forEach( p => {
+    p.references.forEach((r) => {
+      refs.push({
+        reference: r,
+        url: p.slug,
+        category: p.category,
+        date: p.date,
+        tags: p.tags,
+        title: p.title,
+      })
+    });
+  });
+  refs.slice((page - 1) * limit, page * limit);
+  return refs
+}
+
+export function latestPostContent(
+  cats: CatContent[],
+): PostContent[] {
+  let latest = [];
+  let postsWithCats = fetchPostContent().filter((it) => (it.category));
+  cats.forEach( c => {
+    latest.push(postsWithCats.find((p) => p.category === c.name));
+  });
+  return latest
 }

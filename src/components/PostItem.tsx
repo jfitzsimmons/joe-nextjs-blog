@@ -14,21 +14,23 @@ type Props = {
 export default function PostItem({ post }: Props) {
   return (
     <>
-      <Link href={"/posts/" + post.slug}>
-        <a>
-          <Date date={parseISO(post.date)} />
-          <h2>{post.title}</h2>
-        </a> 
-      </Link>
-      <div className="description">{post.description}</div>
-      <ul className={"tag-list"}>
-        {post.tags.map((it, i) => (
-          <li key={i}>
-            <TagLink tag={getTag(it)} />
-          </li>
-        ))}
-      </ul>
       <CategoryButton cat={getCat(post.category)} />
+      <div className="column">
+        <Link href={"/posts/" + post.slug}>
+          <a>
+            <Date date={parseISO(post.date)} />
+            <h2>{post.title}</h2>
+          </a> 
+        </Link>
+        <div className="description">{post.description}</div>
+        <ul className={"tag-list"}>
+          {post.tags.map((it, i) => (
+            <li key={i}>
+              <TagLink tag={getTag(it)} />
+            </li>
+          ))}
+        </ul>
+      </div>
       <style jsx>
         {`
           a {
@@ -41,6 +43,10 @@ export default function PostItem({ post }: Props) {
           h2 {
             margin: 0;
             font-weight: 500;
+          }
+          .column {
+            flex-direction: column;
+            padding: 1rem;
           }
           .tag-list {
             list-style: none;

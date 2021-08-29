@@ -38,6 +38,7 @@ export default function Layout({ children }: Props) {
             z-index: 2;
             display: flex;
             min-height: 100%;
+            flex-wrap: wrap;
           }
           nav {
             position: relative;

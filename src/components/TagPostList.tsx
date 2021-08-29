@@ -67,7 +67,7 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
           li {
             list-style: none;
             margin-bottom: 1.5rem;
-            padding: 1rem;
+            display: flex;
           }
           @media (min-width: 769px) {
             h1 {

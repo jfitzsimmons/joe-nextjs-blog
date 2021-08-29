@@ -85,7 +85,7 @@ export default function TagPostList({ posts, cat, tags, pagination }: Props) {
           }
           .posts li {
             margin-bottom: 1.5rem;
-            padding: 1rem;
+            display: flex;
           }
           .categories {
             display: none;

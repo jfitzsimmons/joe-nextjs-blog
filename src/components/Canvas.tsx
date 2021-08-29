@@ -1,34 +1,37 @@
 import {useRef, useEffect} from "react";
 
 type Props = {
-  draw: (context) => void;
+  draw: (context,width,height) => void;
   height: number;
   width: number;
-  fader: number;
-  animation: boolean;
+  fader?: number;
+  animation?: boolean;
+  instance?: string;
 };
 
-export default function Canvas({draw, height, width, fader, animation}: Props) {
+export default function Canvas({draw, height, width, fader, animation, instance}: Props) {
   const canvas = useRef(null);
   const interval = useRef(null);
   const timeout = useRef(null);
 
   useEffect(() => {  
     //NOT READY TO DELETE THESE CONSOLES        
-    //console.log('useEffect');
+    //console.log(`useEffect: ${width}`);
     //console.log(interval.current);
     let context = canvas.current.getContext('2d'); 
-    draw(context);
-    timeout.current = setTimeout(function () {
-      //console.log(`timeout fader: ${fader}`);
-      interval.current = setInterval(() => {
-        //console.log(`interval fader: ${fader}`);
-        //console.log(`interval interval: ${interval.current}`);
-        draw(context);
-      }, 20000);
-      //console.log(`timeout interval: ${interval.current}`);
-    }, fader);
-  },[]);
+    draw(context,width,height);
+    if (fader!==0) {
+      timeout.current = setTimeout(function () {
+        //console.log(`timeout fader: ${fader}`);
+        interval.current = setInterval(() => {
+          //console.log(`interval fader: ${fader}`);
+          //console.log(`interval interval: ${interval.current}`);
+          draw(context,width,height);
+        }, 20000);
+        //console.log(`timeout interval: ${interval.current}`);
+      }, fader);
+    }
+  },[width]);
 
   useEffect(() => {
     return () => {
@@ -41,7 +44,7 @@ export default function Canvas({draw, height, width, fader, animation}: Props) {
   return (
     <>
       <canvas
-        className={animation?"canvases":"canvases animation"}
+        className={(fader !==0) ? animation?"canvases":"canvases animation" : instance}
         ref={canvas}
         width={width}   
         height={height}
@@ -55,6 +58,15 @@ export default function Canvas({draw, height, width, fader, animation}: Props) {
           background: #fff;
           height: 100vh; 
           width: 100vw;
+        }
+        .home {
+          border-radius: 12px 12px 0px 0px;
+          opacity: .9;
+          width: 100%;
+          height: 200px;
+        }
+        .logo {
+          opacity: .6;
         }
         .animation {
             opacity: 1;

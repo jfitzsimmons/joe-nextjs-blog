@@ -8,7 +8,7 @@ import { TagContent } from "../lib/tags";
 type Props = {
   posts: PostContent[];
   tags: TagContent[];
-  pagination: {
+  pagination?: {
     current: number;
     pages: number;
   };
@@ -16,7 +16,7 @@ type Props = {
 
 export default function PostList({ posts, tags, pagination }: Props) {
   return (
-    <div className={"container"}>
+    <div className={"container with-posts"}>
       <div className={"posts"}>
         <ul className={"post-list"}>
           {posts.map((it, i) => (
@@ -25,6 +25,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
             </li>
           ))}
         </ul>
+        {(pagination) &&
         <Pagination
           current={pagination.current}
           pages={pagination.pages}
@@ -33,6 +34,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
             as: (page) => (page === 1 ? null : "/posts/page/" + page),
           }}
         />
+      }
       </div>
       <ul className={"categories card"}>
         {tags.map((it, i) => (
@@ -65,7 +67,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
         }
         .posts li {
           margin-bottom: 1.5rem;
-          padding: 1rem;
+          display: flex;
         }
         .categories {
           display: none;

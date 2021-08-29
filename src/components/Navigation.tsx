@@ -4,19 +4,29 @@ import Burger from "./Burger";
 import { useState } from "react";
 import { listCats } from "../lib/categories";
 import { listFields } from "../lib/fields";
+import Canvas from "./Canvas";
+import { mountains } from "../utils/mountains";
 
 export default function Navigation() {
   const categories = listCats();
   const fields = listFields();
   const router = useRouter();
   const [active, setActive] = useState(false);
+
   function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   } 
+
   return (
     <>
       <Burger active={active} onClick={() => setActive(!active)} />
+      <div style={{color: "white"}} className="logo-container">
+        <Canvas draw={mountains} height={100} width={112} fader={0} animation={false} instance={"logo"}/>
+        <h1>
+          In<span className="fancy">En</span>
+        </h1>
+      </div>
       <div className={"container  " + (active ? "active" : "")}>
         <ul className={(active ? "card-dark" : "")}>
           <li>
@@ -53,7 +63,7 @@ export default function Navigation() {
               <Link href={`/posts/field/${it.slug}`}>
                 <a
                   className={
-                    router.asPath.endsWith(`categories/${it.slug}`) ? "active" : null
+                    router.asPath.endsWith(`field/${it.slug}`) ? "active" : null
                   }
                 >
                   {it.name}
@@ -68,6 +78,17 @@ export default function Navigation() {
         {`
           .container {
             width: 0;
+          }
+          h1 {
+            z-index: 1;
+            position: relative;
+            font-weight: 500;
+            bottom: 3rem;
+            margin: 0;
+            text-align: right;
+            color: #fff;
+            width: 100%;
+            right: 1rem;
           }
           ul {
             opacity: 0;
@@ -98,15 +119,16 @@ export default function Navigation() {
           .active, a:hover {
             color: #DDD;
           }
-          .to-top {
+          .to-top, .logo-container  {
             display: none;
           }
           @media (min-width: 769px) {
             .container {
-              width: 7rem;
+              width: 112px;
               display: flex;
               align-items: center;
               min-height: 100vh;
+              margin-top: -13vh;
             }
             ul {
               opacity: 1;
@@ -121,6 +143,9 @@ export default function Navigation() {
               font-size: 1rem;
               padding: 0;
             }
+            .logo-container {
+              display: block;
+            }
             .to-top {
               position: sticky;
               top: 1rem;
@@ -130,8 +155,7 @@ export default function Navigation() {
             }
           }
         `}
-      </style>
-      
+      </style>  
     </>
   );
 }
