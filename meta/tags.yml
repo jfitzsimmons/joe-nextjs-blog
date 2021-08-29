@@ -35,3 +35,12 @@ tags:
   - slug: creative-code
     name: creative-code
     parent: code
+  - slug: wordpress
+    name: WordPress
+    parent: code
+  - slug: jamstack
+    name: JAMstack
+    parent: code
+  - slug: vue
+    name: Vue
+    parent: code

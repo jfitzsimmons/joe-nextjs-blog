@@ -102,7 +102,8 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
             flex-direction: row;
             max-height: 300px;
             -webkit-flex-wrap: wrap;
-            writing-mode: sideways-lr;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
             margin-left: 1.5rem;
           }
         }
