@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { CatContent } from "../lib/categories";
+import { FilterContent } from "../lib/categories";
 
 type Props = {
-  cat: CatContent;
+  cat: FilterContent;
 };
 export default function CategoryButton({ cat }: Props) {
   return (

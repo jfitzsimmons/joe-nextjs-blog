@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { CatContent } from "./categories";
+import { FilterContent } from "./categories";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
@@ -90,7 +90,7 @@ export function listPostContent(
 }
 
 export function latestPostContent(
-  cats: CatContent[],
+  cats: FilterContent[],
 ): PostContent[] {
   let latest = [];
   let postsWithCats = fetchPostContent().filter((it) => (it.category));
