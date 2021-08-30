@@ -7,7 +7,11 @@ export function listPostRefs(
     meta?: string,
   ): PostContent[] {
     let refs = [];
-    let postsWithRefs = fetchPostContent().filter((it) => !slug || (it.references));
+    let postsWithRefs = fetchPostContent().filter(   
+      (meta === 'tags') ?
+        (it) => (it.references && it.tags.includes(slug))  :
+        (it) => (it.references) 
+    );
     postsWithRefs.forEach( p => {
       p.references.forEach((r) => {
         refs.push({
@@ -29,7 +33,11 @@ export function listPostRefs(
     meta?: string,
     ): number {
       let count = 0
-      let postsWithRefs = fetchPostContent().filter((it) => (it.references));
+      let postsWithRefs = fetchPostContent().filter(
+        (meta === 'tags') ?
+        (it) => (it.references && it.tags.includes(slug))  :
+        (it) => (it.references) 
+      );
       postsWithRefs.forEach( p => count += p.references.length);
       return count
   }

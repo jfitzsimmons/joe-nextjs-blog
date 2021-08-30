@@ -25,6 +25,13 @@ export default function ReferenceItem({ field }: Props) {
           {field.title} | <Date date={parseISO(field.date)} />
         </a> 
       </Link>
+      <ul className={"categories card"}>
+        {field.tags.map((it, i) => (
+          <li key={i}>
+            <TagLink tag={getTag(it)} type="reference" />
+          </li>
+        ))}
+      </ul>
       <style jsx>
         {`
           a {

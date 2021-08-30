@@ -99,10 +99,11 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            max-height: 250px;
             flex-wrap: wrap;
             flex-direction: row;
-            max-height: 300px;
+            max-height: 450px;
+            min-height: 250px;
+            height: 50vh;
             -webkit-flex-wrap: wrap;
             writing-mode: vertical-rl;
             transform: rotate(180deg);
