@@ -5,6 +5,7 @@ import TagLink from "./TagLink";
 import Pagination from "./Pagination";
 import { TagContent } from "../lib/tags";
 import { FilterContent } from "../lib/categories";
+import { orderBy } from "../utils/arrays"
 
 type Props = {
   posts: PostContent[];
@@ -19,6 +20,7 @@ type Props = {
 };
 
 export default function PostList({ posts, tags, filter, type, cat, pagination }: Props) {
+  if (tags) tags = orderBy(tags, ['slug'], ['asc']);
   return (
     <div className={"container with-posts"}>
       <div className={"posts"}>

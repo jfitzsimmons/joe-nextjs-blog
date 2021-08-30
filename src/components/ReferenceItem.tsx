@@ -11,8 +11,6 @@ type Props = {
   field: Field;
 };
 
-
-
 export default function ReferenceItem({ field }: Props) {
   return (
     <>
@@ -23,7 +21,7 @@ export default function ReferenceItem({ field }: Props) {
       </Link>
       {/**<CategoryButton cat={getCat(field.category)} />**/}
       <Link href={"/posts/" + field.url}>
-        <a className="card-dark bottom" style={{color: "white", textAlign:"right"}}>
+        <a className="card-dark bottom">
           {field.title} | <Date date={parseISO(field.date)} />
         </a> 
       </Link>
@@ -34,8 +32,13 @@ export default function ReferenceItem({ field }: Props) {
             display: block;
             padding: 1rem;
           }
+          .top {
+            border-radius: 12px 12px 0 0;
+          }
           .bottom {
-            border-radius: 12px;
+            border-radius: 0 0 12px 12px;
+            color: white;
+            text-align: right;
           }
           .description {
             margin-bottom: 1rem;

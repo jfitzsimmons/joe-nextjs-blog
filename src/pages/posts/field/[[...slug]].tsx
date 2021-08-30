@@ -6,7 +6,7 @@ import TwitterCardMeta from "../../../components/meta/TwitterCardMeta";
 import FieldList from "../../../components/FieldList";
 import config from "../../../lib/config";
 import { countPosts, PostContent, Field } from "../../../lib/posts";
-import { listPostRefs } from "../../../lib/references";
+import { listPostRefs, countRefs } from "../../../lib/references";
 import { getField, listFields, FieldContent } from "../../../lib/fields";
 import { TagContent, childTags } from "../../../lib/tags";
 
@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const [slug, page] = [queries[0], queries[1]];
   const posts = listPostRefs(
     page ? parseInt(page as string) : 1,
-    config.posts_per_page,
+    config.refs_per_page,
     slug,
     'field'
   );
@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   //const tags = childTags(field.name);
   const pagination = {
     current: page ? parseInt(page as string) : 1,
-    pages: Math.ceil(posts.length / config.posts_per_page),
+    pages: Math.ceil(posts.length / config.refs_per_page),
   };
   const props: {
     posts: PostContent[];
@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = listFields().flatMap((field) => {
-    const pages = Math.ceil(countPosts() / config.posts_per_page);
+    const pages = Math.ceil(countRefs() / config.refs_per_page);
     return Array.from(Array(pages).keys()).map((page) =>
       page === 0
         ? {

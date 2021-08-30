@@ -28,9 +28,8 @@ export function listPostRefs(
     slug?: string,
     meta?: string,
     ): number {
-    return fetchPostContent().filter(
-      (meta === 'tags') ?
-      (it) => !slug || (it.tags && it.tags.includes(slug)) :
-      (it) => !slug || (it.category && it.category === slug)
-    ).length;
+      let count = 0
+      let postsWithRefs = fetchPostContent().filter((it) => (it.references));
+      postsWithRefs.forEach( p => count += p.references.length);
+      return count
   }
