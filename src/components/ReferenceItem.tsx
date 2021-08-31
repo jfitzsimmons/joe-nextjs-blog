@@ -12,20 +12,28 @@ type Props = {
 };
 
 export default function ReferenceItem({ field }: Props) {
+  const category = getCat(field.category);
   return (
     <>
       <Link href={field.reference.url}>
         <a className="card top" >
-          <span style={{fontWeight: 500}}>{field.reference.title}</span> | {field.reference.source} | <Date date={parseISO(field.reference.date)} />
+          <span className={"title"}>{field.reference.title}</span> | {field.reference.source} | <Date date={parseISO(field.reference.date)} />
         </a> 
       </Link>
       {/**<CategoryButton cat={getCat(field.category)} />**/}
       <Link href={"/posts/" + field.url}>
-        <a className="card-dark bottom">
+        <a className="card-dark bottom" style={{borderTop: ".5rem solid #"+category.color}}>
           {field.title} | <Date date={parseISO(field.date)} />
         </a> 
       </Link>
-      <ul className={"categories card"}>
+      <ul className={"tag-list"}>
+        <li style={{textShadow: "0px 0px 2px #"+category.color}}>
+          <Link href={"/posts/categories/" + category.name}>
+            <a>
+              {field.category}
+            </a>
+          </Link>
+        </li>
         {field.tags.map((it, i) => (
           <li key={i}>
             <TagLink tag={getTag(it)} type="reference" />
@@ -46,6 +54,10 @@ export default function ReferenceItem({ field }: Props) {
             border-radius: 0 0 12px 12px;
             color: white;
             text-align: right;
+            border: 0;
+          }
+          .title {
+            font-weight: 500;
           }
           .description {
             margin-bottom: 1rem;
@@ -57,12 +69,15 @@ export default function ReferenceItem({ field }: Props) {
           .tag-list {
             list-style: none;
             padding: 0;
-            display: inline;
+            box-sizing: border-box;
+            justify-content: right;
+            display: flex;
           }
           .tag-list li {
-            display: inline-block;
-            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+            text-shadow: 1px 1px 3px #fff;
           }
+          .tag-list li:first-of-type { width: 100%; }
         `}
       </style>
     </>

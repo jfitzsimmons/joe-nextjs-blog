@@ -3,22 +3,22 @@ import { Field } from "../lib/posts";
 import { FieldContent } from "../lib/fields";
 import ReferenceItem from "./ReferenceItem";
 import Pagination from "./Pagination";
+import { TagContent } from "../lib/tags";
 
 type Props = {
   fields: Field[];
   field: FieldContent;
+  tag?: TagContent;
   pagination: {
     current: number;
     pages: number;
   };
 };
-export default function FieldPostList({ fields, /**cat, tags,**/ pagination, field }: Props) {
+export default function FieldPostList({ fields, /**cat, tags,**/ pagination, field, tag }: Props) {
   return (
     <div className={"container"}>
       <div className={"posts"}>
-        {/**<h1>
-          All posts / <span>{cat.name}</span>
-        </h1>**/}
+        <h1>All references / {(tag) &&<span>{tag.name}</span>}</h1>
         <ul className={"post-list"}>
           {fields.map((it, i) => (
             <li key={i} >

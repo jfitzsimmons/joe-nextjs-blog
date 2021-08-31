@@ -29,7 +29,7 @@ export default function Index({ posts, field, tag, pagination, page }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <FieldList fields={posts} pagination={pagination} field={field}/>
+      <FieldList fields={posts} pagination={pagination} field={field} tag={tag}/>
     </Layout>
   );
 }
