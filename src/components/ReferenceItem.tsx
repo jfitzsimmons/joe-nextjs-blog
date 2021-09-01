@@ -25,7 +25,8 @@ export default function ReferenceItem({ field }: Props) {
         </a> 
       </Link>
       <ul className={"tag-list"} >
-          <li style={{borderTop: ".25em solid rgb("+category.color+")"}}>
+        {console.log(category.color)}
+          <li style={{borderTop: ".25em solid rgb("+category.color+"1)"}}>
             <Link href={"/posts/field/categories/" + category.name}>
                 {field.category}
             </Link>
@@ -73,6 +74,7 @@ export default function ReferenceItem({ field }: Props) {
             list-style: none;
             display: flex;
             justify-content: space-between;
+            padding: 0;
           }
           .tag-list {
             padding: 0 1em;
