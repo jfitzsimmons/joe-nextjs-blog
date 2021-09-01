@@ -25,22 +25,21 @@ export default function ReferenceItem({ field }: Props) {
         </a> 
       </Link>
       <ul className={"tag-list"} >
-        {console.log(category.color)}
-          <li style={{borderTop: ".25em solid rgb("+category.color+"1)"}}>
-            <Link href={"/posts/field/categories/" + category.name}>
-                {field.category}
-            </Link>
-          </li>
-          <li>
-            <ul className={"tag-item"}>
-            {field.tags.map((it, i) => (
-              <li key={i}>
-                <TagLink tag={getTag(it)} type="reference" />
-              </li>
-            ))}
-            </ul>
-          </li>
-        </ul>
+        <li style={{borderTop: ".25em solid rgb("+category.color+"1)"}}>
+          <Link href={"/posts/field/categories/" + category.name}>
+              {field.category}
+          </Link>
+        </li>
+        <li>
+          <ul className={"tag-item"}>
+          {field.tags.map((it, i) => (
+            <li key={i}>
+              <TagLink tag={getTag(it)} type="reference" />
+            </li>
+          ))}
+          </ul>
+        </li>
+      </ul>
       <style jsx>
         {`
           a {
