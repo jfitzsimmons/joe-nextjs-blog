@@ -1,9 +1,8 @@
-import { PostContent,Field } from "../lib/posts";
+import { Field } from "../lib/posts";
 import Date from "./Date";
 import Link from "next/link";
 import { parseISO } from "date-fns";
 import TagLink from "./TagLink";
-import CategoryButton from "./CategoryButton";
 import { getTag } from "../lib/tags";
 import { getCat } from "../lib/categories";
 
@@ -20,32 +19,36 @@ export default function ReferenceItem({ field }: Props) {
           <span className={"title"}>{field.reference.title}</span> | {field.reference.source} | <Date date={parseISO(field.reference.date)} />
         </a> 
       </Link>
-      {/**<CategoryButton cat={getCat(field.category)} />**/}
       <Link href={"/posts/" + field.url}>
-        <a className="card-dark bottom" style={{borderTop: ".5rem solid #"+category.color}}>
+        <a className="card-dark bottom">
           {field.title} | <Date date={parseISO(field.date)} />
         </a> 
       </Link>
-      <ul className={"tag-list"}>
-        <li style={{textShadow: "0px 0px 2px #"+category.color}}>
-          <Link href={"/posts/field/categories/" + category.name}>
-            <a>
-              {field.category}
-            </a>
-          </Link>
-        </li>
-        {field.tags.map((it, i) => (
-          <li key={i}>
-            <TagLink tag={getTag(it)} type="reference" />
+      <ul className={"tag-list"} >
+          <li style={{borderTop: ".25em solid rgb("+category.color+")"}}>
+            <Link href={"/posts/field/categories/" + category.name}>
+                {field.category}
+            </Link>
           </li>
-        ))}
-      </ul>
+          <li>
+            <ul className={"tag-item"}>
+            {field.tags.map((it, i) => (
+              <li key={i}>
+                <TagLink tag={getTag(it)} type="reference" />
+              </li>
+            ))}
+            </ul>
+          </li>
+        </ul>
       <style jsx>
         {`
           a {
             color: #222;
             display: block;
             padding: 1rem;
+          }
+          .tags {
+            blur(2px) saturate(400%);
           }
           .top {
             border-radius: 12px 12px 0 0;
@@ -66,18 +69,23 @@ export default function ReferenceItem({ field }: Props) {
             margin: 0;
             font-weight: 500;
           }
-          .tag-list {
+          ul {
             list-style: none;
-            padding: 0;
-            box-sizing: border-box;
-            justify-content: right;
             display: flex;
+            justify-content: space-between;
+          }
+          .tag-list {
+            padding: 0 1em;
+            box-sizing: border-box;
           }
           .tag-list li {
-            margin-left: 0.5rem;
-            text-shadow: 1px 1px 3px #fff;
+            backdrop-filter: blur(3px) brightness(107%) saturate(107%);
+            padding: 0 .5rem .25rem;
+            border-radius: 0 0 12px 12px;
           }
-          .tag-list li:first-of-type { width: 100%; }
+          .tag-item {
+            border-top: .25rem solid #fff;
+          }
         `}
       </style>
     </>

@@ -1,16 +1,16 @@
 categories:
   - slug: journal
     name: journal
-    color: FF74AF
+    color: 255, 116, 175,
   - slug: code
     name: code
-    color: 6FEDEB
+    color: 111, 237, 235,
   - slug: writing
     name: writing
-    color: EDC3FF
+    color: 237, 195, 255,
   - slug: music
     name: music
-    color: 6DCFFF
+    color: 109, 207, 255,
   - slug: art
     name: art
-    color: ff9e9e
+    color: 255, 158, 158,

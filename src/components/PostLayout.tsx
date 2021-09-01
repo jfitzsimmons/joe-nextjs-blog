@@ -29,7 +29,7 @@ type Props = {
   references?: Reference[];
   children: React.ReactNode;
 };
-type Chapter =  {
+type Chapter = {
   section?: {
     body: string,
     chapterTitle: string,
@@ -76,7 +76,7 @@ export default function PostLayout({
         author={authorName}
         description={description}
       />
-      <div className={"container"}  style={{borderTop: ".5rem solid #" + getCat(category).color}}>
+      <div className={"container"}  style={{borderTop: ".5rem solid rgba(" + getCat(category).color + '1)'}}>
         <article className={"card"}>
           <header>
             <h1>{title}</h1>
@@ -85,7 +85,7 @@ export default function PostLayout({
                 <Date date={date} />
               </div>
               <div>
-                <Author author={getAuthor(author)} />
+                {/**<Author author={getAuthor(author)} />**/}
               </div>
             </div>
           </header>

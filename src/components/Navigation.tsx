@@ -57,7 +57,7 @@ export default function Navigation() {
                     router.asPath.endsWith(`categories/${it.slug}`) ? "active" : null
                   }
                 >
-                  {(it.color) && <span style={{ color: '#'+it.color }}> &bull; </span> }{it.name}
+                  {(it.color) && <span style={{ color: 'rgba('+it.color+'1)' }}> &bull; </span> }{it.name}
                 </a>
               </Link>
             </li>
