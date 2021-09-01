@@ -39,8 +39,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const posts = listPostRefs(
     page ? parseInt(page as string) : 1,
     config.refs_per_page,
-    slug,
-    'field'
   );
   const field = getField(slug);
   //const tags = childTags(field.name);

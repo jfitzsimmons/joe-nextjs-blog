@@ -4,11 +4,12 @@ import { FieldContent } from "../lib/fields";
 import ReferenceItem from "./ReferenceItem";
 import Pagination from "./Pagination";
 import { TagContent } from "../lib/tags";
+import { FilterContent } from "../lib/categories";
 
 type Props = {
   fields: Field[];
   field: FieldContent;
-  tag?: TagContent;
+  tag?: FilterContent;
   pagination: {
     current: number;
     pages: number;

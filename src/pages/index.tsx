@@ -45,8 +45,7 @@ export default function Index({ posts, tags }: Props) {
           </div>
         </div>
       </div>
-      <h2 className={"heading"}>One of each:</h2>
-      <PostList posts={posts} tags={tags} />
+      <PostList posts={posts} tags={tags} type="home" filter={{slug: "latest", name: "latest"}}/>
       <style jsx>{`
         .container {
           display: flex;

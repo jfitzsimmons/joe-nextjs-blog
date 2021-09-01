@@ -28,7 +28,7 @@ export default function ReferenceItem({ field }: Props) {
       </Link>
       <ul className={"tag-list"}>
         <li style={{textShadow: "0px 0px 2px #"+category.color}}>
-          <Link href={"/posts/categories/" + category.name}>
+          <Link href={"/posts/field/categories/" + category.name}>
             <a>
               {field.category}
             </a>
