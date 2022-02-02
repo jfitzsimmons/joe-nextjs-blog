@@ -16,9 +16,9 @@ export default function PostItem({ post }: Props) {
     <>
       <CategoryButton cat={getCat(post.category)} />
       <div className="column">
+        <Date date={parseISO(post.date)} />
         <Link href={"/posts/" + post.slug}>
           <a>
-            <Date date={parseISO(post.date)} />
             <h2>{post.title}</h2>
           </a> 
         </Link>
@@ -38,20 +38,22 @@ export default function PostItem({ post }: Props) {
             display: block;
           }
           .description {
-            margin-bottom: 1rem;
+            margin-bottom: 2vmin;
           }
           h2 {
-            margin: 0;
+            margin: 2vmin 0 0.5vmin;
             font-weight: 500;
           }
           .column {
             flex-direction: column;
-            padding: 4vmin;
+            padding: 2vmin 4vmin;
+            width: 100%;
           }
           .tag-list {
-            list-style: none;
-            padding: 0;
-            display: inline;
+            display: flex;
+            justify-content: end;
+            font-weight: 400;
+            
           }
           .tag-list li {
             display: inline-block;

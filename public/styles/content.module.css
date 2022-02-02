@@ -5,17 +5,13 @@
 }
 
 .content time {
-  color: #9b9b9b;
+  color: #9f9999; 
+  text-shadow: 0 0 .1vmin #000;
 }
 
 .content p {
   line-height: 1.5rem;
-  margin: 1.5rem 0 0 0;
-}
-
-.content a {
-  color: blue;
-  text-decoration: underline;
+  margin: 2vmin 0 0 0;
 }
 
 .content h1 {
@@ -26,7 +22,7 @@
 .content h3,
 .content h4,
 .content h5 {
-  margin: 2rem 0 1rem;
+  margin: 2vmin 0 1vmin;
   line-height: 1.25em;
 }
 
@@ -35,7 +31,8 @@
   margin-left: -1em;
   font-weight: 300;
   font-size: 1.5rem;
-  color: #9b9b9b;
+  color: #9f9999; 
+  text-shadow: 0 0 .1vmin #000;
   display: none;
   content: "#";
 }
@@ -125,7 +122,7 @@
 }
 
 .content iframe {
-  margin: 1.5rem auto 0rem;
+  margin: 2vmin auto 0rem;
   display: flex;
   width: 100%;
   max-width: 560px;

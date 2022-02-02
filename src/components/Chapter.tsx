@@ -10,10 +10,17 @@ type Props = {
 };
 export default function Chapter({ body, title, category }: Props) {
   return (
-    <div className={`act-${category}`}>
-        <h2>{title}</h2>
-        <div dangerouslySetInnerHTML={{__html: body}}></div>
-        <a href="">{category}</a>
-    </div>
+    <>
+      <div className={`act-${category}`}>
+          <h2>{title}</h2>
+          <div dangerouslySetInnerHTML={{__html: body}}></div>
+          <a className="cat-button" href="">{category}</a>
+      </div>
+      <style jsx>{`
+        .cat-button {
+          float: right;
+        }
+      `}</style>
+    </>
   );
 }

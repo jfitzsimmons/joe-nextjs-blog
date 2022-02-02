@@ -61,7 +61,8 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             padding: 0;
             font-weight: 100;
             font-size: 1.75rem;
-            color: #9b9b9b;
+            color: #9f9999; 
+            text-shadow: 0 0 .1vmin #000;
             text-shadow: 1px 1px 5px #fff;
           }
           h1 span {

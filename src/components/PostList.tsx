@@ -91,7 +91,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
           display: none;
         }
         .categories li {
-          margin-bottom: 0.75em;
+          margin: 1vmin 0.1vmin;
         }
         @media (min-width: 769px) {
           .categories {
@@ -103,7 +103,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
             max-height: 450px;
             min-height: 250px;
             height: 50vh;
-            -webkit-flex-wrap: wrap;
+            font-weight: 400;            
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             margin-left: 1.5rem;

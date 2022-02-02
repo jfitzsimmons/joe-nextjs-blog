@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../../public/styles/content.module.css";
 import Author from "./Author";
 import Copyright from "./Copyright";
@@ -16,6 +16,8 @@ import { getTag } from "../lib/tags";
 import { getCat } from "../lib/categories";
 import { Reference } from "../lib/posts"
 import { parseISO } from "date-fns";
+import Canvas from "./Canvas";
+import { mountains } from "../utils/mountains";
 
 type Props = {
   title: string;
@@ -50,6 +52,12 @@ export default function PostLayout({
 }: Props) {
   const keywords = tags.map(it => getTag(it).name);
   const authorName = getAuthor(author).name;
+  const div = useRef(null);
+  const [width, setWidth] = useState(0);
+
+  useEffect( () => {
+    if(div.current) setWidth(div.current.offsetWidth);
+  }, []);
   return (
     <Layout>
       <BasicMeta
@@ -76,11 +84,12 @@ export default function PostLayout({
         author={authorName}
         description={description}
       />
-      <div className={"container"}  style={{borderTop: ".5rem solid rgba(" + getCat(category).color + '1)'}}>
-        <article className={"card"}>
-          <header>
-            <h1>{title}</h1>
+      <div className="tab" style={{background: "rgba(" + getCat(category).color + '.6)'}}></div>
+      <div className={"container"}>
+        <div className="mountains" ref={div}>
+         <header>
             <div className={"metadata"}>
+            <h1>{title}</h1>
               <div>
                 <Date date={date} />
               </div>
@@ -89,6 +98,9 @@ export default function PostLayout({
               </div>
             </div>
           </header>
+          <Canvas draw={mountains} height={200} width={width} fader={0} animation={false} instance={"home"}/>
+        </div>
+        <article className={"card"}>
           <div className={styles.content}>
             {chapters.map((it, i) => (
               <div key={i}>
@@ -128,58 +140,82 @@ export default function PostLayout({
       </div>
       <style jsx>
         {`
-            .container {
-              display: block;
-              max-width: 66rem;
-              width: 100%;
-              margin: 0 auto;
-              padding: 1rem 1.5rem 0;
-              box-sizing: border-box;
-              z-index: 0;
-            }
-            .metadata div {
-              display: inline-block;
-              margin-right: 0.5rem;
-            }
-            article {
-              flex: 1 0 auto;
-              padding: 1rem;
-            }
-            h1 {
-              margin: 0 0 0.5rem;
-              font-size: 2.25rem;
-            }
-            .tag-list {
-              list-style: none;
-              text-align: right;
-              margin: 1.75rem 0 0 0;
-              padding: 0;
-            }
-            .tag-list li {
-              display: inline-block;
-              margin-left: 0.5rem;
-            }
-            .ref-list {
-              padding: 1rem;
-            }
-            .ref-list li{
-              margin: 0 0 .5rem 1rem;
-            }
-            .social-list {
-              margin-top: 3rem;
-              text-align: center;
-            }
+          .tab {
+            height: 2vmin;
+            width: 100%;
+            border-radius: 0 0 4vmin 4vmin;
+          }
+          .container {
+            display: block;
+            max-width: 66rem;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4vmin 0;
+            box-sizing: border-box;
+            z-index: 0;
+          }
+          .metadata div {
+            display: inline-block;
+            margin-right: 0.5rem;
+          }
+          article {
+            flex: 1 0 auto;
+            padding: 0 4vmin;
+            border-radius: 0 0 4vmin 4vmin;
+          }
+          .mountains {
+            height: 200px;
+            position: relative;
+            border-bottom: 1vmin dashed rgba(21, 5, 7, 0.5);
+            box-sizing: border-box;
+          }
+          header {
+            font-size: 1rem;
+            z-index: 1;
+            position: absolute;
+            font-weight: 500;
+            bottom: 2vmin;
+            right: 0;
+            height: 55px;
+            margin: 0 4vmin 0 0;
+            text-align: right;
+            color: #fff; 
+          }
+          h1 {
+            margin: 0;
+            text-shadow: 0 0 1vmin #0008;
+          }
+          .tag-list {
+            list-style: none;
+            text-align: right;
+            margin: 1.75rem 0 0 0;
+            padding: 0;
+          }
+          .tag-list li {
+            display: inline-block;
+            margin-left: 0.5rem;
+          }
+          .ref-list {
+            padding: 1rem;
+          }
+          .ref-list li{
+            margin: 0 0 .5rem 1rem;
+          }
+          .social-list {
+            margin-top: 3rem;
+            text-align: center;
+          }
 
-            @media (min-width: 769px) {
-              ol {
-                margin: 0;
-              }
-              .container {
-                display: flex;
-                flex-direction: column;
-              }
+          @media (min-width: 769px) {
+            ol {
+              margin: 0;
             }
-          `}
+            .container {
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        `}
       </style>
       <style global jsx>
         {`

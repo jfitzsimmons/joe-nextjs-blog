@@ -15,20 +15,13 @@ export default function Canvas({draw, height, width, fader, animation, instance}
   const timeout = useRef(null);
 
   useEffect(() => {  
-    //NOT READY TO DELETE THESE CONSOLES        
-    //console.log(`useEffect: ${width}`);
-    //console.log(interval.current);
     let context = canvas.current.getContext('2d'); 
     draw(context,width,height);
     if (fader!==0) {
       timeout.current = setTimeout(function () {
-        //console.log(`timeout fader: ${fader}`);
         interval.current = setInterval(() => {
-          //console.log(`interval fader: ${fader}`);
-          //console.log(`interval interval: ${interval.current}`);
           draw(context,width,height);
         }, 20000);
-        //console.log(`timeout interval: ${interval.current}`);
       }, fader);
     }
   },[width]);
@@ -40,7 +33,6 @@ export default function Canvas({draw, height, width, fader, animation, instance}
     };
   }, []);
 
-  //console.log('canvas');
   return (
     <>
       <canvas
@@ -57,6 +49,7 @@ export default function Canvas({draw, height, width, fader, animation, instance}
           opacity: 1;
           height: 100vh; 
           width: 100vw;
+          background-color: #fdf7f7;
         }
         .home {
           border-radius: 4vmin 4vmin 0px 0px;
@@ -81,5 +74,3 @@ export default function Canvas({draw, height, width, fader, animation, instance}
   </>
   )
 }
-
-

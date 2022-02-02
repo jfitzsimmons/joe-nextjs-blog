@@ -79,6 +79,7 @@ export default function Index({ posts, tags }: Props) {
           font-size: 1.75rem;
           font-weight: 400;
           line-height: 1.25;
+          margin-top: 0;
         }
         .fancy {
           color: #6FEDEB;
@@ -86,7 +87,8 @@ export default function Index({ posts, tags }: Props) {
         .handle {
           display: inline-block;
           margin-top: 0.275em;
-          color: #9b9b9b;
+          color: #9f9999; 
+          text-shadow: 0 0 .1vmin #000;
           letter-spacing: 0.05em;
         }
         .heading {

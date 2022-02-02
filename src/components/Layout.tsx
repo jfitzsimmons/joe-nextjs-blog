@@ -39,7 +39,7 @@ export default function Layout({ children }: Props) {
             display: flex;
             min-height: 100%;
             flex-wrap: wrap;
-            padding: 4vmin;
+            padding: 0 4vmin;
           }
           nav {
             position: relative;

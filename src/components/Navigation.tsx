@@ -57,7 +57,7 @@ export default function Navigation() {
                     router.asPath.endsWith(`categories/${it.slug}`) ? "active" : null
                   }
                 >
-                  {(it.color) && <span className="bullet" style={{ color: 'rgba('+it.color+'1)' }}>&nbsp;</span> }{it.name}
+                  {(it.color) && <span className="bullet" style={{ color: 'rgba('+it.color+'0.9)' }}>&nbsp;</span> }{it.name}
                 </a>
               </Link>
             </li>
@@ -85,6 +85,7 @@ export default function Navigation() {
           a {
             display: flex;
             justify-content: end;
+            text-shadow: 0 0 .1vmin #000;
           }
           .logo-container {
             height: 150px;
