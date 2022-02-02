@@ -47,9 +47,6 @@ export default function ReferenceItem({ field }: Props) {
             display: block;
             padding: 4vmin;
           }
-          .tags {
-            blur(2px) saturate(400%);
-          }
           .top {
             border-radius: 4vmin 4vmin 0 0;
           }
