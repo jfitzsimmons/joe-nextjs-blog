@@ -53,7 +53,6 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             display: flex;
             margin: 0 auto;
             width: 100%;
-            padding: 0 1.5rem;
             justify-content: space-around;
             align-items: center;
           }
@@ -73,8 +72,8 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             margin: 0;
             padding: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(388px,1fr));
-            grid-gap: 1rem;
+            grid-template-columns: repeat(auto-fit,minmax(46vmin,1fr));
+            grid-gap: 4vmin;
           }
           li {
             list-style: none;
@@ -83,7 +82,6 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            max-width: 1200px;
             width: 100%;
           }
           .posts li {

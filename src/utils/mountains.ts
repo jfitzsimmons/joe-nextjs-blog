@@ -1,13 +1,10 @@
-
-//const amount = 6;
 const mtnColors = [
-    ['#c2c2c2','#e3e3e3'],
-    ['#919191','#b3b3b3'],
-    ['#757575','#969696'],
-    ['#4a4a4a','#6b6b6b'],
-    ['#333333','#3f3f3f'],
-    ['#1C161C','#1C1915']
-
+    ['hsla(355, 61%, 34%, .2)','hsla(355, 61%, 65%, .1)'],
+    ['hsla(355, 61%, 29%, .2)','hsla(355, 64%, 35%, .2)'],
+    ['hsla(355, 64%, 20%, .2)','hsla(355, 68%, 26%, .2)'],
+    ['hsla(355, 66%, 12%, .3)','hsla(355, 70%, 17%, .3)'],
+    ['hsla(355, 71%, 7%, .3)','hsla(355, 75%, 10%, .4)'],
+    ['hsla(353, 76%, 1%, .4)','hsla(355, 80%, 4%, .4)']
 ];
 const fogColors = [
     ['rgba(255, 255, 255, 0.1)','rgba(255, 255, 255, 0.2)'],
@@ -20,12 +17,12 @@ const fogColors = [
 export const mountains = (ctx,w,h) => {
     
     ctx.lineWidth = 0;
-    let hmod = 0.4;
+    let hmod = 0.6;
 
     for (var i = 0; i < 6; i++) {
         createMtn(i);
         (i<5) && createFog(i);
-        hmod += 0.1;
+        hmod += 0.05;
     }
 
     function createFog(i) {
@@ -71,9 +68,9 @@ export const mountains = (ctx,w,h) => {
     }
 
     function cragY(py) {
-        return py + (Math.floor(Math.random() * 20) + -10); 
+        return py + (Math.floor(Math.random() * 16) + -8); 
     }
     function cragX(px) {
-        return px + (Math.floor(Math.random() * 6) + 1); 
+        return px + (Math.floor(Math.random() * 5) + 1); 
     }
 }

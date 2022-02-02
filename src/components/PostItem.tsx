@@ -46,7 +46,7 @@ export default function PostItem({ post }: Props) {
           }
           .column {
             flex-direction: column;
-            padding: 1rem;
+            padding: 4vmin;
           }
           .tag-list {
             list-style: none;

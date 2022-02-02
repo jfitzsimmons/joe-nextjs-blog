@@ -13,7 +13,7 @@ export default function CategoryButton({ cat }: Props) {
       <style jsx>{`
         a {
           display: inline-block;
-          border-radius: 0 12px 12px 0 ;
+          border-radius: 0 4vmin 4vmin 0 ;
           background-color: ${(cat.color) ? 'rgba(' + cat.color + '1)' : 'rgba(21, 132, 125, 0.2)'};
           color: #222;
           transition: background-color 0.3s ease;

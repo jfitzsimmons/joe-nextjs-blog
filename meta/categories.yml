@@ -1,16 +1,16 @@
 categories:
   - slug: journal
     name: journal
-    color: 255, 116, 175,
+    color: 255, 102, 140,
   - slug: code
     name: code
-    color: 111, 237, 235,
+    color: 96, 235, 189,
   - slug: writing
     name: writing
-    color: 237, 195, 255,
+    color: 224, 153, 255,
   - slug: music
     name: music
-    color: 109, 207, 255,
+    color: 77, 195, 255,
   - slug: art
     name: art
-    color: 255, 158, 158,
+    color: 245, 220, 128,

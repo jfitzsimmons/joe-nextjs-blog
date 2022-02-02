@@ -21,7 +21,7 @@ export default function Layout({ children }: Props) {
         <meta name="theme-color" content="#fff" />
       </Head>
       <DynamicComponentWithNoSSR/>
-      <nav className="card-dark">
+      <nav>
         <Navigation />
       </nav>
       <main>{children}</main>
@@ -39,10 +39,13 @@ export default function Layout({ children }: Props) {
             display: flex;
             min-height: 100%;
             flex-wrap: wrap;
+            padding: 4vmin;
           }
           nav {
             position: relative;
             z-index: 3;
+            display: flex;
+            flex-direction: column;
           }
           @media (min-width: 769px) {
             .root {

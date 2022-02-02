@@ -31,7 +31,7 @@ export default function Index({ posts, tags }: Props) {
       <OpenGraphMeta url={"/"} />
       <TwitterCardMeta url={"/"} />
       <div className="container logo">
-        <div>
+        <div className="flex-column">
           <div className="mountains" ref={div}>
             <h1>
               Insincere <span className="fancy">Engineer</span>
@@ -52,27 +52,26 @@ export default function Index({ posts, tags }: Props) {
           align-items: center;
           justify-content: center;
           flex: 1 1 auto;
-          padding: 0 1.5rem;
           min-height: 100vh;
         }
         .mountains {
-          width: 100%;
           height: 200px;
-          margin-bottom: 55px;
+          position: relative;
         }
         .card {
-          padding: 1rem;
-          border-radius: 0 0 12px 12px;
+          padding: 4vmin;
+          border-radius: 0 0 4vmin 4vmin;
         }
         h1 {
           font-size: 2.5rem;
           z-index: 1;
-          position: relative;
+          position: absolute;
           font-weight: 500;
-          top: 11rem;
+          bottom: 4vmin;
+          right: 4vmin;
           font-size: 3rem;
           height: 55px;
-          margin: 0 1rem 0 0;
+          margin: 0 4vmin 0 0;
           text-align: right;
           color: #fff; 
         }

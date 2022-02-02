@@ -25,7 +25,7 @@ export default function ReferenceItem({ field }: Props) {
         </a> 
       </Link>
       <ul className={"tag-list"} >
-        <li style={{borderTop: ".25em solid rgb("+category.color+"1)"}}>
+        <li style={{borderTop: ".5vmin solid rgb("+category.color+"1)"}}>
           <Link href={"/posts/field/categories/" + category.name}>
               {field.category}
           </Link>
@@ -45,16 +45,16 @@ export default function ReferenceItem({ field }: Props) {
           a {
             color: #222;
             display: block;
-            padding: 1rem;
+            padding: 4vmin;
           }
           .tags {
             blur(2px) saturate(400%);
           }
           .top {
-            border-radius: 12px 12px 0 0;
+            border-radius: 4vmin 4vmin 0 0;
           }
           .bottom {
-            border-radius: 0 0 12px 12px;
+            border-radius: 0 0 4vmin 4vmin;
             color: white;
             text-align: right;
             border: 0;
@@ -76,16 +76,20 @@ export default function ReferenceItem({ field }: Props) {
             padding: 0;
           }
           .tag-list {
-            padding: 0 1em;
+            padding: 0 4vmin;
             box-sizing: border-box;
+          }
+          .tag-list li ul li{
+            padding: .5vmin;
           }
           .tag-list li {
             backdrop-filter: blur(3px) brightness(107%) saturate(107%);
-            padding: 0 .5rem .25rem;
-            border-radius: 0 0 12px 12px;
+            padding: 0.5vmin 2vmin 1vmin;
+            border-radius: 0 0 2vmin 2vmin;
           }
           .tag-item {
-            border-top: .25rem solid #fff;
+            flex-wrap: wrap;
+            max-width: 27vmin;
           }
         `}
       </style>

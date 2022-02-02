@@ -55,18 +55,18 @@ export default function Canvas({draw, height, width, fader, animation, instance}
           position: fixed;
           z-index: 1;
           opacity: 1;
-          background: #fff;
           height: 100vh; 
           width: 100vw;
         }
         .home {
-          border-radius: 12px 12px 0px 0px;
+          border-radius: 4vmin 4vmin 0px 0px;
           opacity: .9;
           width: 100%;
           height: 200px;
         }
         .logo {
-          opacity: .6;
+          transform: scaleX(-1);
+          border-radius: 75% 0 0 0;
         }
         .animation {
             opacity: 1;

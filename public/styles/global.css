@@ -4,8 +4,8 @@
 html,
 body {
   font-family: "Ubuntu", sans-serif;
-  background-color: #fff;
-  color: #222;
+  background-color: #fdf7f7;
+  color: #150507;
   font-weight: 200;
   height: 100%;
 }
@@ -23,7 +23,12 @@ a {
 
 a:active,
 a:hover {
-  color: #000;
+  color: #150507;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .youtube-container {
@@ -44,18 +49,17 @@ a:hover {
 }
 
 .card {
-  backdrop-filter: blur(6px) saturate(280%);
+  backdrop-filter: blur(6px) saturate(280%) brightness(1.1);
   -webkit-backdrop-filter: blur(16px) saturate(280%);
-  background-color: rgba(255, 255, 255, 0.55);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  background-color: rgba(253, 247, 247, 0.55);
+  border-radius: 4vmin;
+  border: 1px solid rgba(253, 247, 247, 0.125);
 }
 
 .card-dark {
-  backdrop-filter: blur(2px) saturate(5000%);
-  -webkit-backdrop-filter: blur(2px) saturate(5000%);
-  background-color: rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  backdrop-filter: blur(2px) saturate(500%);
+  background-color: rgba(21, 5, 7, 0.8);
+  border: 1px solid rgba(21, 5, 7, 0.125);
 }
 
 .fancy {

@@ -22,16 +22,16 @@ export default function Navigation() {
     <>
       <Burger active={active} onClick={() => setActive(!active)} />
       <div style={{color: "white"}} className="logo-container">
-        <Canvas draw={mountains} height={100} width={112} fader={0} animation={false} instance={"logo"}/>
+        <Canvas draw={mountains} height={150} width={114} fader={0} animation={false} instance={"logo"}/>
         <Link href="/">
-          <a>
+          <a className="title-short">
             <h1>
               In<span className="fancy">En</span>
             </h1>
           </a>
         </Link>
       </div>
-      <div className={"container  " + (active ? "active" : "")}>
+      <div className={"card-dark container  " + (active ? "active" : "")}>
         <ul className={(active ? "card-dark" : "")}>
           <li>
             <Link href="/">
@@ -57,7 +57,7 @@ export default function Navigation() {
                     router.asPath.endsWith(`categories/${it.slug}`) ? "active" : null
                   }
                 >
-                  {(it.color) && <span style={{ color: 'rgba('+it.color+'1)' }}> &bull; </span> }{it.name}
+                  {(it.color) && <span className="bullet" style={{ color: 'rgba('+it.color+'1)' }}>&nbsp;</span> }{it.name}
                 </a>
               </Link>
             </li>
@@ -77,22 +77,31 @@ export default function Navigation() {
           ))}
         </ul>
       </div>
-      <a className="to-top" onClick={() => topFunction()}>&#8679;</a>
+      <div className="bottom-rail card-dark">
+        <a className="to-top" onClick={() => topFunction()}>&#8679;</a>
+      </div>
       <style jsx>
         {`
+          a {
+            display: flex;
+            justify-content: end;
+          }
+          .logo-container {
+            height: 150px;
+          }
           .container {
             width: 0;
           }
-          h1 {
+          .title-short {
             z-index: 1;
-            position: relative;
+            position: absolute;
             font-weight: 500;
-            bottom: 3rem;
+            top: 5rem;
+            right: 1rem;
             margin: 0;
             text-align: right;
             color: #fff;
             width: 100%;
-            right: 1rem;
           }
           ul {
             opacity: 0;
@@ -120,8 +129,14 @@ export default function Navigation() {
             font-size: 2rem;
             padding: 0 1.5rem 0 0;
           }
+          .bullet::before {
+            content:"${String.fromCharCode(10041)}";
+          }
           .active, a:hover {
             color: #DDD;
+          }
+          .bottom-rail {
+            flex: 1;
           }
           .to-top, .logo-container  {
             display: none;
@@ -131,8 +146,7 @@ export default function Navigation() {
               width: 112px;
               display: flex;
               align-items: center;
-              min-height: 100vh;
-              margin-top: -13vh;
+              min-height: calc(100vh - 150px);
             }
             ul {
               opacity: 1;

@@ -67,7 +67,6 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
           display: flex;
           margin: 0 auto;
           width: 100%;
-          padding: 0 1.5rem;
           justify-content: space-around;
           align-items: center;
         }
@@ -96,7 +95,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         }
         @media (min-width: 769px) {
           .categories {
-            padding: 1rem;
+            padding: 4vmin;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
