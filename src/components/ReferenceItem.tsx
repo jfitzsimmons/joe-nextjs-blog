@@ -25,12 +25,12 @@ export default function ReferenceItem({ field }: Props) {
         </a> 
       </Link>
       <ul className={"tag-list"} >
-        <li style={{borderTop: ".5vmin solid rgb("+category.color+"0.8)"}}>
+        <li className={"card"} style={{borderTop: ".5vmin solid rgb("+category.color+"0.8)"}}>
           <Link href={"/posts/field/categories/" + category.name}>
               {field.category}
           </Link>
         </li>
-        <li>
+        <li className={"card"}>
           <ul className={"tag-item"}>
           {field.tags.map((it, i) => (
             <li key={i}>
@@ -81,7 +81,6 @@ export default function ReferenceItem({ field }: Props) {
             padding: .5vmin;
           }
           .tag-list li {
-            backdrop-filter: blur(3px) brightness(107%) saturate(107%);
             padding: 0.5vmin 2vmin 1vmin;
             border-radius: 0 0 2vmin 2vmin;
           }

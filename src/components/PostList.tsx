@@ -86,6 +86,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         .posts li {
           margin-bottom: 1.5rem;
           display: flex;
+          box-shadow: 0 0 2vmin 0 rgba(21, 5, 7, 0.1);
         }
         .categories {
           display: none;
@@ -107,6 +108,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             margin-left: 1.5rem;
+            box-shadow: 0 0 2vmin 0 rgba(21, 5, 7, 0.1);
           }
         }
       `}</style>

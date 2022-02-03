@@ -18,11 +18,14 @@ type Props = {
 };
 
 export default function Index({ posts, tags }: Props) {
-  const [width, setWidth] = useState(0);
+  const [dimensions, setDimensions] = useState({w:0,h:0});
   const div = useRef(null);
 
   useEffect( () => {
-    if(div.current) setWidth(div.current.offsetWidth);
+    if(div.current) setDimensions({
+      w: div.current.offsetWidth,
+      h: Math.round(window.innerHeight*.33
+    )});
   }, []);
   
   return (
@@ -36,7 +39,7 @@ export default function Index({ posts, tags }: Props) {
             <h1>
               Insincere <span className="fancy">Engineer</span>
             </h1>
-            <Canvas draw={mountains} height={200} width={width} fader={0} animation={false} instance={"home"}/>
+            <Canvas draw={mountains} height={dimensions.h} width={dimensions.w} fader={0} animation={false} instance={"home"}/>
           </div>
           <div className="card">
             {/*<span className="handle">@nextjs-netlify-blog </span>*/}
@@ -54,8 +57,12 @@ export default function Index({ posts, tags }: Props) {
           flex: 1 1 auto;
           min-height: 100vh;
         }
+        .flex-column {
+          box-shadow: 0 0 2vmin 0 rgba(21, 5, 7, 0.1);
+          border-radius: 4vmin;
+        }
         .mountains {
-          height: 200px;
+          height: 33vh;
           position: relative;
         }
         .card {

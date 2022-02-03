@@ -98,7 +98,7 @@ export default function PostLayout({
               </div>
             </div>
           </header>
-          <Canvas draw={mountains} height={200} width={width} fader={0} animation={false} instance={"home"}/>
+          <Canvas draw={mountains} height={200} width={width} fader={0} animation={false} instance={"post"}/>
         </div>
         <article className={"card"}>
           <div className={styles.content}>
@@ -162,24 +162,24 @@ export default function PostLayout({
             flex: 1 0 auto;
             padding: 0 4vmin;
             border-radius: 0 0 4vmin 4vmin;
+            box-shadow: 0 0 1vmin 0 rgba(21, 5, 7, 0.1);
           }
           .mountains {
             height: 200px;
             position: relative;
-            border-bottom: 1vmin dashed rgba(21, 5, 7, 0.5);
             box-sizing: border-box;
+            box-shadow: 0 0 1vmin 0 rgba(21, 5, 7, 0.1);
+            border-radius: 4vmin;
           }
           header {
-            font-size: 1rem;
+            font-size: calc(.1vmax + 12px);
             z-index: 1;
             position: absolute;
             font-weight: 500;
             bottom: 2vmin;
-            right: 0;
-            height: 55px;
-            margin: 0 4vmin 0 0;
-            text-align: right;
-            color: #fff; 
+            left: 0;
+            padding: 0 4vmin;
+            color: #fff;
           }
           h1 {
             margin: 0;
@@ -196,7 +196,8 @@ export default function PostLayout({
             margin-left: 0.5rem;
           }
           .ref-list {
-            padding: 1rem;
+            padding: 4vmin;
+            box-shadow: 0 0 1vmin 0 rgba(21, 5, 7, 0.1);
           }
           .ref-list li{
             margin: 0 0 .5rem 1rem;

@@ -91,7 +91,7 @@ export default function Navigation() {
             height: 150px;
           }
           .container {
-            width: 0;
+            width: 100%;
           }
           .title-short {
             z-index: 1;
@@ -144,10 +144,10 @@ export default function Navigation() {
           }
           @media (min-width: 769px) {
             .container {
-              width: 112px;
               display: flex;
               align-items: center;
               min-height: calc(100vh - 150px);
+              box-sizing: border-box;
             }
             ul {
               opacity: 1;

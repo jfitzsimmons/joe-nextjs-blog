@@ -22,7 +22,7 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
         <h1>All references / {(tag) &&<span>{tag.name}</span>}</h1>
         <ul className={"post-list"}>
           {fields.map((it, i) => (
-            <li key={i} >
+            <li key={i} className="reference">
               <ReferenceItem field={it} />
             </li>
           ))}
@@ -87,6 +87,10 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
           }
           .posts li {
             margin-bottom: 1.5rem;
+          }
+          .reference {
+            box-shadow: 0 -.5vmin 2px 0 rgba(21, 5, 7, 0.1);
+            border-radius: 4vmin;
           }
           .categories {
             display: none;

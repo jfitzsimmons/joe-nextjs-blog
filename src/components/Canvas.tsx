@@ -51,15 +51,23 @@ export default function Canvas({draw, height, width, fader, animation, instance}
           width: 100vw;
           background-color: #fdf7f7;
         }
+        .post {
+          border-radius: 4vmin 4vmin 0px 0px;
+          transform: scaleX(-1);
+          width: 100%;
+          height: 100%;
+          backdrop-filter: saturate(280%);
+        }
         .home {
           border-radius: 4vmin 4vmin 0px 0px;
-          opacity: .9;
           width: 100%;
-          height: 200px;
+          height: 100%;
+          backdrop-filter: saturate(280%);
         }
         .logo {
           transform: scaleX(-1);
           border-radius: 75% 0 0 0;
+          backdrop-filter: saturate(280%);
         }
         .animation {
             opacity: 1;
