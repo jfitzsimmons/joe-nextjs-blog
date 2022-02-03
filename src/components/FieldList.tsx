@@ -55,6 +55,7 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             width: 100%;
             justify-content: space-around;
             align-items: center;
+            padding: 4vmin 0;
           }
           h1 {
             margin: 0 0 2rem;
@@ -89,7 +90,7 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             margin-bottom: 1.5rem;
           }
           .reference {
-            box-shadow: 0 -.5vmin 2px 0 rgba(21, 5, 7, 0.1);
+            box-shadow: 0.7vmin -.7vmin 1vmin 0 rgba(21, 5, 7, 0.1);
             border-radius: 4vmin;
           }
           .categories {

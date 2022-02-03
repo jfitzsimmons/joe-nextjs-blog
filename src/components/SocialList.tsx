@@ -15,7 +15,7 @@ export function SocialList({}) {
         <GitHub width={24} height={24} fill={"#222"} />
       </a>
       <a
-        title="codepen"
+        title="CodePen"
         href={`https://codepen.com/${config.codepen_account}`}
         target="_blank"
         rel="noopener"

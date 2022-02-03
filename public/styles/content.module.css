@@ -118,7 +118,7 @@
   width: auto;
   max-height: 500px;
   display: block;
-  margin: 1.5rem auto 0rem;
+  margin: 4vmin auto;
 }
 
 .content iframe {

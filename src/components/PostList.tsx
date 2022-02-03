@@ -4,8 +4,9 @@ import PostItem from "./PostItem";
 import TagLink from "./TagLink";
 import Pagination from "./Pagination";
 import { TagContent } from "../lib/tags";
-import { FilterContent } from "../lib/categories";
+import { FilterContent, getCat } from "../lib/categories";
 import { orderBy } from "../utils/arrays"
+import Link from "next/link";
 
 type Props = {
   posts: PostContent[];
@@ -24,14 +25,19 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
   return (
     <div className={"container with-posts"}>
       <div className={"posts"}>
+      {(type!=="home") &&
         <h1>
-          {(!type) ? `All Posts` : <span> / {filter.name}</span>}
+          {(!type) ? `all posts` : <>{'latest'} <Link href={`/posts/${type}/${filter.slug}`}><a style={{color: "rgba(" + filter.color + '.9)'}}> /{filter.name}</a></Link></>}
         </h1>
+      }
         <ul className={"post-list"}>
           {posts.map((it, i) => (
-            <li key={i} className={"card"}>
-              <PostItem post={it} />
-            </li>
+            <>
+             {(type==="home") && <h1>{filter.name}<Link href={`/posts/categories/${getCat(it.category).slug}`}><a style={{color: "rgba(" + getCat(it.category).color + '.9)'}}> /{it.category}</a></Link></h1>}
+              <li key={i} className={"card"}>
+                <PostItem post={it} />
+              </li>
+            </>
           ))}
         </ul>
         {(pagination) &&
@@ -69,6 +75,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
           width: 100%;
           justify-content: space-around;
           align-items: center;
+          padding: 4vmin 0;
         }
         ul {
           margin: 0;
@@ -76,6 +83,9 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         }
         li {
           list-style: none;
+        }
+        h1 {
+          text-shadow: 0 0 .1vmin #fff;
         }
         .posts {
           display: flex;
@@ -96,14 +106,13 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         }
         @media (min-width: 769px) {
           .categories {
-            padding: 4vmin;
+            padding: 2vmin;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             flex-direction: row;
-            max-height: 450px;
             min-height: 250px;
-            height: 50vh;
+            height: 60vh;
             font-weight: 400;            
             writing-mode: vertical-rl;
             transform: rotate(180deg);
