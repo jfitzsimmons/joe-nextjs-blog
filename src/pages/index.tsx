@@ -58,7 +58,7 @@ export default function Index({ posts, tags }: Props) {
           min-height: 100vh;
         }
         .flex-column {
-          box-shadow: 0 0 2vmin 0 rgba(21, 5, 7, 0.1);
+          box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.2);
           border-radius: 4vmin;
         }
         .mountains {
@@ -67,16 +67,15 @@ export default function Index({ posts, tags }: Props) {
         }
         .card {
           padding: 4vmin;
-          border-radius: 0 0 4vmin 4vmin;
+          border-radius: 3px 0 4vmin 4vmin;
         }
         h1 {
-          font-size: 2.5rem;
+          font-size: calc(1rem + 4vw);
           z-index: 1;
           position: absolute;
           font-weight: 500;
           bottom: 4vmin;
           right: 4vmin;
-          font-size: 3rem;
           height: 55px;
           margin: 0 4vmin 0 0;
           text-align: right;
@@ -94,7 +93,7 @@ export default function Index({ posts, tags }: Props) {
         .handle {
           display: inline-block;
           margin-top: 0.275em;
-          color: #9f9999; 
+          color: #9f9797; 
           text-shadow: 0 0 .1vmin #000;
           letter-spacing: 0.05em;
         }
@@ -105,7 +104,7 @@ export default function Index({ posts, tags }: Props) {
         }
         @media (min-width: 769px) {
           h1 {
-            font-size: 3rem;
+            font-size: calc(2rem + 2vw);
           }
           h2 {
             font-size: 2.25rem;

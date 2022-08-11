@@ -21,8 +21,8 @@ export default function Navigation() {
   return (
     <>
       <Burger active={active} onClick={() => setActive(!active)} />
-      <div style={{color: "white"}} className="logo-container">
-        <Canvas draw={mountains} height={150} width={114} fader={0} animation={false} instance={"logo"}/>
+      <div className="logo-container">
+        <Canvas draw={mountains} height={150} width={120} fader={0} animation={false} instance={"logo"}/>
         <Link href="/">
           <a className="title-short">
             <h1>
@@ -115,20 +115,25 @@ export default function Navigation() {
             top: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-around;
             z-index: 3;
             transform: translateY(100%);
             transition: opacity 200ms;
             box-sizing: border-box;
+            min-height: 226px;
+            height: 50vh;
           }
           .active ul {
             opacity: 1;
             transform: translateY(0);
           }
           li {
-            margin-bottom: 1.75rem;
+           flex:1;
             font-size: 2rem;
             padding: 0 1.5rem 0 0;
+            align-items: center;
+            justify-content: end;
+            display: flex;
           }
           .bullet::before {
             content:"${String.fromCharCode(10041)}";
@@ -148,8 +153,10 @@ export default function Navigation() {
               align-items: center;
               min-height: calc(100vh - 150px);
               box-sizing: border-box;
+              box-shadow:0 0 60px 10px rgba(11, 4, 6, 0.5),
             }
             ul {
+              box-shadow: 20px -10px 40px 3px rgba(211, 184, 196, 0.2), inset 10px 10px 40px 0px rgba(11, 4, 6, 0.6);
               opacity: 1;
               width: 7rem;
               position: sticky;
@@ -157,6 +164,8 @@ export default function Navigation() {
               display: flex;
               justify-content: center;
               transform: translateY(0);
+              border-radius: 0 4vmin 4vmin 0;
+              margin: 4vmin 0;
             }
             li {
               font-size: 1rem;
