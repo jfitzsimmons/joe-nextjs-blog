@@ -53,7 +53,7 @@ export default function PostItem({ post }: Props) {
             display: flex;
             justify-content: end;
             font-weight: 400;
-            
+            border-top: 1px solid #9f979788;  
           }
           .tag-list li {
             display: inline-block;

@@ -159,7 +159,7 @@ export default function PostLayout({
           }
           .post-card {
             border-radius: 4vmin;
-            box-shadow: 0 0 60px 10px rgba(11, 4, 6, 0.5), inset 10px 10px 40px 0px rgba(11, 4, 6, 0.5);
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
           .metadata div {
             display: inline-block;

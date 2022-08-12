@@ -10,6 +10,9 @@ export default function Date({ date }: Props) {
       <style jsx>
         {`
           span {
+              font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
+    'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
+    sans-serif;
             color: #9f9797;
           }
         `}

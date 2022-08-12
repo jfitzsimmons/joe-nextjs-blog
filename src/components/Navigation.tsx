@@ -86,6 +86,13 @@ export default function Navigation() {
             display: flex;
             justify-content: end;
             text-shadow: 0 0 .1vmin #000;
+            transition: 200ms;
+          }
+          a:hover,
+          a.active {
+            padding: 2vh 0;
+            transition: 200ms;
+            font-size: 1.1rem;
           }
           .logo-container {
             height: 150px;
@@ -103,6 +110,9 @@ export default function Navigation() {
             text-align: right;
             color: #fff;
             width: 100%;
+          }
+          .title-short:hover {
+            padding:0;
           }
           ul {
             opacity: 0;
@@ -180,6 +190,10 @@ export default function Navigation() {
               text-align: center;
               display: block;
               font-size: 4rem;
+            }
+            .to-top:hover {
+              font-size: 4rem;
+              padding: 0;
             }
           }
         `}

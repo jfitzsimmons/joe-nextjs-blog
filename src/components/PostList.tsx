@@ -99,7 +99,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         .posts li {
           margin-bottom: 1.5rem;
           display: flex;
-          box-shadow: 0 0 2vmin 0 rgba(11,4,6, 0.1);
+          box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
         }
         .categories {
           display: none;
@@ -120,7 +120,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             margin-left: 1.5rem;
-            box-shadow: 0 0 2vmin 0 rgba(11,4,6, 0.1);
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
         }
       `}</style>

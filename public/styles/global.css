@@ -3,7 +3,9 @@
 
 html,
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
+    'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
+    sans-serif;
   background-color: #fdf7f7;
   color: #150507;
   font-weight: 200;
@@ -16,6 +18,8 @@ body {
 }
 
 a {
+  font-family: 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans',
+    'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
   color: #9f9797;
   text-shadow: -1px 0 2px #fde5;
   text-decoration: none;
