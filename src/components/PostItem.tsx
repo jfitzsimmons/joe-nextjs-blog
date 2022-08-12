@@ -38,11 +38,14 @@ export default function PostItem({ post }: Props) {
             display: block;
           }
           .description {
-            margin-bottom: 2vmin;
+            margin-bottom: 3vmin;
+            line-height: 1.5;
+            color: #150507bb;
           }
           h2 {
-            margin: 2vmin 0 0.5vmin;
+            margin: .5vmin 0 .8vmin;
             font-weight: 500;
+            font-size: 1.3em;
           }
           .column {
             flex-direction: column;

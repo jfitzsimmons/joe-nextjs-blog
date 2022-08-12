@@ -14,6 +14,7 @@ export default function Date({ date }: Props) {
     'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
     sans-serif;
             color: #9f9797;
+            font-size: 85%;
           }
         `}
       </style>

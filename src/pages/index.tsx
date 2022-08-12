@@ -58,7 +58,7 @@ export default function Index({ posts, tags }: Props) {
           min-height: 100vh;
         }
         .flex-column {
-          box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.2);
+          box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           border-radius: 4vmin;
         }
         .mountains {
