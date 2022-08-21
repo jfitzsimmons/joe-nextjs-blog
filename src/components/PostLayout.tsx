@@ -86,6 +86,7 @@ export default function PostLayout({
       />
       <div className="tab" style={{background: "rgba(" + getCat(category).color + '.6)'}}></div>
       <div className={"container"}>
+      <div className={"post-card"}>
         <div className="mountains" ref={div}>
          <header>
             <div className={"metadata"}>
@@ -131,6 +132,7 @@ export default function PostLayout({
             ))}
           </ol>
         </> }
+        </div>
         <footer>
           <div className={"social-list"}>
             <SocialList />
@@ -144,6 +146,7 @@ export default function PostLayout({
             height: 2vmin;
             width: 100%;
             border-radius: 0 0 4vmin 4vmin;
+
           }
           .container {
             display: block;
@@ -154,6 +157,10 @@ export default function PostLayout({
             box-sizing: border-box;
             z-index: 0;
           }
+          .post-card {
+            border-radius: 4vmin;
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+          }
           .metadata div {
             display: inline-block;
             margin-right: 0.5rem;
@@ -161,14 +168,14 @@ export default function PostLayout({
           article {
             flex: 1 0 auto;
             padding: 0 4vmin;
+            box-shadow: 0 0 1vmin 0 rgba(11,4,6, 0.1);
             border-radius: 0 0 4vmin 4vmin;
-            box-shadow: 0 0 1vmin 0 rgba(21, 5, 7, 0.1);
           }
           .mountains {
             height: 200px;
             position: relative;
             box-sizing: border-box;
-            box-shadow: 0 0 1vmin 0 rgba(21, 5, 7, 0.1);
+            box-shadow: 0 0 1vmin 0 rgba(11,4,6, 0.1);
             border-radius: 4vmin;
           }
           header {
@@ -197,7 +204,7 @@ export default function PostLayout({
           }
           .ref-list {
             padding: 4vmin;
-            box-shadow: 0 0 1vmin 0 rgba(21, 5, 7, 0.1);
+            box-shadow: 0 0 1vmin 0 rgba(11,4,6, 0.1);
           }
           .ref-list li{
             margin: 0 0 .5rem 1rem;

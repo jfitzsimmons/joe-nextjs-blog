@@ -27,13 +27,13 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
       <div className={"posts"}>
       {(type!=="home") &&
         <h1>
-          {(!type) ? `all posts` : <>{'latest'} <Link href={`/posts/${type}/${filter.slug}`}><a style={{color: "rgba(" + filter.color + '.9)'}}> /{filter.name}</a></Link></>}
+          {(!type) ? `all posts` : <>{'latest'} <Link href={`/posts/${type}/${filter.slug}`}><a className="dark-text-shadow" style={{color: "rgba(" + filter.color + '.9)'}}> /{filter.name}</a></Link></>}
         </h1>
       }
         <ul className={"post-list"}>
           {posts.map((it, i) => (
             <>
-             {(type==="home") && <h1>{filter.name}<Link href={`/posts/categories/${getCat(it.category).slug}`}><a style={{color: "rgba(" + getCat(it.category).color + '.9)'}}> /{it.category}</a></Link></h1>}
+             {(type==="home") && <h1>{filter.name}<Link href={`/posts/categories/${getCat(it.category).slug}`}><a className="dark-text-shadow" style={{color: "rgba(" + getCat(it.category).color + '.9)'}}> /{it.category}</a></Link></h1>}
               <li key={i} className={"card"}>
                 <PostItem post={it} />
               </li>
@@ -87,6 +87,9 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         h1 {
           text-shadow: 0 0 .1vmin #fff;
         }
+        .dark-text-shadow {
+          text-shadow: -1px 0 2px #0b0406
+        }
         .posts {
           display: flex;
           flex-direction: column;
@@ -96,7 +99,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         .posts li {
           margin-bottom: 1.5rem;
           display: flex;
-          box-shadow: 0 0 2vmin 0 rgba(21, 5, 7, 0.1);
+          box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
         }
         .categories {
           display: none;
@@ -117,7 +120,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             margin-left: 1.5rem;
-            box-shadow: 0 0 2vmin 0 rgba(21, 5, 7, 0.1);
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
         }
       `}</style>

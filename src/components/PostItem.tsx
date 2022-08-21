@@ -38,11 +38,15 @@ export default function PostItem({ post }: Props) {
             display: block;
           }
           .description {
-            margin-bottom: 2vmin;
+            margin-bottom: 3vmin;
+            line-height: 1.5;
+            color: #150507bb;
           }
           h2 {
-            margin: 2vmin 0 0.5vmin;
+            margin: .5vh 0 .8vh;
             font-weight: 500;
+            font-size: 1.3em;
+            letter-spacing: 1px;
           }
           .column {
             flex-direction: column;
@@ -53,7 +57,7 @@ export default function PostItem({ post }: Props) {
             display: flex;
             justify-content: end;
             font-weight: 400;
-            
+            border-top: 1px solid #9f979788;  
           }
           .tag-list li {
             display: inline-block;

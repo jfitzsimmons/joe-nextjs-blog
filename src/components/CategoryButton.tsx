@@ -24,7 +24,7 @@ export default function CategoryButton({ cat }: Props) {
         }
         a:active,
         a:hover {
-          background-color: #9f9999; text-shadow: 0 0 .1vmin #000;
+          background-color: #9f9797; text-shadow: 0 0 .1vmin #000;
           color: #fff;
         }
       `}</style>

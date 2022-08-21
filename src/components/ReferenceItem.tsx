@@ -25,15 +25,15 @@ export default function ReferenceItem({ field }: Props) {
         </a> 
       </Link>
       <ul className={"tag-list"} >
-        <li className={"card"} style={{borderTop: ".5vmin solid rgb("+category.color+"0.8)"}}>
+        <li className={"card"}>
           <Link href={"/posts/field/categories/" + category.name}>
-              {field.category}
+            <a className="category-link">{field.category}</a>
           </Link>
         </li>
         <li className={"card"}>
           <ul className={"tag-item"}>
           {field.tags.map((it, i) => (
-            <li key={i}>
+            <li key={i} className="tag-item__tag">
               <TagLink tag={getTag(it)} type="reference" />
             </li>
           ))}
@@ -45,7 +45,7 @@ export default function ReferenceItem({ field }: Props) {
           a {
             color: #222;
             display: block;
-            padding: 4vmin;
+            padding: 3vmin;
           }
           .top {
             border-radius: 4vmin 4vmin 0 0;
@@ -55,6 +55,7 @@ export default function ReferenceItem({ field }: Props) {
             color: white;
             text-align: right;
             border: 0;
+            font-size: 85%;
           }
           .title {
             font-weight: 500;
@@ -81,13 +82,33 @@ export default function ReferenceItem({ field }: Props) {
             padding: .5vmin;
           }
           .tag-list li {
+            border-radius: 0 0 2vmin 2vmin;
+            border: 0px;
+          }
+
+          .tag-list li a {
             padding: 0.5vmin 2vmin 1vmin;
             border-radius: 0 0 2vmin 2vmin;
+            height: 100%;
+display: flex;
+align-items: center;
+
           }
           .tag-item {
             flex-wrap: wrap;
             max-width: 27vmin;
           }
+          .category-link {
+            background-color: ${(category.color) ? 'rgba(' + category.color + '.8)' : 'rgba(21, 132, 125, 0.2)'};
+
+            color: #222;
+            transition: background-color 0.3s ease;
+            padding: 0.25em 0.5em;
+          }
+          .category-link:hover {
+            background-color: #9f9797; text-shadow: 0 0 .1vmin #000;
+            color: #fff;
+          }          
         `}
       </style>
     </>

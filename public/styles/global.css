@@ -1,13 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 
 html,
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
+    'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
+    sans-serif;
   background-color: #fdf7f7;
   color: #150507;
   font-weight: 200;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 #__next {
@@ -15,8 +18,10 @@ body {
 }
 
 a {
-  color: #9f9999; 
-  text-shadow: 0 0 .1vmin #fff;
+  font-family: 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans',
+    'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
+  color: #9f9797;
+  text-shadow: -1px 0 2px #fde5;
   text-decoration: none;
   transition: color 0.3s ease;
   cursor: pointer;
@@ -56,16 +61,15 @@ a:hover {
   -webkit-backdrop-filter: blur(16px) saturate(280%);
   background-color: rgba(253, 247, 247, 0.7);
   border-radius: 4vmin;
-  border: 1px solid rgba(253, 247, 247, 0.125);
+  border: 3px solid rgba(253, 247, 247, 0.125);
 }
 
 .card-dark {
   backdrop-filter: blur(2px) saturate(500%);
-  background-color: rgba(21, 5, 7, 0.8);
-  border: 1px solid rgba(21, 5, 7, 0.125);
-  text-shadow: 0 0 .1vmin #000;
+  background-color: rgba(11, 4, 6, 0.8);
+  text-shadow: 0 0 0.1vmin #000;
 }
 
 .fancy {
-  color: #6FEDEB;
+  color: #6fedeb;
 }
