@@ -45,7 +45,7 @@ export default function PostItem({ post }: Props) {
           h2 {
             margin: .5vh 0 .8vh;
             font-weight: 500;
-            font-size: 1.3em;
+            font-size: 1.4em;
             letter-spacing: 1px;
           }
           .column {

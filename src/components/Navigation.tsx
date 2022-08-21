@@ -26,7 +26,7 @@ export default function Navigation() {
         <Link href="/">
           <a className="title-short">
             <h1>
-              In<span className="fancy">En</span>
+              Ins<span className="fancy">Eng</span>
             </h1>
           </a>
         </Link>
@@ -94,6 +94,8 @@ export default function Navigation() {
             transition: 200ms;
             font-size: 1.1rem;
           }
+          h1 {
+          }
           .logo-container {
             height: 150px;
           }
@@ -104,15 +106,25 @@ export default function Navigation() {
             z-index: 1;
             position: absolute;
             font-weight: 500;
-            top: 5rem;
-            right: 1rem;
+            top: 7.6rem;
             margin: 0;
             text-align: right;
-            color: #fff;
-            width: 100%;
+            background-color: rgba(11, 4, 6, 0.3);
+            border-radius: 0 4vmin 4vmin 0;
+            padding: 0 20px;
+          }
+          .title-short h1{
+            transition: 200ms;
+            font-size: 1.5rem;
           }
           .title-short:hover {
-            padding:0;
+            padding: 1vh 4vh;
+            top: 7rem;
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+          }
+          .title-short:hover h1{
+            transition: 200ms;
+            font-size: 1.7rem;
           }
           ul {
             opacity: 0;

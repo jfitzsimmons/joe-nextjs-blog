@@ -1,7 +1,10 @@
 .content {
-  font-family: 'Ubuntu', sans-serif;
   color: #222;
   font-weight: 200;
+}
+
+.content a {
+  color: rgba(1, 88, 123, 0.8);
 }
 
 .content time {
@@ -11,7 +14,8 @@
 
 .content p {
   line-height: 1.5rem;
-  margin: 2vmin 0 0 0;
+  margin-bottom: 3vmin;
+  color: #150507bb;
 }
 
 .content h1 {
@@ -22,30 +26,39 @@
 .content h3,
 .content h4,
 .content h5 {
-  margin: 2vmin 0 1vmin;
+  margin-bottom: 1vmin;
+  margin-top: 0;
   line-height: 1.25em;
+}
+
+.content h2 {
+  font-size: calc(1.3rem + 0.4vw);
+  font-weight: 400;
+  line-height: 1.25;
 }
 
 .content h2::before {
   position: absolute;
-  margin-left: -1em;
+  margin-left: -0.9em;
   font-weight: 300;
-  font-size: 1.5rem;
-  color: #9f9797;
-  text-shadow: 0 0 0.1vmin #000;
+  font-size: 1.3rem;
+  color: #9f979788;
   display: none;
   content: '#';
 }
 
 .content pre {
   display: block;
-  background: black;
+  backdrop-filter: blur(3px) saturate(200%);
+  background-color: rgba(11, 4, 6, 0.85);
   color: #eaeaea;
   line-height: 1.25rem;
-  padding: 1rem;
+  padding: 4vmin;
   overflow: auto;
   margin: 1.75rem 0 0 0;
   white-space: pre-wrap;
+  border-radius: 4vmin;
+  text-shadow: 0 0 0.1vmin #000;
 }
 
 .content pre code {
