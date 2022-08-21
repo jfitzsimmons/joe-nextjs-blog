@@ -67,7 +67,6 @@ a:hover {
 .card-dark {
   backdrop-filter: blur(2px) saturate(500%);
   background-color: rgba(11, 4, 6, 0.8);
-
   text-shadow: 0 0 0.1vmin #000;
 }
 

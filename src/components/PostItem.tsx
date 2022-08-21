@@ -43,9 +43,10 @@ export default function PostItem({ post }: Props) {
             color: #150507bb;
           }
           h2 {
-            margin: .5vmin 0 .8vmin;
+            margin: .5vh 0 .8vh;
             font-weight: 500;
             font-size: 1.3em;
+            letter-spacing: 1px;
           }
           .column {
             flex-direction: column;

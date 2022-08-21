@@ -15,6 +15,7 @@ export default function Date({ date }: Props) {
     sans-serif;
             color: #9f9797;
             font-size: 85%;
+            letter-spacing: 2px;
           }
         `}
       </style>
