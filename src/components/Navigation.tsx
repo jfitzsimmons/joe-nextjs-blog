@@ -90,17 +90,17 @@ export default function Navigation() {
           }
           a:hover,
           a.active {
-            padding: 2vh 0;
             transition: 200ms;
-            font-size: 1.1rem;
           }
           h1 {
           }
           .logo-container {
             height: 150px;
           }
-          .container {
+          .container.active {
             width: 100%;
+            position: fixed;
+            top: 0; 
           }
           .title-short {
             z-index: 1;
@@ -135,19 +135,18 @@ export default function Navigation() {
             padding: 1rem;
             position: fixed;
             top: 0;
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: space-around;
             z-index: 3;
-            transform: translateY(100%);
             transition: opacity 200ms;
             box-sizing: border-box;
-            min-height: 226px;
-            height: 50vh;
+            max-height: 400px;
+            height: 100vh;
           }
           .active ul {
+            display: flex;
             opacity: 1;
-            transform: translateY(0);
           }
           li {
            flex:1;
@@ -170,6 +169,11 @@ export default function Navigation() {
             display: none;
           }
           @media (min-width: 769px) {
+            a:hover,
+            a.active {
+              font-size: 1.1rem;
+              padding: 2vh 0;
+            }
             .container {
               display: flex;
               align-items: center;
