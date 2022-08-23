@@ -34,10 +34,6 @@ a:hover {
   text-decoration: underline;
 }
 
-h1 {
-  font-size: 3em;
-}
-
 .flex-column {
   display: flex;
   flex-direction: column;

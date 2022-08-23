@@ -33,7 +33,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         <ul className={"post-list"}>
           {posts.map((it, i) => (
             <div key={i}>
-             {(type==="home") && <h1>{filter.name}<Link href={`/posts/categories/${getCat(it.category).slug}`}><a className="dark-text-shadow" style={{color: "rgba(" + getCat(it.category).color + '.9)'}}> /{it.category}</a></Link></h1>}
+             {(type==="home") && <h1 className="header-large">{filter.name}<Link href={`/posts/categories/${getCat(it.category).slug}`}><a className="dark-text-shadow" style={{color: "rgba(" + getCat(it.category).color + '.9)'}}> /{it.category}</a></Link></h1>}
               <li key={i} className={"card"}>
                 <PostItem post={it} />
               </li>
@@ -86,6 +86,9 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         }
         h1 {
           text-shadow: 0 0 .1vmin #fff;
+        }
+        .header-large {
+          font-size: 3em;
         }
         .dark-text-shadow {
           text-shadow: -1px 0 2px #0b0406
