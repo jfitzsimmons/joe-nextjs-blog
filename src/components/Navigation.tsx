@@ -26,7 +26,7 @@ export default function Navigation() {
         <Link href="/">
           <a className="title-short">
             <h1>
-              In<span className="fancy">En</span>
+              Ins<span className="fancy">Eng</span>
             </h1>
           </a>
         </Link>
@@ -90,29 +90,41 @@ export default function Navigation() {
           }
           a:hover,
           a.active {
-            padding: 2vh 0;
             transition: 200ms;
-            font-size: 1.1rem;
+          }
+          h1 {
           }
           .logo-container {
             height: 150px;
           }
-          .container {
+          .container.active {
             width: 100%;
+            position: fixed;
+            top: 0; 
           }
           .title-short {
             z-index: 1;
             position: absolute;
             font-weight: 500;
-            top: 5rem;
-            right: 1rem;
+            top: 7.6rem;
             margin: 0;
             text-align: right;
-            color: #fff;
-            width: 100%;
+            background-color: rgba(11, 4, 6, 0.3);
+            border-radius: 0 4vmin 4vmin 0;
+            padding: 0 20px;
+          }
+          .title-short h1{
+            transition: 200ms;
+            font-size: 1.5rem;
           }
           .title-short:hover {
-            padding:0;
+            padding: 1vh 4vh;
+            top: 7rem;
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+          }
+          .title-short:hover h1{
+            transition: 200ms;
+            font-size: 1.7rem;
           }
           ul {
             opacity: 0;
@@ -123,19 +135,18 @@ export default function Navigation() {
             padding: 1rem;
             position: fixed;
             top: 0;
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: space-around;
             z-index: 3;
-            transform: translateY(100%);
             transition: opacity 200ms;
             box-sizing: border-box;
-            min-height: 226px;
-            height: 50vh;
+            max-height: 400px;
+            height: 100vh;
           }
           .active ul {
+            display: flex;
             opacity: 1;
-            transform: translateY(0);
           }
           li {
            flex:1;
@@ -158,6 +169,11 @@ export default function Navigation() {
             display: none;
           }
           @media (min-width: 769px) {
+            a:hover,
+            a.active {
+              font-size: 1.1rem;
+              padding: 2vh 0;
+            }
             .container {
               display: flex;
               align-items: center;

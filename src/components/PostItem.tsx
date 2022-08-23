@@ -45,7 +45,7 @@ export default function PostItem({ post }: Props) {
           h2 {
             margin: .5vh 0 .8vh;
             font-weight: 500;
-            font-size: 1.3em;
+            font-size: 1.4em;
             letter-spacing: 1px;
           }
           .column {
@@ -57,7 +57,8 @@ export default function PostItem({ post }: Props) {
             display: flex;
             justify-content: end;
             font-weight: 400;
-            border-top: 1px solid #9f979788;  
+            border-top: 1px solid #9f979788; 
+            flex-wrap: wrap; 
           }
           .tag-list li {
             display: inline-block;

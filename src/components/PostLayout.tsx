@@ -87,15 +87,13 @@ export default function PostLayout({
       <div className="tab" style={{background: "rgba(" + getCat(category).color + '.6)'}}></div>
       <div className={"container"}>
       <div className={"post-card"}>
+        <div className="post">
         <div className="mountains" ref={div}>
          <header>
             <div className={"metadata"}>
-            <h1>{title}</h1>
+              <h1>{title}</h1>
               <div>
                 <Date date={date} />
-              </div>
-              <div>
-                {/**<Author author={getAuthor(author)} />**/}
               </div>
             </div>
           </header>
@@ -104,7 +102,7 @@ export default function PostLayout({
         <article className={"card"}>
           <div className={styles.content}>
             {chapters.map((it, i) => (
-              <div key={i}>
+              <div className="act" key={i}>
                 <Chapter 
                   body={it.section.body} 
                   title={it.section.chapterTitle}
@@ -121,27 +119,28 @@ export default function PostLayout({
             ))}
           </ul>
         </article>
+        </div>
         {(references) &&
         <>
           <h3>References</h3>
           <ol className={"ref-list card"}>
             {references.map((it, i) => (
               <li key={i}>
-                <a href={"#ref" + it.index} title={"go to reference for " + it.title}>^</a> <a href={it.url} title={it.title}>{it.title}</a> <i>{it.source}</i> (<Date date={parseISO(it.date)} />)
+                <a href={"#ref" + it.index} title={"go to reference for " + it.title}>^</a> <a href={it.url} title={it.title} className="ref-link">{it.title}</a> <i>{it.source}</i> (<Date date={parseISO(it.date)} />)
               </li>
             ))}
           </ol>
         </> }
         </div>
         <footer>
-          <div className={"social-list"}>
+          <div className="social-list card-dark">
             <SocialList />
+            <Copyright />
           </div>
-          <Copyright />
         </footer>
       </div>
       <style jsx>
-        {`
+        {` 
           .tab {
             height: 2vmin;
             width: 100%;
@@ -157,18 +156,21 @@ export default function PostLayout({
             box-sizing: border-box;
             z-index: 0;
           }
-          .post-card {
+          .post {
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
             border-radius: 4vmin;
-            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
           .metadata div {
             display: inline-block;
             margin-right: 0.5rem;
+            width: 100%;
+            text-align: right;
+            text-shadow: 0 0 .1vmin #000;
           }
           article {
             flex: 1 0 auto;
-            padding: 0 4vmin;
-            box-shadow: 0 0 1vmin 0 rgba(11,4,6, 0.1);
+            padding: 2vmin 4vmin;
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
             border-radius: 0 0 4vmin 4vmin;
           }
           .mountains {
@@ -179,10 +181,8 @@ export default function PostLayout({
             border-radius: 4vmin;
           }
           header {
-            font-size: calc(.1vmax + 12px);
             z-index: 1;
             position: absolute;
-            font-weight: 500;
             bottom: 2vmin;
             left: 0;
             padding: 0 4vmin;
@@ -190,13 +190,21 @@ export default function PostLayout({
           }
           h1 {
             margin: 0;
-            text-shadow: 0 0 1vmin #0008;
+            text-shadow: -1px 0 2px #0b040677, 0 0 1vmin #1007;
+            font-size: calc(2rem + .4vw);
+          }
+          h3 {
+            text-shadow: -1px 0 2px rgb(253, 247, 247);
+          }
+          .act {
+            margin-bottom: 7vmin;
           }
           .tag-list {
             list-style: none;
             text-align: right;
             margin: 1.75rem 0 0 0;
             padding: 0;
+            border-top: 1px solid #9f979788;
           }
           .tag-list li {
             display: inline-block;
@@ -204,14 +212,26 @@ export default function PostLayout({
           }
           .ref-list {
             padding: 4vmin;
-            box-shadow: 0 0 1vmin 0 rgba(11,4,6, 0.1);
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
           .ref-list li{
             margin: 0 0 .5rem 1rem;
           }
+          .ref-link {
+            color: rgba(1, 88, 123, 0.8);
+          }
           .social-list {
             margin-top: 3rem;
             text-align: center;
+            width: fit-content;
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            padding: 4vmin;
+            border-radius: 4vmin;
+          }
+          footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
           @media (min-width: 769px) {
@@ -240,17 +260,20 @@ export default function PostLayout({
             .hljs-attr-value,
             .hljs-keyword,
             .hljs-operator {
-              color: #d73a49;
+              color: #f92672;
             }
 
             .hljs-property,
-            .hljs-tag,
+            .hljs-name,
             .hljs-boolean,
-            .hljs-number,
             .hljs-constant,
             .hljs-symbol,
             .hljs-deleted {
-              color: #22863a;
+              color: #f92672;
+            }
+
+            .hljs-number {
+              color: #ae81ff;
             }
 
             .hljs-selector,
@@ -259,12 +282,12 @@ export default function PostLayout({
             .hljs-char,
             .hljs-builtin,
             .hljs-inserted {
-              color: #032f62;
+              color: #e6db74
             }
 
             .hljs-function,
             .hljs-class-name {
-              color: #6f42c1;
+              color: #F8F8F2;
             }
 
             /* language-specific */
@@ -278,7 +301,7 @@ export default function PostLayout({
             }
 
             .lang-javascript .hljs-tag .hljs-attr {
-              color: #6f42c1;
+              color: #F8F8F2;
             }
 
             .lang-javascript .hljs-tag .hljs-class-name {
@@ -287,7 +310,7 @@ export default function PostLayout({
 
             .lang-javascript .hljs-tag .hljs-script-punctuation,
             .lang-javascript .hljs-attr-value .hljs-punctuation:first-child {
-              color: #d73a49;
+              color: #f92672;
             }
 
             .lang-javascript .hljs-attr-value {
@@ -304,7 +327,7 @@ export default function PostLayout({
             }
 
             .language-html .hljs-tag .hljs-attr {
-              color: #6f42c1;
+              color: #F8F8F2;
             }
 
             .language-html .hljs-tag .hljs-attr-value,
@@ -317,7 +340,7 @@ export default function PostLayout({
 
             /* CSS */
             .language-css .hljs-selector {
-              color: #6f42c1;
+              color: #F8F8F2;
             }
 
             .language-css .hljs-property {

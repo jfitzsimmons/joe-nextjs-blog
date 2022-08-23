@@ -34,6 +34,10 @@ a:hover {
   text-decoration: underline;
 }
 
+h1 {
+  font-size: 3em;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -71,5 +75,23 @@ a:hover {
 }
 
 .fancy {
-  color: #6fedeb;
+  color: #6fedebcc;
+  transition: color 0.3s ease;
+}
+
+.title-short:hover .fancy {
+  color: #6fedebff;
+  transition: color 0.3s ease;
+}
+footer {
+  color: #9f9797;
+  text-shadow: 0 0 0.1vmin #000;
+}
+footer svg {
+  stroke: #9f9797;
+  transition: 200ms;
+}
+footer svg:hover {
+  stroke: #ddd;
+  transition: 200ms;
 }

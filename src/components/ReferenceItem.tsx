@@ -49,6 +49,7 @@ export default function ReferenceItem({ field }: Props) {
           }
           .top {
             border-radius: 4vmin 4vmin 0 0;
+            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
           .bottom {
             border-radius: 0 0 4vmin 4vmin;
@@ -80,6 +81,8 @@ export default function ReferenceItem({ field }: Props) {
           }
           .tag-list li ul li{
             padding: .5vmin;
+            flex: 1;
+            text-align:right;
           }
           .tag-list li {
             border-radius: 0 0 2vmin 2vmin;

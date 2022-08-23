@@ -32,12 +32,12 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
       }
         <ul className={"post-list"}>
           {posts.map((it, i) => (
-            <>
+            <div key={i}>
              {(type==="home") && <h1>{filter.name}<Link href={`/posts/categories/${getCat(it.category).slug}`}><a className="dark-text-shadow" style={{color: "rgba(" + getCat(it.category).color + '.9)'}}> /{it.category}</a></Link></h1>}
               <li key={i} className={"card"}>
                 <PostItem post={it} />
               </li>
-            </>
+            </div>
           ))}
         </ul>
         {(pagination) &&
