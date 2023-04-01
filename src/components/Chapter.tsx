@@ -22,12 +22,12 @@ export default function Chapter({ body, title, category }: Props) {
           border-radius: 4vmin;
           float: right;
           background-color: ${getCat(category).color ? 'rgba(' + getCat(category).color + '.8)' : 'rgba(21, 132, 125, 0.2)'};
-          color: #222;
+          color: #ddd;
         }
         .cat-button:active,
         .cat-button:hover {
           background-color: #9f9797; text-shadow: 0 0 .1vmin #000;
-          color: #fff;
+          color: #000;
         }
       `}</style>
     </>

@@ -43,7 +43,7 @@ export default function ReferenceItem({ field }: Props) {
       <style jsx>
         {`
           a {
-            color: #222;
+            color: #ddd;
             display: block;
             padding: 3vmin;
           }
@@ -104,13 +104,13 @@ align-items: center;
           .category-link {
             background-color: ${(category.color) ? 'rgba(' + category.color + '.8)' : 'rgba(21, 132, 125, 0.2)'};
 
-            color: #222;
+            color: #ddd;
             transition: background-color 0.3s ease;
             padding: 0.25em 0.5em;
           }
           .category-link:hover {
             background-color: #9f9797; text-shadow: 0 0 .1vmin #000;
-            color: #fff;
+            color: #000;
           }          
         `}
       </style>

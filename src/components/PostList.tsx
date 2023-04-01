@@ -85,13 +85,13 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
           list-style: none;
         }
         h1 {
-          text-shadow: 0 0 .1vmin #fff;
+          text-shadow: 0 0 .1vmin #000;
         }
         .header-large {
           font-size: 3em;
         }
         .dark-text-shadow {
-          text-shadow: -1px 0 2px #0b0406
+          text-shadow: 3px 1px 0px #0b0406;
         }
         .posts {
           display: flex;

@@ -1,5 +1,5 @@
 .content {
-  color: #222;
+  color: #ddd;
   font-weight: 200;
 }
 
@@ -15,7 +15,7 @@
 .content p {
   line-height: 1.5rem;
   margin-bottom: 3vmin;
-  color: #150507bb;
+  color: #f5e5e7bb;
 }
 
 .content h1 {

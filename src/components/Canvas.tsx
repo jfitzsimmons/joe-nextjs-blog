@@ -49,7 +49,7 @@ export default function Canvas({draw, height, width, fader, animation, instance}
           opacity: 1;
           height: 100vh; 
           width: 100vw;
-          background-color: #fdf7f7;
+          background-color: #0d0707;
         }
         .post {
           border-radius: 4vmin 4vmin 0px 0px;

@@ -6,8 +6,8 @@ body {
   font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
     'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
     sans-serif;
-  background-color: #fdf7f7;
-  color: #150507;
+  background-color: #0d0707;
+  color: #f5e5e7;
   font-weight: 200;
   height: 100%;
   scroll-behavior: smooth;
@@ -30,7 +30,7 @@ a {
 
 a:active,
 a:hover {
-  color: #150507;
+  color: #f5e5e7;
   text-decoration: underline;
 }
 
@@ -59,9 +59,9 @@ a:hover {
 .card {
   backdrop-filter: blur(6px) saturate(280%) brightness(1.1);
   -webkit-backdrop-filter: blur(16px) saturate(280%);
-  background-color: rgba(253, 247, 247, 0.7);
+  background-color: rgba(13, 7, 7, 0.7);
   border-radius: 4vmin;
-  border: 3px solid rgba(253, 247, 247, 0.125);
+  border: 3px solid rgba(13, 7, 7, 0.125);
 }
 
 .card-dark {

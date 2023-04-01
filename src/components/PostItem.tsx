@@ -34,13 +34,13 @@ export default function PostItem({ post }: Props) {
       <style jsx>
         {`
           a {
-            color: #222;
+            color: #ddd;
             display: block;
           }
           .description {
             margin-bottom: 3vmin;
             line-height: 1.5;
-            color: #150507bb;
+            color: #f5e5e7bb;
           }
           h2 {
             margin: .5vh 0 .8vh;
