@@ -49,7 +49,7 @@ export default function Canvas({draw, height, width, fader, animation, instance}
           opacity: 1;
           height: 100vh; 
           width: 100vw;
-          background-color: #fdf7f7;
+          background-color: #0d0707;
         }
         .post {
           border-radius: 4vmin 4vmin 0px 0px;
@@ -68,7 +68,7 @@ export default function Canvas({draw, height, width, fader, animation, instance}
           transform: scaleX(-1);
           border-radius: 75% 0 0 0;
           backdrop-filter: saturate(280%);
-          box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 10px 10px 40px 0px rgba(11, 4, 6, 0.1);
+          box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 10px 10px 40px 0px rgba(11, 4, 6, 0.1);
         }
         .animation {
             opacity: 1;

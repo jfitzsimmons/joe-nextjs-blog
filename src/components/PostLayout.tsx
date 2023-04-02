@@ -157,7 +157,7 @@ export default function PostLayout({
             z-index: 0;
           }
           .post {
-            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
             border-radius: 4vmin;
           }
           .metadata div {
@@ -170,7 +170,7 @@ export default function PostLayout({
           article {
             flex: 1 0 auto;
             padding: 2vmin 4vmin;
-            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
             border-radius: 0 0 4vmin 4vmin;
           }
           .mountains {
@@ -212,7 +212,7 @@ export default function PostLayout({
           }
           .ref-list {
             padding: 4vmin;
-            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
           .ref-list li{
             margin: 0 0 .5rem 1rem;
@@ -224,7 +224,7 @@ export default function PostLayout({
             margin-top: 3rem;
             text-align: center;
             width: fit-content;
-            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
             padding: 4vmin;
             border-radius: 4vmin;
           }

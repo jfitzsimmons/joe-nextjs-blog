@@ -13,7 +13,7 @@ export default function TagButton({ tag }: Props) {
       <style jsx>
         {`
           .tag {
-            text-shadow: 0 0 1px #fff;
+            text-shadow: 0 0 1px #000;
             font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
           }
         `}

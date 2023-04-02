@@ -64,11 +64,11 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             font-size: 1.75rem;
             color: #9f9797; 
             text-shadow: 0 0 .1vmin #000;
-            text-shadow: 1px 1px 5px #fff;
+            text-shadow: 1px 1px 5px #000;
           }
           h1 span {
             font-weight: bold;
-            color: #222;
+            color: #ddd;
           }
           ul {
             margin: 0;

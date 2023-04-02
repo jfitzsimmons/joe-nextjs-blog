@@ -87,6 +87,7 @@ export default function Navigation() {
             justify-content: end;
             text-shadow: 0 0 .1vmin #000;
             transition: 200ms;
+            position: absolute;
           }
           a:hover,
           a.active {
@@ -120,7 +121,7 @@ export default function Navigation() {
           .title-short:hover {
             padding: 1vh 4vh;
             top: 7rem;
-            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.1), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
           .title-short:hover h1{
             transition: 200ms;
@@ -171,8 +172,8 @@ export default function Navigation() {
           @media (min-width: 769px) {
             a:hover,
             a.active {
-              font-size: 1.1rem;
-              padding: 2vh 0;
+              font-size: 1.2rem;
+              padding: 2vh 0;         
             }
             .container {
               display: flex;

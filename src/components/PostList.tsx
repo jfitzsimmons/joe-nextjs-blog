@@ -85,13 +85,13 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
           list-style: none;
         }
         h1 {
-          text-shadow: 0 0 .1vmin #fff;
+          text-shadow: 0 0 .1vmin #000;
         }
         .header-large {
           font-size: 3em;
         }
         .dark-text-shadow {
-          text-shadow: -1px 0 2px #0b0406
+          text-shadow: 3px 1px 0px #0b0406;
         }
         .posts {
           display: flex;
@@ -102,7 +102,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
         .posts li {
           margin-bottom: 1.5rem;
           display: flex;
-          box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+          box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
         }
         .categories {
           display: none;
@@ -123,7 +123,7 @@ export default function PostList({ posts, tags, filter, type, cat, pagination }:
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             margin-left: 1.5rem;
-            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05),0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
         }
       `}</style>

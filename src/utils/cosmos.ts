@@ -24,7 +24,7 @@ function coinflip(a,b) {
 function pickGradient(i) {
     let gradients=shuffle(gradientArray);
 
-    return  `hsla(${gradients[i]},${Math.round(rndmRng(99,60))}%, ${rndmRng(1,.5)})`;
+    return  `hsla(${gradients[i]},${Math.round(rndmRng(99,60))}%, ${rndmRng(.6,.2)})`;
 }
 
 export const cosmos = (ctx,w,h) => {

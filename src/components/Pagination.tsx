@@ -36,10 +36,10 @@ export default function Pagination({ current, pages, link }: Props) {
           color: #9f9797; 
           text-shadow: 0 0 .1vmin #000;
           font-size: 3vmin;
-          text-shadow: 1px 1px 5px #fff;
+          text-shadow: 1px 1px 5px #000;
         }
         a.active {
-          color: #222;
+          color: #ddd;
           font-weight: bold;
         }
       `}</style>

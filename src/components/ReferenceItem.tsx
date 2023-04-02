@@ -43,13 +43,13 @@ export default function ReferenceItem({ field }: Props) {
       <style jsx>
         {`
           a {
-            color: #222;
+            color: #ddd;
             display: block;
             padding: 3vmin;
           }
           .top {
             border-radius: 4vmin 4vmin 0 0;
-            box-shadow: 0 0 30px 10px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           }
           .bottom {
             border-radius: 0 0 4vmin 4vmin;
@@ -104,13 +104,13 @@ align-items: center;
           .category-link {
             background-color: ${(category.color) ? 'rgba(' + category.color + '.8)' : 'rgba(21, 132, 125, 0.2)'};
 
-            color: #222;
+            color: #ddd;
             transition: background-color 0.3s ease;
             padding: 0.25em 0.5em;
           }
           .category-link:hover {
             background-color: #9f9797; text-shadow: 0 0 .1vmin #000;
-            color: #fff;
+            color: #000;
           }          
         `}
       </style>
