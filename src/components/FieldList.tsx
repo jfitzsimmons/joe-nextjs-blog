@@ -1,26 +1,31 @@
-import React from "react";
-import { Field } from "../lib/posts";
-import { FieldContent } from "../lib/fields";
-import ReferenceItem from "./ReferenceItem";
-import Pagination from "./Pagination";
-import { TagContent } from "../lib/tags";
-import { FilterContent } from "../lib/categories";
+import React from 'react'
+import { Field } from '../lib/posts'
+import { FieldContent } from '../lib/fields'
+import ReferenceItem from './ReferenceItem'
+import Pagination from './Pagination'
+import { TagContent } from '../lib/tags'
+import { FilterContent } from '../lib/categories'
 
 type Props = {
-  fields: Field[];
-  field: FieldContent;
-  tag?: FilterContent;
+  fields: Field[]
+  field: FieldContent
+  tag?: FilterContent
   pagination: {
-    current: number;
-    pages: number;
-  };
-};
-export default function FieldPostList({ fields, /**cat, tags,**/ pagination, field, tag }: Props) {
+    current: number
+    pages: number
+  }
+}
+export default function FieldPostList({
+  fields,
+  /**cat, tags,**/ pagination,
+  field,
+  tag,
+}: Props) {
   return (
-    <div className={"container"}>
-      <div className={"posts"}>
-        <h1>All references / {(tag) &&<span>{tag.name}</span>}</h1>
-        <ul className={"post-list"}>
+    <div className={'container'}>
+      <div className={'posts'}>
+        <h1>All references / {tag && <span>{tag.name}</span>}</h1>
+        <ul className={'post-list'}>
           {fields.map((it, i) => (
             <li key={i} className="reference">
               <ReferenceItem field={it} />
@@ -31,10 +36,10 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
           current={pagination.current}
           pages={pagination.pages}
           link={{
-            href: () => "/posts/field/[[...slug]]",
+            href: () => '/posts/field/[[...slug]]',
             as: (page) =>
               page === 1
-                ? "/posts/field/" + field.slug
+                ? '/posts/field/' + field.slug
                 : `/posts/field/${field.slug}/${page}`,
           }}
         />
@@ -62,8 +67,8 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             padding: 0;
             font-weight: 100;
             font-size: 1.75rem;
-            color: #9f9797; 
-            text-shadow: 0 0 .1vmin #000;
+            color: #9f9797;
+            text-shadow: 0 0 0.1vmin #000;
             text-shadow: 1px 1px 5px #000;
           }
           h1 span {
@@ -74,7 +79,7 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
             margin: 0;
             padding: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(46vmin,1fr));
+            grid-template-columns: repeat(auto-fit, minmax(46vmin, 1fr));
             grid-gap: 4vmin;
           }
           li {
@@ -98,7 +103,7 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
           .categories li {
             margin-bottom: 0.75em;
           }
-          @media (min-width: 769px) {
+          @media (min-width: 769px) and (min-height: 580px) {
             h1 {
               font-size: 2rem;
             }
@@ -118,5 +123,5 @@ export default function FieldPostList({ fields, /**cat, tags,**/ pagination, fie
         `}
       </style>
     </div>
-  );
+  )
 }
