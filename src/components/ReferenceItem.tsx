@@ -43,20 +43,20 @@ export default function ReferenceItem({ field }: Props) {
       <style jsx>
         {`
           a {
-            color: #ddd;
+            color: #feee;
             display: block;
             padding: 3vmin;
           }
           .top {
             border-radius: 4vmin 4vmin 0 0;
             box-shadow: 0 0 25px 1px rgba(211, 184, 196, .3), inset 0 0 40px 0px rgba(11, 4, 6, 0.05), 0.7vmin -.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+            font-size: 130%;
           }
           .bottom {
             border-radius: 0 0 4vmin 4vmin;
             color: white;
             text-align: right;
             border: 0;
-            font-size: 85%;
           }
           .title {
             font-weight: 500;
@@ -104,12 +104,12 @@ align-items: center;
           .category-link {
             background-color: ${(category.color) ? 'rgba(' + category.color + '.8)' : 'rgba(21, 132, 125, 0.2)'};
 
-            color: #ddd;
+            color: #feee;
             transition: background-color 0.3s ease;
             padding: 0.25em 0.5em;
           }
           .category-link:hover {
-            background-color: #9f9797; text-shadow: 0 0 .1vmin #000;
+            background-color: #feec; text-shadow: 0 0 .1vmin #000;
             color: #000;
           }          
         `}

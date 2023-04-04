@@ -67,13 +67,13 @@ export default function FieldPostList({
             padding: 0;
             font-weight: 100;
             font-size: 1.75rem;
-            color: #9f9797;
+            color: #feec;
             text-shadow: 0 0 0.1vmin #000;
             text-shadow: 1px 1px 5px #000;
           }
           h1 span {
             font-weight: bold;
-            color: #ddd;
+            color: #feee;
           }
           ul {
             margin: 0;

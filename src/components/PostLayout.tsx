@@ -179,13 +179,13 @@ export default function PostLayout({
               inset 0 0 40px 0px rgba(11, 4, 6, 0.05),
               0.7vmin -0.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
             border-radius: 4vmin;
+            text-shadow: 1px 2px 2px #0008;
           }
           .metadata div {
             display: inline-block;
             margin-right: 0.5rem;
             width: 100%;
             text-align: right;
-            text-shadow: 0 0 0.1vmin #000;
           }
           article {
             flex: 1 0 auto;
@@ -203,27 +203,26 @@ export default function PostLayout({
             border-radius: 4vmin;
           }
           header {
+            box-sizing: border-box;
             z-index: 1;
             position: absolute;
             bottom: 2vmin;
             left: 0;
             padding: 0 4vmin;
             color: #fff;
+            width: 100%;
           }
           h1 {
-            margin: 0;
-            text-shadow: -1px 0 2px #0b040677, 0 0 1vmin #1007;
             font-size: calc(1.5rem + 2vmin);
-          }
-          h3 {
-            text-shadow: -1px 0 2px rgb(253, 247, 247);
+            margin: 0;            
+            text-align: center;
           }
           .tag-list {
             list-style: none;
             text-align: right;
             margin: 1.75rem 0 0 0;
             padding: 0;
-            border-top: 1px solid #9f979788;
+            border-top: 1px solid #cbb8;
           }
           .tag-list li {
             display: inline-block;

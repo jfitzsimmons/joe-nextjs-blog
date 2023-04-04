@@ -154,17 +154,19 @@ export default function PostList({
         }
         @media (min-width: 769px) and (min-height: 580px) {
           .categories {
+            align-self: baseline;
             padding: 2vmin;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             flex-direction: row;
             min-height: 250px;
-            height: 60vh;
+            max-height: 80vh;
             font-weight: 400;
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             margin-left: 1.5rem;
+            margin-top: 5rem;
             box-shadow: 0 0 25px 1px rgba(211, 184, 196, 0.3),
               inset 0 0 40px 0px rgba(11, 4, 6, 0.05),
               0.7vmin -0.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);

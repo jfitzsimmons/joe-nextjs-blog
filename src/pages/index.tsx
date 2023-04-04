@@ -75,6 +75,7 @@ export default function Index({ posts, tags }: Props) {
             inset 0 0 40px 0px rgba(11, 4, 6, 0.1),
             0.7vmin -0.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
           border-radius: 4vmin;
+          text-shadow: 1px 2px 2px #000e;
         }
         .mountains {
           height: 33vh;
@@ -85,11 +86,11 @@ export default function Index({ posts, tags }: Props) {
           border-radius: 3px 0 4vmin 4vmin;
         }
         h1 {
-          font-size: calc(1rem + 4vw);
+          font-size: calc(2rem + 4vmin);
           z-index: 1;
           position: absolute;
           font-weight: 500;
-          bottom: 4vmin;
+          bottom: 16vmin;
           right: 4vmin;
           height: 55px;
           margin: 0 4vmin 0 0;
@@ -108,7 +109,7 @@ export default function Index({ posts, tags }: Props) {
         .handle {
           display: inline-block;
           margin-top: 0.275em;
-          color: #9f9797;
+          color: #feec;
           text-shadow: 0 0 0.1vmin #000;
           letter-spacing: 0.05em;
         }
@@ -117,13 +118,16 @@ export default function Index({ posts, tags }: Props) {
           text-align: center;
           margin: 0;
         }
-        @media (min-width: 769px) and (min-height: 580px) {
+        @media only screen and (min-width: 544px) {
           h1 {
-            font-size: calc(2rem + 2vw);
+            bottom: 4vmin;
           }
+        }
+        @media (min-width: 769px) and (min-height: 580px) {
           h2 {
             font-size: 2.25rem;
           }
+
         }
       `}</style>
     </Layout>

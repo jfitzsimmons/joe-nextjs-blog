@@ -13,8 +13,7 @@ export default function Date({ date }: Props) {
               font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
     'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
     sans-serif;
-            color: #9f9797;
-            font-size: 85%;
+            color: #feec;
             letter-spacing: 2px;
           }
         `}

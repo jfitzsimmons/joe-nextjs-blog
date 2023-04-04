@@ -102,7 +102,7 @@ export default function Navigation() {
           a {
             display: flex;
             justify-content: end;
-            text-shadow: 0 0 0.1vmin #000;
+            text-shadow: 1px 2px 2px #000e;
             transition: 200ms;
             position: absolute;
           }
@@ -181,7 +181,7 @@ export default function Navigation() {
           }
           .active,
           a:hover {
-            color: #ddd;
+            color: #feee;
           }
           .bottom-rail {
             flex: 1;
@@ -204,8 +204,7 @@ export default function Navigation() {
               box-shadow: 0 0 60px 10px rgba(11, 4, 6, 0.5);
             }
             ul {
-              box-shadow: 20px -10px 40px 3px rgba(211, 184, 196, 0.2),
-                inset 10px 10px 40px 0px rgba(11, 4, 6, 0.6);
+              box-shadow: 15px -5px 25px 1px rgba(211, 184, 196, 0.2), inset 10px 10px 30px 15px rgba(11, 4, 6, 0.6);
               opacity: 1;
               width: 7rem;
               position: sticky;
@@ -215,6 +214,15 @@ export default function Navigation() {
               transform: translateY(0);
               border-radius: 0 4vmin 4vmin 0;
               margin: 4vmin 0;
+              transition: box-shadow .2s
+            }
+            ul:hover {
+              box-shadow: 15px -5px 25px 1px rgba(211, 184, 196, 0.4), inset 10px 10px 40px 20px rgba(11, 4, 6, 0.9);
+
+            }
+            ul:active {
+              box-shadow: 5px -5px 5px 0px rgba(211, 184, 196, 0.2), inset 10px 10px 40px 20px rgba(11, 4, 6, 0.9);
+
             }
             li {
               font-size: 1rem;

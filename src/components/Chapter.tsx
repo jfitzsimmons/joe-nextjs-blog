@@ -26,14 +26,14 @@ export default function Chapter({ body, title, category }: Props) {
           padding: 0.25em 0.75em;
           border-radius: 4vmin;
           background-color: ${getCat(category).color ? 'rgba(' + getCat(category).color + '.8)' : 'rgba(21, 132, 125, 0.2)'};
-          color: #ddd;
+          color: #feee;
           margin-top: 1rem;
           width: fit-content;
           align-self: end;
         }
         .cat-button:active,
         .cat-button:hover {
-          background-color: #9f9797; text-shadow: 0 0 .1vmin #000;
+          background-color: #feec; text-shadow: 0 0 .1vmin #000;
           color: #000;
         }
       `}</style>
