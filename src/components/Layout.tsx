@@ -1,15 +1,14 @@
-import Head from "next/head";
-import Navigation from "./Navigation";
+import Head from 'next/head'
+import Navigation from './Navigation'
 import dynamic from 'next/dynamic'
 
-const DynamicComponentWithNoSSR = dynamic(
-  () => import('./Canvases'),
-  { ssr: false }
-)
+const DynamicComponentWithNoSSR = dynamic(() => import('./Canvases'), {
+  ssr: false,
+})
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 export default function Layout({ children }: Props) {
   return (
     <div className="root">
@@ -20,7 +19,7 @@ export default function Layout({ children }: Props) {
         <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="theme-color" content="#000" />
       </Head>
-      <DynamicComponentWithNoSSR/>
+      <DynamicComponentWithNoSSR />
       <nav>
         <Navigation />
       </nav>
@@ -47,7 +46,7 @@ export default function Layout({ children }: Props) {
             display: flex;
             flex-direction: column;
           }
-          @media (min-width: 769px) {
+          @media (min-width: 769px) and (min-height: 580px) {
             .root {
               display: flex;
               flex: 1 1 auto;
@@ -59,5 +58,5 @@ export default function Layout({ children }: Props) {
         `}
       </style>
     </div>
-  );
+  )
 }

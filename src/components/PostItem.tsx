@@ -34,13 +34,14 @@ export default function PostItem({ post }: Props) {
       <style jsx>
         {`
           a {
-            color: #ddd;
+            color: #feee;
             display: block;
           }
           .description {
             margin-bottom: 3vmin;
             line-height: 1.5;
-            color: #f5e5e7bb;
+            color: #feec;
+            letter-spacing: 1px;
           }
           h2 {
             margin: .5vh 0 .8vh;
@@ -52,12 +53,13 @@ export default function PostItem({ post }: Props) {
             flex-direction: column;
             padding: 2vmin 4vmin;
             width: 100%;
+            text-shadow: 3px 3px 2px #0008;
           }
           .tag-list {
             display: flex;
             justify-content: end;
             font-weight: 400;
-            border-top: 1px solid #9f979788; 
+            border-top: 1px solid #cbb8; 
             flex-wrap: wrap; 
           }
           .tag-list li {

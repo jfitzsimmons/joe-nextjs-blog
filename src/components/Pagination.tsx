@@ -33,13 +33,13 @@ export default function Pagination({ current, pages, link }: Props) {
         li {
           display: inline-block;
           margin-right: 1em;
-          color: #9f9797; 
+          color: #feec; 
           text-shadow: 0 0 .1vmin #000;
           font-size: 3vmin;
           text-shadow: 1px 1px 5px #000;
         }
         a.active {
-          color: #ddd;
+          color: #feee;
           font-weight: bold;
         }
       `}</style>
