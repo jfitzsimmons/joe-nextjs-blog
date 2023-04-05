@@ -10,7 +10,7 @@
   color: #feee;
   margin-top: 1rem;
   width: fit-content;
-  align-self: end;
+  align-self: flex-end;
 }
 .cat-button:active,
 .cat-button:hover {

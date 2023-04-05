@@ -1,15 +1,15 @@
-import { PostContent } from "../../../lib/posts";
-import Date from "../../../common/components/Date";
-import Link from "next/link";
-import { parseISO } from "date-fns";
-import TagLink from "../../../common/components/TagLink";
-import CategoryButton from "./CategoryButton";
-import { getTag } from "../../../common/utils/tags";
-import { getCat } from "../../../common/utils/categories";
+import { PostContent } from '../../../lib/posts'
+import Date from '../../../common/components/Date'
+import Link from 'next/link'
+import { parseISO } from 'date-fns'
+import TagLink from '../../../common/components/TagLink'
+import CategoryButton from './CategoryButton'
+import { getTag } from '../../../common/utils/tags'
+import { getCat } from '../../../common/utils/categories'
 
 type Props = {
-  post: PostContent;
-};
+  post: PostContent
+}
 
 export default function PostItem({ post }: Props) {
   return (
@@ -17,13 +17,13 @@ export default function PostItem({ post }: Props) {
       <CategoryButton cat={getCat(post.category)} />
       <div className="column">
         <Date date={parseISO(post.date)} />
-        <Link href={"/posts/" + post.slug}>
+        <Link href={'/posts/' + post.slug}>
           <a>
             <h2>{post.title}</h2>
-          </a> 
+          </a>
         </Link>
         <div className="description">{post.description}</div>
-        <ul className={"tag-list"}>
+        <ul className={'tag-list'}>
           {post.tags.map((it, i) => (
             <li key={i}>
               <TagLink tag={getTag(it)} />
@@ -44,7 +44,7 @@ export default function PostItem({ post }: Props) {
             letter-spacing: 1px;
           }
           h2 {
-            margin: .5vh 0 .8vh;
+            margin: 0.5vh 0 0.8vh;
             font-weight: 500;
             font-size: 1.4em;
             letter-spacing: 1px;
@@ -57,10 +57,10 @@ export default function PostItem({ post }: Props) {
           }
           .tag-list {
             display: flex;
-            justify-content: end;
+            justify-content: flex-end;
             font-weight: 400;
-            border-top: 1px solid #cbb8; 
-            flex-wrap: wrap; 
+            border-top: 1px solid #cbb8;
+            flex-wrap: wrap;
           }
           .tag-list li {
             display: inline-block;
@@ -69,5 +69,5 @@ export default function PostItem({ post }: Props) {
         `}
       </style>
     </>
-  );
+  )
 }
