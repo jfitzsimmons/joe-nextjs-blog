@@ -1,5 +1,5 @@
-import Canvas from "./Canvas";
-import { cosmos } from "../utils/cosmos";
+import Canvas from "../../common/components/Canvas";
+import { cosmos } from "../../utils/cosmos";
 
 export default function Canvases() {
     let w = window.innerWidth;

@@ -33,4 +33,6 @@ yarn-error.log*
 # mdx
 .mdx-data
 
+# notes
 notes.txt
+_notes

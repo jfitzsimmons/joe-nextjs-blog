@@ -1,4 +1,4 @@
-import config from "../../lib/config";
+import config from "../../utils/config";
 import Head from "next/head";
 
 type Props = {

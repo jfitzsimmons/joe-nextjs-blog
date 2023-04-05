@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Burger from './Burger'
 import { useState } from 'react'
-import { listCats } from '../lib/categories'
-import { listFields } from '../lib/fields'
-import Canvas from './Canvas'
-import { mountains } from '../utils/mountains'
+import { listCats } from '../../common/utils/categories'
+import { listFields } from '../../lib/fields'
+import Canvas from '../../common/components/Canvas'
+import { mountains } from '../../utils/mountains'
 
 export default function Navigation() {
   const categories = listCats()

@@ -1,4 +1,4 @@
-import categories from "../../meta/categories.yml";
+import categories from "../../../meta/categories.yml";
 
 export type FilterContent = {
   readonly slug: string;

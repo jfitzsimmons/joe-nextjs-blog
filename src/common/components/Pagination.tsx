@@ -1,4 +1,4 @@
-import { generatePagination } from "../lib/pagination";
+import { generatePagination } from "../utils/pagination";
 import Link from "next/link";
 
 type Props = {

@@ -1,23 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from '../../public/styles/content.module.css'
-import Author from './Author'
+// import Author from './Author'
 import Copyright from './Copyright'
-import Date from './Date'
-import Layout from './Layout'
+import Date from '../../common/components/Date'
+import Layout from '../../features/layout/Layout'
 import Chapter from './Chapter'
-import BasicMeta from './meta/BasicMeta'
-import JsonLdMeta from './meta/JsonLdMeta'
-import OpenGraphMeta from './meta/OpenGraphMeta'
-import TwitterCardMeta from './meta/TwitterCardMeta'
-import { SocialList } from './SocialList'
-import TagButton from './TagButton'
-import { getAuthor } from '../lib/authors'
-import { getTag } from '../lib/tags'
-import { getCat } from '../lib/categories'
-import { Reference } from '../lib/posts'
+import BasicMeta from '../../common/components/meta/BasicMeta'
+import JsonLdMeta from '../../common/components/meta/JsonLdMeta'
+import OpenGraphMeta from '../../common/components/meta/OpenGraphMeta'
+import TwitterCardMeta from '../../common/components/meta/TwitterCardMeta'
+import { SocialList } from '../../common/components/SocialList'
+import TagButton from '../../common/components/TagButton'
+// import { getAuthor } from '../../../_notes/authors'
+import { getTag } from '../../common/utils/tags'
+import { getCat } from '../../common/utils/categories'
+import { Reference } from '../../lib/posts'
 import { parseISO } from 'date-fns'
-import Canvas from './Canvas'
-import { mountains } from '../utils/mountains'
+import Canvas from '../../common/components/Canvas'
+import { mountains } from '../../utils/mountains'
+
+// not using author TESTJPF
 
 type Props = {
   title: string
@@ -43,7 +45,7 @@ export default function PostLayout({
   title,
   date,
   slug,
-  author,
+ // author,
   tags,
   chapters,
   references,
@@ -51,7 +53,7 @@ export default function PostLayout({
   description,
 }: Props) {
   const keywords = tags.map((it) => getTag(it).name)
-  const authorName = getAuthor(author).name
+  // const authorName = getAuthor(author).name
   const div = useRef(null)
   const [width, setWidth] = useState(0)
 
@@ -81,7 +83,7 @@ export default function PostLayout({
         title={title}
         keywords={keywords}
         date={date}
-        author={authorName}
+        // author={authorName}
         description={description}
       />
       <div

@@ -3,7 +3,7 @@ import { Field } from '../lib/posts'
 import { FieldContent } from '../lib/fields'
 import ReferenceItem from './ReferenceItem'
 import Pagination from './Pagination'
-import { TagContent } from '../lib/tags'
+import { TagContent } from '../common/utils/tags'
 import { FilterContent } from '../lib/categories'
 
 type Props = {
