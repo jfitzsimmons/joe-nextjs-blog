@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 769px) and (min-height: 580px) {
+@media (min-width: 769px) and (min-height: 460px) {
   .root {
     display: flex;
     flex: 1 1 auto;

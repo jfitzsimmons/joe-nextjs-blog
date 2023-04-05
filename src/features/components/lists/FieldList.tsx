@@ -1,10 +1,10 @@
 import React from 'react'
-import { Field } from '../lib/posts'
-import { FieldContent } from '../lib/fields'
+import { Field } from '../../../lib/posts'
+import { FieldContent } from '../../../lib/fields'
 import ReferenceItem from './ReferenceItem'
-import Pagination from './Pagination'
-import { TagContent } from '../common/utils/tags'
-import { FilterContent } from '../lib/categories'
+import Pagination from '../../../common/components/Pagination'
+// import { TagContent } from '../common/utils/tags'
+import { FilterContent } from '../../../common/utils/categories'
 
 type Props = {
   fields: Field[]
@@ -103,7 +103,7 @@ export default function FieldPostList({
           .categories li {
             margin-bottom: 0.75em;
           }
-          @media (min-width: 769px) and (min-height: 580px) {
+          @media (min-width: 769px) and (min-height: 460px) {
             h1 {
               font-size: 2rem;
             }

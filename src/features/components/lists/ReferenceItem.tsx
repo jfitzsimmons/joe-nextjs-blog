@@ -1,10 +1,10 @@
-import { Field } from "../lib/posts";
-import Date from "./Date";
+import { Field } from "../../../lib/posts";
+import Date from "../../../common/components/Date";
 import Link from "next/link";
 import { parseISO } from "date-fns";
-import TagLink from "./TagLink";
-import { getTag } from "../common/utils/tags";
-import { getCat } from "../lib/categories";
+import TagLink from "../../../common/components/TagLink";
+import { getTag } from "../../../common/utils/tags";
+import { getCat } from "../../../common/utils/categories";
 
 type Props = {
   field: Field;

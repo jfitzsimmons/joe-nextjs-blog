@@ -1,9 +1,9 @@
 import { GetStaticProps } from 'next'
-import Layout from '../../features/layout/Layout'
+import Layout from '../../features/components/layout/Layout'
 import BasicMeta from '../../common/components/meta/BasicMeta'
 import OpenGraphMeta from '../../common/components/meta/OpenGraphMeta'
 import TwitterCardMeta from '../../common/components/meta/TwitterCardMeta'
-import PostList from '../../features/lists/PostList'
+import PostList from '../../features/components/lists/PostList'
 import config from '../../common/utils/config'
 import { countPosts, listPostContent, PostContent } from '../../lib/posts'
 import { listTags, TagContent } from '../../common/utils/tags'
@@ -36,7 +36,7 @@ export default function Index({ posts, tags, pagination }: Props) {
           text-align: center;
           margin: 1rem 0 0;
         }
-        @media (min-width: 769px) and (min-height: 580px) {
+        @media (min-width: 769px) and (min-height: 460px) {
           h2 {
             font-size: 2.25rem;
           }

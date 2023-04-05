@@ -1,6 +1,6 @@
 //import { AuthorContent } from "../lib/authors";
 import React from "react";
-import { getCat } from "../../common/utils/categories";
+import { getCat } from "../../../common/utils/categories";
 
 type Props = {
   body: string;

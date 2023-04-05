@@ -1,7 +1,7 @@
 import {useRef, useEffect, useState} from "react";
-import Canvas from '../common/components/Canvas'
+import Canvas from '../../common/components/Canvas'
 // import { SocialList } from './SocialList'
-import { mountains } from '../utils/mountains'
+import { mountains } from '../../utils/mountains'
 import styles from './Home.module.css'
 
 export default function Home() {

@@ -1,23 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from '../../public/styles/content.module.css'
+import styles from '../../../../public/styles/content.module.css'
 // import Author from './Author'
 import Copyright from './Copyright'
-import Date from '../../common/components/Date'
-import Layout from '../../features/layout/Layout'
+import Date from '../../../common/components/Date'
+import Layout from '../layout/Layout'
 import Chapter from './Chapter'
-import BasicMeta from '../../common/components/meta/BasicMeta'
-import JsonLdMeta from '../../common/components/meta/JsonLdMeta'
-import OpenGraphMeta from '../../common/components/meta/OpenGraphMeta'
-import TwitterCardMeta from '../../common/components/meta/TwitterCardMeta'
-import { SocialList } from '../../common/components/SocialList'
-import TagButton from '../../common/components/TagButton'
+import BasicMeta from '../../../common/components/meta/BasicMeta'
+import JsonLdMeta from '../../../common/components/meta/JsonLdMeta'
+import OpenGraphMeta from '../../../common/components/meta/OpenGraphMeta'
+import TwitterCardMeta from '../../../common/components/meta/TwitterCardMeta'
+import { SocialList } from '../../../common/components/SocialList'
+import TagButton from '../../../common/components/TagButton'
 // import { getAuthor } from '../../../_notes/authors'
-import { getTag } from '../../common/utils/tags'
-import { getCat } from '../../common/utils/categories'
-import { Reference } from '../../lib/posts'
+import { getTag } from '../../../common/utils/tags'
+import { getCat } from '../../../common/utils/categories'
+import { Reference } from '../../../lib/posts'
 import { parseISO } from 'date-fns'
-import Canvas from '../../common/components/Canvas'
-import { mountains } from '../../utils/mountains'
+import Canvas from '../../../common/components/Canvas'
+import { mountains } from '../../../utils/mountains'
 
 // not using author TESTJPF
 
@@ -258,7 +258,7 @@ export default function PostLayout({
             align-items: center;
           }
 
-          @media (min-width: 769px) and (min-height: 580px) {
+          @media (min-width: 769px) and (min-height: 460px) {
             ol {
               margin: 0;
             }

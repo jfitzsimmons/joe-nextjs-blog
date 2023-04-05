@@ -1,13 +1,13 @@
 import { GetStaticProps } from 'next'
-import Layout from '../features/layout/Layout'
+import Layout from '../features/components/layout/Layout'
 import BasicMeta from '../common/components/meta/BasicMeta'
 import OpenGraphMeta from '../common/components/meta/OpenGraphMeta'
 import TwitterCardMeta from '../common/components/meta/TwitterCardMeta'
 import { latestPostContent, PostContent } from '../lib/posts'
 import { listCats } from '../common/utils/categories'
 import { listTags, TagContent } from '../common/utils/tags'
-import  Home  from '../features/Home'
-import PostList from '../features/lists/PostList'
+import  Home  from '../features/components/Home'
+import PostList from '../features/components/lists/PostList'
 
 
 type Props = {

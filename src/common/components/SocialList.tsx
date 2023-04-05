@@ -1,6 +1,6 @@
 import React from "react";
-import CodePen from "../assets/codepen-alt.svg";
-import GitHub from "../assets/github-alt.svg";
+import CodePen from "../../assets/codepen-alt.svg";
+import GitHub from "../../assets/github-alt.svg";
 import config from "../utils/config";
 // testjpf what do you want to do with this???
 export function SocialList({}) {

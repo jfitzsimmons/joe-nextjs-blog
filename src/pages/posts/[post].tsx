@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { fetchPostContent } from "../../lib/posts";
 import fs from "fs";
 import { parseISO } from 'date-fns';
-import PostLayout from "../../../_notes/components/PostLayout";
+import PostLayout from "../../features/components/content/PostLayout";
 import { Reference } from "../../lib/posts"
 
 export type Props = {
