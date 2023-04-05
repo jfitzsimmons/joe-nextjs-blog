@@ -1,3 +1,4 @@
+import React from 'react'
 import { GetStaticProps } from 'next'
 import Layout from '../../features/components/layout/Layout'
 import BasicMeta from '../../common/components/meta/BasicMeta'
@@ -6,7 +7,8 @@ import TwitterCardMeta from '../../common/components/meta/TwitterCardMeta'
 import PostList from '../../features/components/lists/PostList'
 import config from '../../common/utils/config'
 import { countPosts, listPostContent, PostContent } from '../../lib/posts'
-import { listTags, TagContent } from '../../common/utils/tags'
+import { listTags } from '../../common/utils/tags'
+import { TagContent } from '../../common/types'
 
 type Props = {
   posts: PostContent[]
@@ -21,10 +23,25 @@ export default function Index({ posts, tags, pagination }: Props) {
   const title = 'All posts'
   return (
     <Layout>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
-      <PostList posts={posts} tags={tags} pagination={pagination} />
+      <BasicMeta
+        url={url}
+        title={title}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+      />
+      <PostList
+        posts={posts}
+        tags={tags}
+        pagination={pagination}
+      />
+      {/**
+       * testjpf is this taken care?!?!?!
       <style jsx>{`
         h2 {
           font-size: 1.75rem;
@@ -42,6 +59,7 @@ export default function Index({ posts, tags, pagination }: Props) {
           }
         }
       `}</style>
+       */}
     </Layout>
   )
 }
