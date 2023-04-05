@@ -91,7 +91,7 @@ export default function Index({ posts, tags }: Props) {
           position: absolute;
           font-weight: 500;
           bottom: 16vmin;
-          right: 4vmin;
+          right: 2vmin;
           height: 55px;
           margin: 0 4vmin 0 0;
           text-align: right;
@@ -110,7 +110,7 @@ export default function Index({ posts, tags }: Props) {
           display: inline-block;
           margin-top: 0.275em;
           color: #feec;
-          text-shadow: 0 0 0.1vmin #000;
+          text-shadow: 1px 2px 2px #100e;
           letter-spacing: 0.05em;
         }
         .heading {
@@ -118,7 +118,7 @@ export default function Index({ posts, tags }: Props) {
           text-align: center;
           margin: 0;
         }
-        @media only screen and (min-width: 544px) {
+        @media only screen and (min-width: 534px) {
           h1 {
             bottom: 4vmin;
           }
