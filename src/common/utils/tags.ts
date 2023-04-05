@@ -22,5 +22,3 @@ export function listTags(): TagContent[] {
 export function childTags(p): TagContent[] {
   return tags.tags.filter((t) => t.parent === p)
 }
-
-export { TagContent }

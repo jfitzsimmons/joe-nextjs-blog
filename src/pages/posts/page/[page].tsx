@@ -8,7 +8,8 @@ import TwitterCardMeta from '../../../common/components/meta/TwitterCardMeta'
 import PostList from '../../../features/components/lists/PostList'
 import config from '../../../common/utils/config'
 import { countPosts, listPostContent, PostContent } from '../../../lib/posts'
-import { listTags, TagContent } from '../../../common/utils/tags'
+import { listTags } from '../../../common/utils/tags'
+import { TagContent } from '../../../common/types'
 
 type Props = {
   posts: PostContent[]

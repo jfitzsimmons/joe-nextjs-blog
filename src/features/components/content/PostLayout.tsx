@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { parseISO } from 'date-fns'
-// import styles from '../../../../public/styles/content.module.css'
 // import Author from './Author'
 import Copyright from './Copyright'
 import Date from '../../../common/components/Date'
