@@ -1,16 +1,14 @@
-import { useState, useRef, useEffect } from 'react'
 import { GetStaticProps } from 'next'
-import Layout from '../components/Layout'
-import BasicMeta from '../components/meta/BasicMeta'
-import OpenGraphMeta from '../components/meta/OpenGraphMeta'
-import TwitterCardMeta from '../components/meta/TwitterCardMeta'
-import { SocialList } from '../components/SocialList'
+import Layout from '../features/layout/Layout'
+import BasicMeta from '../common/components/meta/BasicMeta'
+import OpenGraphMeta from '../common/components/meta/OpenGraphMeta'
+import TwitterCardMeta from '../common/components/meta/TwitterCardMeta'
 import { latestPostContent, PostContent } from '../lib/posts'
-import { listCats } from '../lib/categories'
-import { listTags, TagContent } from '../lib/tags'
-import PostList from '../components/PostList'
-import Canvas from '../components/Canvas'
-import { mountains } from '../utils/mountains'
+import { listCats } from '../common/utils/categories'
+import { listTags, TagContent } from '../common/utils/tags'
+import  Home  from '../features/Home'
+import PostList from '../features/lists/PostList'
+
 
 type Props = {
   posts: PostContent[]
@@ -18,118 +16,18 @@ type Props = {
 }
 
 export default function Index({ posts, tags }: Props) {
-  const [dimensions, setDimensions] = useState({ w: 0, h: 0 })
-  const div = useRef(null)
-
-  useEffect(() => {
-    if (div.current)
-      setDimensions({
-        w: div.current.offsetWidth,
-        h: Math.round(window.innerHeight * 0.33),
-      })
-  }, [])
-
   return (
     <Layout>
       <BasicMeta url={'/'} />
       <OpenGraphMeta url={'/'} />
       <TwitterCardMeta url={'/'} />
-      <div className="container logo">
-        <div className="flex-column">
-          <div className="mountains" ref={div}>
-            <h1>
-              Insincere <span className="fancy">Engineer</span>
-            </h1>
-            <Canvas
-              draw={mountains}
-              height={dimensions.h}
-              width={dimensions.w}
-              fader={0}
-              animation={false}
-              instance={'home'}
-            />
-          </div>
-          <div className="card">
-            {/*<span className="handle">@nextjs-netlify-blog </span>*/}
-            <h2>A website so novel, it's arguably a complete waste of time!</h2>
-            <SocialList />
-          </div>
-        </div>
-      </div>
+      <Home />
       <PostList
         posts={posts}
         tags={tags}
         type="home"
         filter={{ slug: 'latest', name: 'latest' }}
       />
-      <style jsx>{`
-        .container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: 1 1 auto;
-          min-height: 100vh;
-        }
-        .flex-column {
-          box-shadow: 0 0 25px 1px rgba(211, 184, 196, 0.3),
-            inset 0 0 40px 0px rgba(11, 4, 6, 0.1),
-            0.7vmin -0.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
-          border-radius: 4vmin;
-          text-shadow: 1px 2px 2px #000e;
-        }
-        .mountains {
-          height: 33vh;
-          position: relative;
-        }
-        .card {
-          padding: 4vmin;
-          border-radius: 3px 0 4vmin 4vmin;
-        }
-        h1 {
-          font-size: calc(2rem + 4vmin);
-          z-index: 1;
-          position: absolute;
-          font-weight: 500;
-          bottom: 16vmin;
-          right: 2vmin;
-          height: 55px;
-          margin: 0 4vmin 0 0;
-          text-align: right;
-          color: #fff;
-        }
-        h2 {
-          font-size: 1.75rem;
-          font-weight: 400;
-          line-height: 1.25;
-          margin-top: 0;
-        }
-        .fancy {
-          color: #6fedeb;
-        }
-        .handle {
-          display: inline-block;
-          margin-top: 0.275em;
-          color: #feec;
-          text-shadow: 1px 2px 2px #100e;
-          letter-spacing: 0.05em;
-        }
-        .heading {
-          width: 100%;
-          text-align: center;
-          margin: 0;
-        }
-        @media only screen and (min-width: 534px) {
-          h1 {
-            bottom: 4vmin;
-          }
-        }
-        @media (min-width: 769px) and (min-height: 580px) {
-          h2 {
-            font-size: 2.25rem;
-          }
-
-        }
-      `}</style>
     </Layout>
   )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import { PostContent } from '../lib/posts'
+import { PostContent } from '../../lib/posts'
 import PostItem from './PostItem'
-import TagLink from './TagLink'
-import Pagination from './Pagination'
-import { TagContent } from '../lib/tags'
-import { FilterContent, getCat } from '../lib/categories'
-import { orderBy } from '../utils/arrays'
+import TagLink from '../../common/components/TagLink'
+import Pagination from '../../common/components/Pagination'
+import { TagContent } from '../../common/utils/tags'
+import { FilterContent, getCat } from '../../common/utils/categories'
+import { orderBy } from '../../utils/arrays'
 import Link from 'next/link'
 
 type Props = {

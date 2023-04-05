@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FilterContent } from "../lib/categories";
+import { FilterContent } from "../../common/utils/categories";
 
 type Props = {
   cat: FilterContent;

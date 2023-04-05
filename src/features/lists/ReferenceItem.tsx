@@ -3,7 +3,7 @@ import Date from "./Date";
 import Link from "next/link";
 import { parseISO } from "date-fns";
 import TagLink from "./TagLink";
-import { getTag } from "../lib/tags";
+import { getTag } from "../common/utils/tags";
 import { getCat } from "../lib/categories";
 
 type Props = {

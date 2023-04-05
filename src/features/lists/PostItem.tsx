@@ -1,11 +1,11 @@
-import { PostContent } from "../lib/posts";
-import Date from "./Date";
+import { PostContent } from "../../lib/posts";
+import Date from "../../common/components/Date";
 import Link from "next/link";
 import { parseISO } from "date-fns";
-import TagLink from "./TagLink";
+import TagLink from "../../common/components/TagLink";
 import CategoryButton from "./CategoryButton";
-import { getTag } from "../lib/tags";
-import { getCat } from "../lib/categories";
+import { getTag } from "../../common/utils/tags";
+import { getCat } from "../../common/utils/categories";
 
 type Props = {
   post: PostContent;

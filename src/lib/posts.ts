@@ -1,7 +1,15 @@
 import fs from "fs";
 import path from "path";
-import { FilterContent } from "./categories";
-
+import { FilterContent } from "../common/utils/categories";
+/** testjpf
+ * stuff in here that probably shouldn't (type Reference)
+ * types should be removed from all utils
+ * 
+ * also finish up rest of lib folder !!! testjpf
+ * 
+ * also finish css modules
+ * start here testjpf
+ */
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
 export type PostContent = {
