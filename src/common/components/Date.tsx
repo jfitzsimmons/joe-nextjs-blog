@@ -1,23 +1,13 @@
-import { format, formatISO } from "date-fns";
+import React from 'react'
+import { format, formatISO } from 'date-fns'
 
 type Props = {
-  date: Date;
-};
+  date: Date
+}
 export default function Date({ date }: Props) {
   return (
     <time dateTime={formatISO(date)}>
-      <span>{format(date, "LLLL d, yyyy")}</span>
-      <style jsx>
-        {`
-          span {
-              font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
-    'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
-    sans-serif;
-            color: #feec;
-            letter-spacing: 2px;
-          }
-        `}
-      </style>
+      <span>{format(date, 'LLLL d, yyyy')}</span>
     </time>
-  );
+  )
 }

@@ -1,48 +1,43 @@
-import { generatePagination } from "../utils/pagination";
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
+import generatePagination from '../utils/pagination'
+import styles from './Pagination.module.css'
+import { Pagination } from '../types'
 
 type Props = {
-  current: number;
-  pages: number;
+  current: number
+  pages: number
   link: {
-    href: (page: number) => string;
-    as: (page: number) => string;
-  };
-};
-export default function Pagination({ current, pages, link }: Props) {
-  const pagination = generatePagination(current, pages);
+    href: (number) => string
+    as: (number) => string
+  }
+}
+export default function PaginationComponent({ current, pages, link }: Props) {
+  const pagination = generatePagination(current, pages)
   return (
-    <ul>
-      {pagination.map((it, i) => (
-        <li key={i}>
+    <ul className={styles.paging}>
+      {pagination.map((it: Pagination) => (
+        <li
+          key={it.page}
+          className={styles.paging__number}
+        >
           {it.excerpt ? (
-            "..."
+            '...'
           ) : (
-            <Link href={link.href(it.page)} as={link.as(it.page)}>
-              <a className={it.page === current ? "active" : null}>{it.page}</a>
+            <Link
+              href={link.href(it.page)}
+              as={link.as(it.page)}
+            >
+              <a
+                className={it.page === current ? styles.active : null}
+                href={link.href(it.page)}
+              >
+                {it.page}
+              </a>
             </Link>
           )}
         </li>
       ))}
-      <style jsx>{`
-        ul {
-          list-style: none;
-          margin: 3rem 0 0 0;
-          padding: 0;
-        }
-        li {
-          display: inline-block;
-          margin-right: 1em;
-          color: #feec; 
-          text-shadow: 0 0 .1vmin #000;
-          font-size: calc(1rem + 3vmin);
-          text-shadow: 1px 1px 5px #000;
-        }
-        a.active {
-          color: #feee;
-          font-weight: bold;
-        }
-      `}</style>
     </ul>
-  );
+  )
 }

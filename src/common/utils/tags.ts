@@ -1,29 +1,26 @@
-import tags from "../../../meta/tags.yml";
-
-export type TagContent = {
-  readonly slug: string;
-  readonly name: string;
-  readonly parent: string;
-};
-
-const tagMap: { [key: string]: TagContent } = generateTagMap();
+import tags from '../../../meta/tags.yml'
+import { TagContent } from '../types'
 
 function generateTagMap(): { [key: string]: TagContent } {
-  let result: { [key: string]: TagContent } = {};
-  for (const tag of tags.tags) {
-    result[tag.slug] = tag;
-  }
-  return result;
+  const result: { [key: string]: TagContent } = {}
+  tags.tags.forEach((t) => {
+    result[t.slug] = t
+  })
+  return result
 }
 
+const tagMap: { [key: string]: TagContent } = generateTagMap()
+
 export function getTag(slug: string) {
-  return tagMap[slug];
+  return tagMap[slug]
 }
 
 export function listTags(): TagContent[] {
-  return tags.tags;
+  return tags.tags
 }
 
 export function childTags(p): TagContent[] {
-  return tags.tags.filter(t => t.parent === p);
+  return tags.tags.filter((t) => t.parent === p)
 }
+
+export { TagContent }

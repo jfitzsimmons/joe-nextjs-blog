@@ -1,13 +1,15 @@
-import Head from "next/head";
-import config from "../../utils/config";
+import React from 'react'
+import Head from 'next/head'
+import config from '../../utils/config'
 
 type Props = {
-  title?: string;
-  description?: string;
-  keywords?: string[];
-  author?: string;
-  url: string;
-};
+  title?: string
+  description?: string
+  keywords?: string[]
+  author?: string
+  url: string
+}
+
 export default function BasicMeta({
   title,
   description,
@@ -18,22 +20,37 @@ export default function BasicMeta({
   return (
     <Head>
       <title>
-        {title ? [title, config.site_title].join(" | ") : config.site_title}
+        {title ? [title, config.site_title].join(' | ') : config.site_title}
       </title>
       <meta
         name="description"
-        content={description ? description : config.site_description}
+        content={description || config.site_description}
       />
       <meta
         name="keywords"
         content={
           keywords
-            ? keywords.join(",")
-            : config.site_keywords.map((it) => it.keyword).join(",")
+            ? keywords.join(',')
+            : config.site_keywords.map((it) => it.keyword).join(',')
         }
       />
-      {author ? <meta name="author" content={author} /> : null}
-      <link rel="canonical" href={config.base_url + url} />
+      {author ? (
+        <meta
+          name="author"
+          content={author}
+        />
+      ) : null}
+      <link
+        rel="canonical"
+        href={config.base_url + url}
+      />
     </Head>
-  );
+  )
+}
+
+BasicMeta.defaultProps = {
+  title: 'Insincere Engineer',
+  description: 'Insincere Engineer',
+  keywords: ['Insincere', 'Engineer'],
+  author: 'Insincere Engineer',
 }
