@@ -125,7 +125,8 @@ export default function PostList({
           list-style: none;
         }
         h1 {
-          text-shadow: 0 0 0.1vmin #000;
+          text-shadow: 1px 2px 2px #100e;
+          font-size: 3em
         }
         .header-large {
           font-size: 3em;

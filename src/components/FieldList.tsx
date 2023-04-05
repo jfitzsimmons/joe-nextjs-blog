@@ -68,7 +68,7 @@ export default function FieldPostList({
             font-weight: 100;
             font-size: 1.75rem;
             color: #feec;
-            text-shadow: 0 0 0.1vmin #000;
+            text-shadow: 1px 2px 2px #100e;
             text-shadow: 1px 1px 5px #000;
           }
           h1 span {

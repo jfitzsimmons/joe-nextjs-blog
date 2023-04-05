@@ -147,8 +147,9 @@ export default function Navigation() {
             font-size: 1.7rem;
           }
           ul {
+            border-radius: 0 0 0 4vmin;
             opacity: 0;
-            width: 100%;
+            width: 240px;
             text-align: right;
             list-style: none;
             margin: 0;
@@ -159,6 +160,7 @@ export default function Navigation() {
             flex-direction: column;
             justify-content: space-around;
             z-index: 3;
+            right: 0;
             transition: opacity 200ms;
             box-sizing: border-box;
             max-height: 400px;
@@ -217,7 +219,7 @@ export default function Navigation() {
               transition: box-shadow .2s
             }
             ul:hover {
-              box-shadow: 15px -5px 25px 1px rgba(211, 184, 196, 0.4), inset 10px 10px 40px 20px rgba(11, 4, 6, 0.9);
+              box-shadow: 15px -5px 25px 1px rgba(211, 184, 196, 0.3), inset 10px 10px 40px 20px rgba(11, 4, 6, 0.8);
 
             }
             ul:active {
