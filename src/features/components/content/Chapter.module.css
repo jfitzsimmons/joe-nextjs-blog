@@ -1,0 +1,20 @@
+.act {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7vmin;
+}
+.cat-button {
+  transition: background-color 0.3s ease;
+  padding: 0.25em 0.75em;
+  border-radius: 4vmin;
+  color: #feee;
+  margin-top: 1rem;
+  width: fit-content;
+  align-self: end;
+}
+.cat-button:active,
+.cat-button:hover {
+  background-color: #feec;
+  text-shadow: 0 0 0.1vmin #000;
+  color: #000;
+}
