@@ -1,11 +1,11 @@
 import React from 'react'
-import { PostContent } from '../../lib/posts'
+import { PostContent } from '../../../lib/posts'
 import PostItem from './PostItem'
-import TagLink from '../../common/components/TagLink'
-import Pagination from '../../common/components/Pagination'
-import { TagContent } from '../../common/utils/tags'
-import { FilterContent, getCat } from '../../common/utils/categories'
-import { orderBy } from '../../utils/arrays'
+import TagLink from '../../../common/components/TagLink'
+import Pagination from '../../../common/components/Pagination'
+import { TagContent } from '../../../common/utils/tags'
+import { FilterContent, getCat } from '../../../common/utils/categories'
+import { orderBy } from '../../../utils/arrays'
 import Link from 'next/link'
 
 type Props = {
@@ -153,7 +153,7 @@ export default function PostList({
         .categories li {
           margin: 1vmin 0.1vmin;
         }
-        @media (min-width: 769px) and (min-height: 580px) {
+        @media (min-width: 769px) and (min-height: 460px) {
           .categories {
             align-self: baseline;
             padding: 2vmin;

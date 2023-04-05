@@ -1,13 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import Layout from "../../../../features/layout/Layout";
-import BasicMeta from "../../../../../_notes/components/meta/BasicMeta";
-import OpenGraphMeta from "../../../../../_notes/components/meta/OpenGraphMeta";
-import TwitterCardMeta from "../../../../../_notes/components/meta/TwitterCardMeta";
-import FieldList from "../../../../../_notes/components/FieldList";
+import Layout from "../../../../features/components/layout/Layout";
+import BasicMeta from "../../../../common/components/meta/BasicMeta";
+import OpenGraphMeta from "../../../../common/components/meta/OpenGraphMeta";
+import TwitterCardMeta from "../../../../common/components/meta/TwitterCardMeta";
+import FieldList from "../../../../features/components/lists/FieldList";
 import config from "../../../../common/utils/config";
-import { countPosts, PostContent, Field } from "../../../../lib/posts";
+import { PostContent, Field } from "../../../../lib/posts";
 import { listPostRefs, countRefs } from "../../../../lib/references";
-import { getField, listFields, FieldContent } from "../../../../lib/fields";
+import { getField, FieldContent } from "../../../../lib/fields";
 import { FilterContent, listCats, getCat } from "../../../../common/utils/categories";
 
 type Props = {

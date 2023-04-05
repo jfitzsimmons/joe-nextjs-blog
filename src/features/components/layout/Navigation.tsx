@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Burger from './Burger'
 import { useState } from 'react'
-import { listCats } from '../../common/utils/categories'
-import { listFields } from '../../lib/fields'
-import Canvas from '../../common/components/Canvas'
-import { mountains } from '../../utils/mountains'
+import { listCats } from '../../../common/utils/categories'
+import { listFields } from '../../../lib/fields'
+import Canvas from '../../../common/components/Canvas'
+import { mountains } from '../../../utils/mountains'
 
 export default function Navigation() {
   const categories = listCats()
@@ -40,12 +40,13 @@ export default function Navigation() {
       </div>
       <div className={'card-dark container  ' + (active ? 'active' : '')}>
         <ul className={active ? 'card-dark' : ''}>
+          {/** testjpf
           <li>
             <Link href="/">
               <a className={router.pathname === '/' ? 'active' : null}>about</a>
             </Link>
-          </li>
-          <li>
+          </li> */}
+          <li className='nav__link'>
             <Link href="/posts">
               <a
                 className={router.pathname.endsWith('/posts') ? 'active' : null}
@@ -55,7 +56,7 @@ export default function Navigation() {
             </Link>
           </li>
           {categories.map((it, i) => (
-            <li key={i}>
+            <li key={i} className='nav__link'>
               <Link href={`/posts/categories/${it.slug}`}>
                 <a
                   className={
@@ -78,7 +79,7 @@ export default function Navigation() {
             </li>
           ))}
           {fields.map((it, i) => (
-            <li key={i}>
+            <li key={i} className='nav__link'>
               <Link href={`/posts/field/${it.slug}`}>
                 <a
                   className={
@@ -170,6 +171,9 @@ export default function Navigation() {
             display: flex;
             opacity: 1;
           }
+          .nav__link {
+            min-height: calc(1.5rem + 2vmin);
+          }
           li {
             flex: 1;
             font-size: 2rem;
@@ -192,7 +196,7 @@ export default function Navigation() {
           .logo-container {
             display: none;
           }
-          @media (min-width: 769px) and (min-height: 580px) {
+          @media (min-width: 769px) and (min-height: 460px) {
             a:hover,
             a.active {
               font-size: 1.2rem;
@@ -207,6 +211,7 @@ export default function Navigation() {
             }
             ul {
               box-shadow: 15px -5px 25px 1px rgba(211, 184, 196, 0.2), inset 10px 10px 30px 15px rgba(11, 4, 6, 0.6);
+              height: fit-content;
               opacity: 1;
               width: 7rem;
               position: sticky;

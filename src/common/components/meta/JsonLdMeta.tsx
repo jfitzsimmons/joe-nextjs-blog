@@ -1,18 +1,20 @@
-import { BlogPosting } from "schema-dts";
-import { jsonLdScriptProps } from "react-schemaorg";
-import config from "../../utils/config";
-import { formatISO } from "date-fns";
-import Head from "next/head";
+import React from 'react'
+import { BlogPosting } from 'schema-dts'
+import { jsonLdScriptProps } from 'react-schemaorg'
+import { formatISO } from 'date-fns'
+import Head from 'next/head'
+import config from '../../utils/config'
 
 type Props = {
-  url: string;
-  title: string;
-  keywords?: string[];
-  date: Date;
-  author?: string;
-  image?: string;
-  description?: string;
-};
+  url: string
+  title: string
+  keywords?: string[]
+  date: Date
+  author?: string
+  image?: string
+  description?: string
+}
+
 export default function JsonLdMeta({
   url,
   title,
@@ -25,18 +27,26 @@ export default function JsonLdMeta({
   return (
     <Head>
       <script
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...jsonLdScriptProps<BlogPosting>({
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
           mainEntityOfPage: config.base_url + url,
           headline: title,
-          keywords: keywords ? undefined : keywords.join(","),
+          keywords: keywords ? undefined : keywords.join(','),
           datePublished: formatISO(date),
-          author: author,
-          image: image,
-          description: description,
+          author,
+          image,
+          description,
         })}
       />
     </Head>
-  );
+  )
+}
+
+JsonLdMeta.defaultProps = {
+  description: 'Insincere Engineer',
+  keywords: ['Insincere', 'Engineer'],
+  author: 'Insincere Engineer',
+  image: '',
 }

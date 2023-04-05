@@ -1,12 +1,8 @@
-type Pagination = {
-  page: number | null;
-  current: boolean;
-  excerpt: boolean;
-};
+import { Pagination } from '../types'
 
-export function generatePagination(
+export default function generatePagination(
   current: number,
-  pages: number
+  pages: number,
 ): Pagination[] {
   return Array.from(Array(pages).keys())
     .map((it) => it + 1)
@@ -16,5 +12,5 @@ export function generatePagination(
         Math.abs(current - it) === 2 && it !== 1 && it !== pages ? null : it,
       current: it === current,
       excerpt: Math.abs(current - it) === 2 && it !== 1 && it !== pages,
-    }));
+    }))
 }

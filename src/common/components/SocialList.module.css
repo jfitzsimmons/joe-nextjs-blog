@@ -1,0 +1,6 @@
+.social_icon_link {
+  display: inline-block;
+}
+.social_icon_link:not(:last-child) {
+  margin-right: 2em;
+}
