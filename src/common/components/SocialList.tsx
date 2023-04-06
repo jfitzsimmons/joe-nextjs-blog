@@ -4,7 +4,6 @@ import GitHub from '../../assets/github-alt.svg'
 import config from '../utils/config'
 import styles from './SocialList.module.css'
 
-// testjpf what do you want to do with this???
 export default function SocialList() {
   return (
     <div>

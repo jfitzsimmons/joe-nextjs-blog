@@ -49,8 +49,8 @@ export default function BasicMeta({
 }
 
 BasicMeta.defaultProps = {
-  title: 'Insincere Engineer',
-  description: 'Insincere Engineer',
+  title: '',
+  description: '',
   keywords: ['Insincere', 'Engineer'],
-  author: 'Insincere Engineer',
+  author: '',
 }

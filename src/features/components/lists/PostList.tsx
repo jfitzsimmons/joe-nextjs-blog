@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { PostContent } from '../../../lib/posts'
+import { PostContent } from '../../types'
 import PostItem from './PostItem'
 import TagLink from '../../../common/components/TagLink'
 import Pagination from '../../../common/components/Pagination'
@@ -8,7 +8,7 @@ import { TagContent, FilterContent } from '../../../common/types'
 import { getCat } from '../../../common/utils/categories'
 import { orderBy } from '../../../utils/arrays'
 import styles from './PostList.module.css'
-// testjpf DRY header / LINK ...
+
 type Props = {
   posts: PostContent[]
   tags?: TagContent[]
@@ -120,6 +120,6 @@ export default function PostList({
 PostList.defaultProps = {
   tags: [],
   // cat: "Insincere Engineer",
-  filter: 'Insincere Engineer',
+  filter: '',
   type: 'all',
 }

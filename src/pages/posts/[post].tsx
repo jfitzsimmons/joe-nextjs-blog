@@ -2,10 +2,11 @@ import React from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import fs from 'fs'
 import { parseISO } from 'date-fns'
-import { fetchPostContent, Reference } from '../../lib/posts'
+import { fetchPostContent } from '../../features/utils/posts'
+import { Reference } from '../../features/types'
 import PostLayout from '../../features/components/content/PostLayout'
 
-export type Props = {
+type Props = {
   title: string
   dateString: string
   slug: string
@@ -19,9 +20,10 @@ export type Props = {
 
 const slugToPostContent = ((postContents) => {
   const hash = {}
-  // testjpf fix:::
-  // eslint-disable-next-line no-return-assign
-  postContents.forEach((it) => (hash[it.slug] = it))
+  function setHash(it) {
+    hash[it.slug] = it
+  }
+  postContents.forEach((it) => setHash(it))
   return hash
 })(fetchPostContent())
 
@@ -79,6 +81,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 Post.defaultProps = {
-  description: 'Insincere Engineer',
+  description: '',
   references: [],
 }

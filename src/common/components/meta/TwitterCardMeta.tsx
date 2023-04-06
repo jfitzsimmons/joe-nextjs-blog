@@ -31,6 +31,6 @@ export default function TwitterCardMeta({ url, title, description }: Props) {
 }
 
 TwitterCardMeta.defaultProps = {
-  description: 'Insincere Engineer',
-  title: 'Insincere Engineer',
+  description: '',
+  title: '',
 }

@@ -6,7 +6,8 @@ import OpenGraphMeta from '../../../common/components/meta/OpenGraphMeta'
 import TwitterCardMeta from '../../../common/components/meta/TwitterCardMeta'
 import PostList from '../../../features/components/lists/PostList'
 import config from '../../../common/utils/config'
-import { countPosts, listPostContent, PostContent } from '../../../lib/posts'
+import { PostContent } from '../../../features/types'
+import { countPosts, listPostContent } from '../../../features/utils/posts'
 import { getTag, listTags } from '../../../common/utils/tags'
 import { TagContent } from '../../../common/types'
 
@@ -96,5 +97,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 Index.defaultProps = {
-  page: 'Insincere Engineer',
+  page: '',
 }

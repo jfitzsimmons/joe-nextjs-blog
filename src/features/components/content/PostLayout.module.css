@@ -75,10 +75,10 @@
 .ref_list li {
   margin: 0 0 0.5rem 1rem;
 }
-.ref-link {
+.ref_link {
   color: rgba(1, 88, 123, 0.8);
 }
-.social-list {
+.social_list {
   margin-top: 3rem;
   text-align: center;
   width: fit-content;

@@ -45,7 +45,7 @@ export default function OpenGraphMeta({
 }
 
 OpenGraphMeta.defaultProps = {
-  description: 'Insincere Engineer',
-  title: 'Insincere Engineer',
+  description: '',
+  title: '',
   image: '',
 }

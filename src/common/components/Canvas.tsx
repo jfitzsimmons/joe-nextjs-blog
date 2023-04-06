@@ -49,13 +49,10 @@ export default function Canvas({
   const hasFocus = useHasFocus()
 
   const getCanvasClasses = () => {
-    console.log('animation', animation)
-    const classString = fader !== 0 ? styles.canvases : styles[instance]
+    const instanceString = fader !== 0 ? styles.canvases : styles[instance]
     const animString = animation ? styles.animation : ' '
-    console.log('animString', animString)
-    const testjpf = classString.concat(' ', animString)
-    console.log('testjpf', testjpf)
-    return testjpf
+    const bothStrings = instanceString.concat(' ', animString)
+    return bothStrings
   }
 
   useEffect(() => {

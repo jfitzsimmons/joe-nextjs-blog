@@ -6,9 +6,10 @@ import OpenGraphMeta from '../../common/components/meta/OpenGraphMeta'
 import TwitterCardMeta from '../../common/components/meta/TwitterCardMeta'
 import PostList from '../../features/components/lists/PostList'
 import config from '../../common/utils/config'
-import { countPosts, listPostContent, PostContent } from '../../lib/posts'
+import { countPosts, listPostContent } from '../../features/utils/posts'
 import { listTags } from '../../common/utils/tags'
 import { TagContent } from '../../common/types'
+import { PostContent } from '../../features/types'
 
 type Props = {
   posts: PostContent[]
@@ -41,26 +42,6 @@ export default function Index({ posts, tags, pagination }: Props) {
         pagination={pagination}
         type="all"
       />
-      {/**
-       * testjpf is this taken care?!?!?!
-      <style jsx>{`
-        h2 {
-          font-size: 1.75rem;
-          font-weight: 400;
-          line-height: 1.25;
-        }
-        .heading {
-          width: 100%;
-          text-align: center;
-          margin: 1rem 0 0;
-        }
-        @media (min-width: 769px) and (min-height: 460px) {
-          h2 {
-            font-size: 2.25rem;
-          }
-        }
-      `}</style>
-       */}
     </Layout>
   )
 }

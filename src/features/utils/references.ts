@@ -1,4 +1,5 @@
-import { fetchPostContent, PostContent } from './posts'
+import { fetchPostContent } from './posts'
+import { PostContent } from '../types'
 
 export function listPostRefs(
   page: number,
@@ -38,8 +39,9 @@ export function countRefs(slug?: string, meta?: string): number {
       ? (it) => it.references && it.tags.includes(slug)
       : (it) => it.references,
   )
-  // testjpf fix:::
-  // eslint-disable-next-line no-return-assign
-  postsWithRefs.forEach((p) => (count += p.references.length))
+  function addRefLength(refLength) {
+    count += refLength
+  }
+  postsWithRefs.forEach((p) => addRefLength(p.references.length))
   return count
 }

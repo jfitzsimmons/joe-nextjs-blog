@@ -6,7 +6,6 @@ import { AppProps } from 'next/app'
 import '../../public/styles/global.css'
 
 export default function App({ Component, pageProps }: AppProps) {
-  // testjpf: fix?!
   // eslint-disable-next-line react/jsx-props-no-spreading
   return <Component {...pageProps} />
 }

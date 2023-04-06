@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
 import { parseISO } from 'date-fns'
-import { Field } from '../../../lib/posts'
+import { Field } from '../../types'
 import Date from '../../../common/components/Date'
 import TagLink from '../../../common/components/TagLink'
 import { getTag } from '../../../common/utils/tags'
