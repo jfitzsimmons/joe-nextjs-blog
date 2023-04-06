@@ -31,31 +31,37 @@ export default function ReferenceItem({ field }: Props) {
   return (
     <>
       <Link href={field.reference.url}>
-        <span className={`card ${styles.span} ${styles.top}`}>
-          <span className={styles.title}>{field.reference.title}</span> |{' '}
-          {field.reference.source} |{' '}
-          <Date date={parseISO(field.reference.date)} />
-        </span>
+        <a>
+          <span className={`card ${styles.span} ${styles.top}`}>
+            <span className={styles.title}>{field.reference.title}</span> |{' '}
+            {field.reference.source} |{' '}
+            <Date date={parseISO(field.reference.date)} />
+          </span>
+        </a>
       </Link>
       <Link href={`/posts/${field.url}`}>
-        <span className={`card-dark ${styles.span} ${styles.bottom}`}>
-          {field.title} | <Date date={parseISO(field.date)} />
-        </span>
+        <a>
+          <span className={`card-dark ${styles.span} ${styles.bottom}`}>
+            {field.title} | <Date date={parseISO(field.date)} />
+          </span>
+        </a>
       </Link>
       <ul className={`${styles.tag_list} ${styles.ul}`}>
         <li className={`card ${styles.li}`}>
           <Link href={`/posts/field/categories/${category.name}`}>
-            <span
-              ref={catBtn}
-              className={styles.category_link}
-              style={styleObj}
-              onMouseOver={() => hoverBackground()}
-              onFocus={() => hoverBackground()}
-              onMouseLeave={() => dynamicBackground()}
-              onBlur={() => dynamicBackground()}
-            >
-              {field.category}
-            </span>
+            <a>
+              <span
+                ref={catBtn}
+                className={styles.category_link}
+                style={styleObj}
+                onMouseOver={() => hoverBackground()}
+                onFocus={() => hoverBackground()}
+                onMouseLeave={() => dynamicBackground()}
+                onBlur={() => dynamicBackground()}
+              >
+                {field.category}
+              </span>
+            </a>
           </Link>
         </li>
         <li className="card">

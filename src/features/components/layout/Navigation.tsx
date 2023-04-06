@@ -35,11 +35,11 @@ export default function Navigation() {
           instance="logo"
         />
         <Link href="/">
-          <span className={styles.title_short}>
+          <a className={styles.title_short}>
             <h1>
               Ins<span className="fancy">Eng</span>
             </h1>
-          </span>
+          </a>
         </Link>
       </div>
       <div
@@ -56,13 +56,13 @@ export default function Navigation() {
           </li> */}
           <li className={styles.nav__link}>
             <Link href="/posts">
-              <span
+              <a
                 className={`${styles.link} ${
                   router.pathname.endsWith('/posts') ? styles.active : ''
                 }`}
               >
                 blog
-              </span>
+              </a>
             </Link>
           </li>
           {categories.map((it) => (
@@ -71,7 +71,7 @@ export default function Navigation() {
               className={styles.nav__link}
             >
               <Link href={`/posts/categories/${it.slug}`}>
-                <span
+                <a
                   className={`${styles.link} ${
                     router.asPath.endsWith(`categories/${it.slug}`)
                       ? styles.active
@@ -87,7 +87,7 @@ export default function Navigation() {
                     </span>
                   )}
                   {it.name}
-                </span>
+                </a>
               </Link>
             </li>
           ))}
@@ -97,7 +97,7 @@ export default function Navigation() {
               className={styles.nav__link}
             >
               <Link href={`/posts/field/${it.slug}`}>
-                <span
+                <a
                   className={`${styles.link} ${
                     router.asPath.endsWith(`field/${it.slug}`)
                       ? styles.active
@@ -105,13 +105,14 @@ export default function Navigation() {
                   }`}
                 >
                   {it.name}
-                </span>
+                </a>
               </Link>
             </li>
           ))}
         </ul>
       </div>
       <div className={`${styles.bottom_rail} card-dark`}>
+        {/** testjpf clean up css for this:::: */}
         <button
           type="button"
           className={styles.to_top}

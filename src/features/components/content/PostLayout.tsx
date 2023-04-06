@@ -92,7 +92,7 @@ export default function PostLayout({
       />
       <div
         className={styles.tab}
-        style={{ background: `rgba(${getCat(category).color}.6)` }}
+        style={{ background: `rgba(${getCat(category).color}.8)` }}
       />
       <div className={styles.container}>
         <div className="post-card">
@@ -166,6 +166,7 @@ export default function PostLayout({
           )}
         </div>
         <footer className={styles.footer}>
+          {/** testjpf clean up css for footer::: */}
           <div className="social-list card-dark">
             <SocialList />
             <Copyright />

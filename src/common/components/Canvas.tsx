@@ -6,7 +6,7 @@ type Props = {
   height: number
   width: number
   fader: number | 0
-  animation: boolean
+  animation: boolean | true
   instance: string
 }
 
@@ -40,7 +40,7 @@ export default function Canvas({
   height,
   width,
   fader,
-  animation,
+  animation = true,
   instance,
 }: Props) {
   const canvas = useRef(null)
@@ -49,10 +49,13 @@ export default function Canvas({
   const hasFocus = useHasFocus()
 
   const getCanvasClasses = () => {
+    console.log('animation', animation)
     const classString = fader !== 0 ? styles.canvases : styles[instance]
-    const animString = animation ? ' ' : styles.animation
-    classString.concat(' ', animString)
-    return classString
+    const animString = animation ? styles.animation : ' '
+    console.log('animString', animString)
+    const testjpf = classString.concat(' ', animString)
+    console.log('testjpf', testjpf)
+    return testjpf
   }
 
   useEffect(() => {

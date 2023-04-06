@@ -1,4 +1,4 @@
-.span {
+.a {
   display: inline-block;
   border-radius: 0 4vmin 4vmin 0;
   color: #211;
@@ -12,8 +12,8 @@
   transform: rotate(180deg);
   transition: `backgroundColor 0.3s ease`;
 }
-.span:active,
-.span:hover {
+.a:active,
+.a:hover {
   background-color: #cbb8;
   cursor: pointer;
   color: #fff;

@@ -31,7 +31,7 @@ export default function PostList({
 }: Props) {
   const orderedTags = tags ? orderBy(tags, ['slug'], ['asc']) : []
   return (
-    <div className={`${styles.container} ${styles.with_posts}`}>
+    <div className={`${styles.container}`}>
       <div className={styles.posts}>
         {type !== 'home' && (
           <h1 className={styles.header_large}>
@@ -41,13 +41,15 @@ export default function PostList({
               <>
                 {'latest'}{' '}
                 <Link href={`/posts/${type}/${filter.slug}`}>
-                  <span
-                    className={styles.link}
-                    style={{ color: `rgba(${filter.color}.9)` }}
-                  >
-                    {' '}
-                    /{filter.name}
-                  </span>
+                  <a>
+                    <span
+                      className={styles.link}
+                      style={{ color: `rgba(${filter.color}.9)` }}
+                    >
+                      {' '}
+                      /{filter.name}
+                    </span>
+                  </a>
                 </Link>
               </>
             )}
@@ -60,15 +62,17 @@ export default function PostList({
                 <h1 className={styles.header_large}>
                   {filter.name}
                   <Link href={`/posts/categories/${getCat(it.category).slug}`}>
-                    <span
-                      className={styles.link}
-                      style={{
-                        color: `rgba(${getCat(it.category).color}.9)`,
-                      }}
-                    >
-                      {' '}
-                      /{it.category}
-                    </span>
+                    <a>
+                      <span
+                        className={styles.link}
+                        style={{
+                          color: `rgba(${getCat(it.category).color}.9)`,
+                        }}
+                      >
+                        {' '}
+                        /{it.category}
+                      </span>
+                    </a>
                   </Link>
                 </h1>
               )}
@@ -103,7 +107,7 @@ export default function PostList({
       {orderedTags && (
         <ul className={`card ${styles.categories}`}>
           {orderedTags.map((it) => (
-            <li key={it}>
+            <li key={it.slug}>
               <TagLink tag={it} />
             </li>
           ))}
