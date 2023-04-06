@@ -12,12 +12,7 @@ export default function TagButton({ tag }: Props) {
       href="/posts/tags/[[...slug]]"
       as={`/posts/tags/${tag.slug}`}
     >
-      <a
-        className={styles.tag}
-        href="/posts/tags/[[...slug]]"
-      >
-        #{tag.name}
-      </a>
+      <a className={styles.tag}>#{tag.name}</a>
     </Link>
   )
 }

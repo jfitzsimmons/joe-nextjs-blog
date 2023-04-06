@@ -28,10 +28,7 @@ export default function PaginationComponent({ current, pages, link }: Props) {
               href={link.href(it.page)}
               as={link.as(it.page)}
             >
-              <a
-                className={it.page === current ? styles.active : null}
-                href={link.href(it.page)}
-              >
+              <a className={it.page === current ? styles.active : null}>
                 {it.page}
               </a>
             </Link>

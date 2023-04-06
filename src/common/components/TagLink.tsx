@@ -15,12 +15,7 @@ export default function Tag({ tag, type }: Props) {
       href={`${href}[[...slug]]`}
       as={`${href}${tag.slug}`}
     >
-      <a
-        className={styles.tag}
-        href={`${href}[[...slug]]`}
-      >
-        {`#${tag.name}`}
-      </a>
+      <a className={styles.tag}>{`#${tag.name}`}</a>
     </Link>
   )
 }

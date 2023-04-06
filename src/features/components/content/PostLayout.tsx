@@ -92,7 +92,7 @@ export default function PostLayout({
       />
       <div
         className={styles.tab}
-        style={{ background: `rgba(${getCat(category).color}.6)` }}
+        style={{ background: `rgba(${getCat(category).color}.8)` }}
       />
       <div className={styles.container}>
         <div className="post-card">

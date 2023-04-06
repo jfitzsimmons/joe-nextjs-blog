@@ -1,4 +1,4 @@
-import {useRef, useEffect, useState} from "react";
+import React, { useRef, useEffect, useState } from 'react'
 import Canvas from '../../common/components/Canvas'
 // import { SocialList } from './SocialList'
 import { mountains } from '../../utils/mountains'
@@ -17,26 +17,31 @@ export default function Home() {
   }, [])
 
   return (
-      <div className={`${styles.container} ${styles.logo}`}>
-        <div className={styles.flex_column}>
-          <div className={styles.mountains} ref={div}>
-            <h1 className={styles.title} >
-              Insincere <span className={styles.fancy}>Engineer</span>
-            </h1>
-            <Canvas
-              draw={mountains}
-              height={dimensions.h}
-              width={dimensions.w}
-              fader={0}
-              animation={false}
-              instance={'home'}
-            />
-          </div>
-          <div className={`card ${styles.card}`}>
-            <h2 className={styles.tagline}>A website so novel, it's arguably a complete waste of time!</h2>
-            {/** <SocialList /> **/}
-          </div>
+    <div className={`${styles.container}`}>
+      <div className={styles.flex_column}>
+        <div
+          className={styles.mountains}
+          ref={div}
+        >
+          <h1 className={styles.title}>
+            Insincere <span className={styles.fancy}>Engineer</span>
+          </h1>
+          <Canvas
+            draw={mountains}
+            height={dimensions.h}
+            width={dimensions.w}
+            fader={0}
+            animation={false}
+            instance="home"
+          />
+        </div>
+        <div className={`card ${styles.card}`}>
+          <h2 className={styles.tagline}>
+            A website so novel, it&apos;s arguably a complete waste of time!
+          </h2>
+          {/** <SocialList /> * */}
         </div>
       </div>
+    </div>
   )
 }
