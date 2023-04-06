@@ -1,45 +1,9 @@
 import fs from 'fs'
 import path from 'path'
-import { FilterContent } from '../common/types'
-/** testjpf
- * stuff in here that probably shouldn't (type Reference)
- * types should be removed from all utils
- *
- * also finish up rest of lib folder !!! testjpf
- *
- * also finish css modules
- * start here testjpf
- */
+import { FilterContent } from '../../common/types'
+import { PostContent } from '../types'
+
 const postsDirectory = path.join(process.cwd(), 'content/posts')
-
-export type PostContent = {
-  readonly date: string
-  readonly title: string
-  readonly slug: string
-  readonly tags?: string[]
-  readonly category?: string
-  readonly description?: string
-  readonly references?: object[]
-  readonly fullPath: string
-}
-
-export type Reference = {
-  index: number
-  date: string
-  source: string
-  title: string
-  url: string
-}
-
-export type Field = {
-  category: string
-  date: string
-  tags: string[]
-  title: string
-  url: string
-  reference: Reference
-}
-
 let postCache: PostContent[]
 
 export function fetchPostContent() {

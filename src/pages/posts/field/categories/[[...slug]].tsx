@@ -6,9 +6,9 @@ import OpenGraphMeta from '../../../../common/components/meta/OpenGraphMeta'
 import TwitterCardMeta from '../../../../common/components/meta/TwitterCardMeta'
 import FieldList from '../../../../features/components/lists/FieldList'
 import config from '../../../../common/utils/config'
-import { PostContent, Field } from '../../../../lib/posts'
-import { listPostRefs, countRefs } from '../../../../lib/references'
-import { getField, FieldContent } from '../../../../lib/fields'
+import { PostContent, Field, FieldContent } from '../../../../features/types'
+import { listPostRefs, countRefs } from '../../../../features/utils/references'
+import { getField } from '../../../../features/utils/fields'
 import { listCats, getCat } from '../../../../common/utils/categories'
 import { FilterContent } from '../../../../common/types'
 
@@ -108,5 +108,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 Index.defaultProps = {
-  page: 'Insincere Engineer',
+  page: '',
 }

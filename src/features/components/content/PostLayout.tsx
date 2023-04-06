@@ -14,16 +14,12 @@ import TagButton from '../../../common/components/TagButton'
 // import { getAuthor } from '../../../_notes/authors'
 import { getTag } from '../../../common/utils/tags'
 import { getCat } from '../../../common/utils/categories'
-import { Reference } from '../../../lib/posts'
+import { Reference } from '../../types'
 import Canvas from '../../../common/components/Canvas'
 import { mountains } from '../../../utils/mountains'
 import styles from './PostLayout.module.css'
 
 // not using author TESTJPF
-// testjpf fix footer bugs
-// fix refernces bugs
-// h2 bugs
-// code tag bugs
 
 type Props = {
   title: string
@@ -35,7 +31,6 @@ type Props = {
   category: string
   description?: string
   references?: Reference[]
-  // children: React.ReactNode
 }
 type Chapter = {
   section?: {
@@ -166,8 +161,7 @@ export default function PostLayout({
           )}
         </div>
         <footer className={styles.footer}>
-          {/** testjpf clean up css for footer::: */}
-          <div className="social-list card-dark">
+          <div className={`${styles.social_list} card-dark`}>
             <SocialList />
             <Copyright />
           </div>
@@ -178,6 +172,6 @@ export default function PostLayout({
 }
 
 PostLayout.defaultProps = {
-  description: 'Insincere Engineer',
+  description: '',
   references: [],
 }

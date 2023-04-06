@@ -1,6 +1,5 @@
 import React from 'react'
-import { Field } from '../../../lib/posts'
-import { FieldContent } from '../../../lib/fields'
+import { Field, FieldContent } from '../../types'
 import ReferenceItem from './ReferenceItem'
 import Pagination from '../../../common/components/Pagination'
 // import { TagContent } from '../common/utils/tags'

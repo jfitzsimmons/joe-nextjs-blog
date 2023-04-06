@@ -158,13 +158,14 @@
     position: sticky;
     top: 1rem;
     text-align: center;
+    text-shadow: var(--dark-shadow);
     display: block;
     font-size: 4rem;
     width: 100%;
   }
   .to_top:hover {
+    color: #feee;
     font-size: 4rem;
-    padding: 0;
     text-decoration: underline;
   }
 }

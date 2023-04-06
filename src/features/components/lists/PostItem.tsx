@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { parseISO } from 'date-fns'
-import { PostContent } from '../../../lib/posts'
+import { PostContent } from '../../types'
 import Date from '../../../common/components/Date'
 import TagLink from '../../../common/components/TagLink'
 import CategoryButton from './CategoryButton'

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Burger from './Burger'
 import { listCats } from '../../../common/utils/categories'
-import { listFields } from '../../../lib/fields'
+import { listFields } from '../../utils/fields'
 import Canvas from '../../../common/components/Canvas'
 import { mountains } from '../../../utils/mountains'
 import styles from './Navigation.module.css'
@@ -48,12 +48,13 @@ export default function Navigation() {
         }`}
       >
         <ul className={`${styles.ul} ${active ? 'card-dark' : ''}`}>
-          {/** testjpf
+          {/** 
           <li>
             <Link href="/">
               <a className={router.pathname === '/' ? 'active' : ''}>about</a>
             </Link>
-          </li> */}
+          </li> 
+          */}
           <li className={styles.nav__link}>
             <Link href="/posts">
               <a
@@ -112,7 +113,6 @@ export default function Navigation() {
         </ul>
       </div>
       <div className={`${styles.bottom_rail} card-dark`}>
-        {/** testjpf clean up css for this:::: */}
         <button
           type="button"
           className={styles.to_top}

@@ -45,8 +45,8 @@ export default function JsonLdMeta({
 }
 
 JsonLdMeta.defaultProps = {
-  description: 'Insincere Engineer',
+  description: '',
   keywords: ['Insincere', 'Engineer'],
-  author: 'Insincere Engineer',
+  author: '',
   image: '',
 }

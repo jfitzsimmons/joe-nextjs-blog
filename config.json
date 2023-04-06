@@ -1,16 +1,10 @@
 {
-  "base_url": "https://eager-almeida-4ef36f.netlify.app",
+  "base_url": "https://insincereengineer.netlify.app/",
   "site_title": "Insincere Engineer",
   "site_description": "A website so novel, it's arguably a complete waste of time!",
   "site_keywords": [
     {
-      "keyword": "Next.js"
-    },
-    {
-      "keyword": "Netlify"
-    },
-    {
-      "keyword": "React"
+      "keyword": "Insincere Engineer"
     }
   ],
   "posts_per_page": 5,

@@ -21,5 +21,5 @@ export default function Tag({ tag, type }: Props) {
 }
 
 Tag.defaultProps = {
-  type: 'Insincere Engineer',
+  type: '',
 }

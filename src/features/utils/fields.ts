@@ -1,9 +1,5 @@
-import fields from '../../meta/fields.yml'
-
-export type FieldContent = {
-  readonly slug: string
-  readonly name: string
-}
+import fields from '../../../meta/fields.yml'
+import { FieldContent } from '../types'
 
 function generatefieldMap(): { [key: string]: FieldContent } {
   const result: { [key: string]: FieldContent } = {}
