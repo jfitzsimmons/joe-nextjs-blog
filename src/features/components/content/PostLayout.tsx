@@ -166,6 +166,7 @@ export default function PostLayout({
           )}
         </div>
         <footer className={styles.footer}>
+          {/** testjpf clean up css for footer::: */}
           <div className="social-list card-dark">
             <SocialList />
             <Copyright />
