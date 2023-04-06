@@ -1,27 +1,29 @@
-import { GetStaticProps, GetStaticPaths } from "next";
-import { fetchPostContent } from "../../lib/posts";
-import fs from "fs";
-import { parseISO } from 'date-fns';
-import PostLayout from "../../components/PostLayout";
-import { Reference } from "../../lib/posts"
+import React from 'react'
+import { GetStaticProps, GetStaticPaths } from 'next'
+import fs from 'fs'
+import { parseISO } from 'date-fns'
+import { fetchPostContent, Reference } from '../../lib/posts'
+import PostLayout from '../../features/components/content/PostLayout'
 
 export type Props = {
-  title: string;
-  dateString: string;
-  slug: string;
-  category: string;
-  tags: string[];
-  chapters: object[];
-  author: string;
-  description?: string;
-  references?: Reference[];
-};
+  title: string
+  dateString: string
+  slug: string
+  category: string
+  tags: string[]
+  chapters: object[]
+  // author: string
+  description?: string
+  references?: Reference[]
+}
 
-const slugToPostContent = (postContents => {
-  let hash = {}
-  postContents.forEach(it => hash[it.slug] = it)
-  return hash;
-})(fetchPostContent());
+const slugToPostContent = ((postContents) => {
+  const hash = {}
+  // testjpf fix:::
+  // eslint-disable-next-line no-return-assign
+  postContents.forEach((it) => (hash[it.slug] = it))
+  return hash
+})(fetchPostContent())
 
 export default function Post({
   title,
@@ -30,7 +32,7 @@ export default function Post({
   category,
   tags,
   chapters,
-  author,
+  // author,
   description,
   references,
 }: Props) {
@@ -41,27 +43,26 @@ export default function Post({
       slug={slug}
       tags={tags}
       chapters={chapters}
-      author={author}
+      // author={author}
       category={category}
       description={description}
       references={references}
-    >
-    </PostLayout>
+    />
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = fetchPostContent().map(it => "/posts/" + it.slug);
+  const paths = fetchPostContent().map((it) => `/posts/${it.slug}`)
   return {
-    paths, 
+    paths,
     fallback: false,
-  };
-};
+  }
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params.post as string;
-  const source = fs.readFileSync(slugToPostContent[slug].fullPath, "utf8");
-  const data= JSON.parse(source);
+  const slug = params.post as string
+  const source = fs.readFileSync(slugToPostContent[slug].fullPath, 'utf8')
+  const data = JSON.parse(source)
   return {
     props: {
       title: data.title,
@@ -72,7 +73,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       category: data.category,
       author: data.author,
       chapters: data.chapters,
-      references: (data.references) ? data.references : null,
+      references: data.references ? data.references : null,
     },
-  };
-};
+  }
+}
+
+Post.defaultProps = {
+  description: 'Insincere Engineer',
+  references: [],
+}

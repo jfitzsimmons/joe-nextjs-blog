@@ -1,0 +1,17 @@
+.paging {
+  list-style: none;
+  margin: 3rem 0 0 0;
+  padding: 0;
+}
+.paging__number {
+  display: inline-block;
+  margin-right: 1em;
+  color: #feec;
+  text-shadow: 0 0 0.1vmin #000;
+  font-size: calc(1rem + 3vmin);
+  text-shadow: 1px 1px 5px #000;
+}
+.active {
+  color: #feee;
+  font-weight: bold;
+}

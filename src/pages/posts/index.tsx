@@ -1,12 +1,14 @@
+import React from 'react'
 import { GetStaticProps } from 'next'
-import Layout from '../../components/Layout'
-import BasicMeta from '../../components/meta/BasicMeta'
-import OpenGraphMeta from '../../components/meta/OpenGraphMeta'
-import TwitterCardMeta from '../../components/meta/TwitterCardMeta'
-import PostList from '../../components/PostList'
-import config from '../../lib/config'
+import Layout from '../../features/components/layout/Layout'
+import BasicMeta from '../../common/components/meta/BasicMeta'
+import OpenGraphMeta from '../../common/components/meta/OpenGraphMeta'
+import TwitterCardMeta from '../../common/components/meta/TwitterCardMeta'
+import PostList from '../../features/components/lists/PostList'
+import config from '../../common/utils/config'
 import { countPosts, listPostContent, PostContent } from '../../lib/posts'
-import { listTags, TagContent } from '../../lib/tags'
+import { listTags } from '../../common/utils/tags'
+import { TagContent } from '../../common/types'
 
 type Props = {
   posts: PostContent[]
@@ -21,10 +23,26 @@ export default function Index({ posts, tags, pagination }: Props) {
   const title = 'All posts'
   return (
     <Layout>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
-      <PostList posts={posts} tags={tags} pagination={pagination} />
+      <BasicMeta
+        url={url}
+        title={title}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+      />
+      <PostList
+        posts={posts}
+        tags={tags}
+        pagination={pagination}
+        type="all"
+      />
+      {/**
+       * testjpf is this taken care?!?!?!
       <style jsx>{`
         h2 {
           font-size: 1.75rem;
@@ -36,12 +54,13 @@ export default function Index({ posts, tags, pagination }: Props) {
           text-align: center;
           margin: 1rem 0 0;
         }
-        @media (min-width: 769px) and (min-height: 580px) {
+        @media (min-width: 769px) and (min-height: 460px) {
           h2 {
             font-size: 2.25rem;
           }
         }
       `}</style>
+       */}
     </Layout>
   )
 }

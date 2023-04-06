@@ -1,0 +1,72 @@
+.container {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  top: 0;
+  left: calc(100% - 205px);
+  z-index: 4;
+  background-color: rgba(11, 4, 6, 0.8);
+  border-radius: 0 0 4vmin 4vmin;
+  padding: 0.25em 0.75em;
+  box-shadow: 0 0 25px 1px rgba(211, 184, 196, 0.3),
+    inset 0 0 40px 0px rgba(11, 4, 6, 0.1),
+    0.7vmin -0.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+  transition: box-shadow 0.2s;
+}
+.container:hover {
+  box-shadow: 0 0 20px 1px rgba(211, 184, 196, 0.4),
+    inset 0 0 40px 20px rgba(11, 4, 6, 0.6);
+}
+.container:active {
+  box-shadow: 0 0 5px 0 rgba(211, 184, 196, 0.2),
+    inset 0 0 40px 20px rgba(11, 4, 6, 0.8);
+}
+.meat {
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: #feec;
+  top: calc(50% - 2px / 2);
+  left: calc(50% - 28px / 2);
+  transition: all 150ms ease-in;
+}
+.container:hover .meat {
+  background: #e8dfdf;
+  transition: all 150ms ease-in;
+}
+.container.active {
+  background: rgba(253, 247, 247, 0.7);
+  transition: all 150ms ease-in;
+}
+.container.active:hover {
+  background: #e8dfdf;
+  transition: all 150ms ease-in;
+}
+.container.active .meat {
+  background: rgba(11, 4, 6, 0.8);
+}
+.meat_1 {
+  transform: translateY(-10px);
+}
+.meat_2 {
+  width: calc(28px - 6px);
+}
+.meat_3 {
+  transform: translateY(10px);
+}
+.active .meat_1 {
+  transform: rotate(45deg);
+}
+.active .meat_2 {
+  opacity: 0;
+}
+.active .meat_3 {
+  transform: rotate(-45deg);
+}
+
+@media (min-width: 769px) and (min-height: 460px) {
+  .container {
+    display: none;
+  }
+}
