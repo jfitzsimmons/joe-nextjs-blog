@@ -26,7 +26,7 @@ export default function FieldPostList({
     <div className={styles.container}>
       <div className={styles.posts}>
         <h1 className={styles.h1}>
-          All references / {tag && <span>{tag.name}</span>}
+          {!tag && 'all'} references / {tag && <span>{tag.name}</span>}
         </h1>
         <ul className={`${styles.ul} ${styles.post_list}`}>
           {fields.map((it) => (
@@ -63,5 +63,5 @@ export default function FieldPostList({
 }
 
 FieldPostList.defaultProps = {
-  tag: 'Insincere Engineer',
+  tag: null,
 }

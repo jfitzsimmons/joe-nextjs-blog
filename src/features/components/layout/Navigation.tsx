@@ -51,14 +51,14 @@ export default function Navigation() {
           {/** testjpf
           <li>
             <Link href="/">
-              <a className={router.pathname === '/' ? 'active' : null}>about</a>
+              <a className={router.pathname === '/' ? 'active' : ''}>about</a>
             </Link>
           </li> */}
           <li className={styles.nav__link}>
             <Link href="/posts">
               <span
-                className={`link ${
-                  router.pathname.endsWith('/posts') ? styles.active : null
+                className={`${styles.link} ${
+                  router.pathname.endsWith('/posts') ? styles.active : ''
                 }`}
               >
                 blog
@@ -72,10 +72,10 @@ export default function Navigation() {
             >
               <Link href={`/posts/categories/${it.slug}`}>
                 <span
-                  className={`link ${
+                  className={`${styles.link} ${
                     router.asPath.endsWith(`categories/${it.slug}`)
                       ? styles.active
-                      : null
+                      : ''
                   }`}
                 >
                   {it.color && (
@@ -98,10 +98,10 @@ export default function Navigation() {
             >
               <Link href={`/posts/field/${it.slug}`}>
                 <span
-                  className={`link ${
+                  className={`${styles.link} ${
                     router.asPath.endsWith(`field/${it.slug}`)
                       ? styles.active
-                      : null
+                      : ''
                   }`}
                 >
                   {it.name}

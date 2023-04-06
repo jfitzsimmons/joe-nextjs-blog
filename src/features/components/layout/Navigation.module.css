@@ -1,12 +1,17 @@
 .link {
+  color: #feec;
+  cursor: pointer;
   display: flex;
+  font-family: 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans',
+    'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
   justify-content: flex-end;
+  position: absolute;
   text-shadow: 1px 2px 2px #000e;
   transition: 200ms;
-  position: absolute;
 }
 .link:hover,
 .link.active {
+  color: #feee;
   transition: 200ms;
 }
 .logo_container {
@@ -18,7 +23,11 @@
   top: 0;
 }
 .title_short {
-  z-index: 1;
+  font-family: 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans',
+    'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
+  cursor: pointer;
+  font-weight: 400;
+  cursor: pointer;
   position: absolute;
   font-weight: 500;
   left: 0;
@@ -29,6 +38,7 @@
   border-radius: 0 4vmin 4vmin 0;
   padding: 0 20px;
   transition: 200ms;
+  z-index: 1;
 }
 .title_short h1 {
   transition: 200ms;
@@ -139,14 +149,22 @@
     display: block;
   }
   .to_top {
+    font-family: 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans',
+      'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
+    color: #feec;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    font-weight: 400;
     position: sticky;
     top: 1rem;
     text-align: center;
     display: block;
     font-size: 4rem;
+    width: 100%;
   }
   .to_top:hover {
     font-size: 4rem;
     padding: 0;
+    text-decoration: underline;
   }
 }

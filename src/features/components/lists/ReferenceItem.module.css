@@ -1,0 +1,72 @@
+.span {
+  font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Trebuchet MS,
+    Verdana, Verdana Ref, sans-serif;
+  color: #feee;
+  display: block;
+  padding: 3vmin;
+}
+.top {
+  border-radius: 4vmin 4vmin 0 0;
+  box-shadow: 0 0 25px 1px rgba(211, 184, 196, 0.3),
+    inset 0 0 40px 0px rgba(11, 4, 6, 0.05),
+    0.7vmin -0.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+  font-size: 130%;
+}
+.bottom {
+  border-radius: 0 0 4vmin 4vmin;
+  color: white;
+  text-align: right;
+  border: 0;
+}
+.title {
+  font-weight: 500;
+}
+.description {
+  margin-bottom: 1rem;
+}
+.h2 {
+  margin: 0;
+  font-weight: 500;
+}
+.ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+.tag_list {
+  box-sizing: border-box;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  padding: 0 4vmin;
+}
+.tag_list li ul li {
+  padding: 0.5vmin;
+  flex: 1;
+  text-align: right;
+}
+.tag_list li {
+  border-radius: 0 0 2vmin 2vmin;
+  border: 0px;
+}
+.tag_list li .category_link {
+  padding: 0.5vmin 2vmin 1vmin;
+  border-radius: 0 0 2vmin 2vmin;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.tag_item {
+  flex-wrap: wrap;
+  max-width: 27vmin;
+}
+.category_link {
+  color: #feee;
+  transition: background-color 0.3s ease;
+  padding: 0.25em 0.5em;
+}
+.category_link:hover {
+  background-color: #feec;
+  text-shadow: 0 0 0.1vmin #000;
+  color: #000;
+}
