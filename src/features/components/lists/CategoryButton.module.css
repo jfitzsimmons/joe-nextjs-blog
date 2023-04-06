@@ -1,0 +1,21 @@
+.span {
+  display: inline-block;
+  border-radius: 0 4vmin 4vmin 0;
+  color: #211;
+  font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Trebuchet MS,
+    Verdana, Verdana Ref, sans-serif;
+  transition: background-color 0.3s ease;
+  padding: 0.25em 0.5em;
+  writing-mode: vertical-rl;
+  text-align: center;
+  text-shadow: 0px 0px 2px #fee8;
+  transform: rotate(180deg);
+  transition: `backgroundColor 0.3s ease`;
+}
+.span:active,
+.span:hover {
+  background-color: #cbb8;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 0 2px #1008;
+}

@@ -28,6 +28,10 @@ export default function Index({ posts, tags }: Props) {
         tags={tags}
         type="home"
         filter={{ slug: 'latest', name: 'latest' }}
+        pagination={{
+          current: 0,
+          pages: 0,
+        }}
       />
     </Layout>
   )

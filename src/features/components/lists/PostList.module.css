@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4vmin 0;
+}
+.h1 {
+  text-shadow: 1px 2px 2px #100e;
+  font-size: 3em;
+}
+.header_large {
+  text-shadow: 1px 2px 2px #100e;
+  font-size: 3em;
+}
+.link {
+  color: #feec;
+  font-family: 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans',
+    'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
+  cursor: pointer;
+  font-weight: 400;
+  text-shadow: 3px 1px 0px #0b0406;
+}
+.link:hover {
+  color: #feee;
+  text-decoration: underline;
+}
+.posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1200px;
+}
+.posts .li {
+  display: flex;
+  box-shadow: 0 0 25px 1px rgba(211, 184, 196, 0.3),
+    inset 0 0 40px 0px rgba(11, 4, 6, 0.05),
+    0.7vmin -0.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+  margin-bottom: 1.5rem;
+}
+.categories {
+  display: none;
+}
+.categories li {
+  list-style: none;
+  margin: 1vmin 0.1vmin;
+}
+@media (min-width: 769px) and (min-height: 460px) {
+  .categories {
+    align-self: baseline;
+    padding: 2vmin;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-height: 250px;
+    max-height: 80vh;
+    font-weight: 400;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-left: 1.5rem;
+    margin-top: 5rem;
+    box-shadow: 0 0 25px 1px rgba(211, 184, 196, 0.3),
+      inset 0 0 40px 0px rgba(11, 4, 6, 0.05),
+      0.7vmin -0.7vmin 1vmin 0 rgba(11, 4, 6, 0.1);
+  }
+}

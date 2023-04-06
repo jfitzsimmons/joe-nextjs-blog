@@ -39,6 +39,7 @@ export default function Index({ posts, tags, pagination }: Props) {
         posts={posts}
         tags={tags}
         pagination={pagination}
+        type="all"
       />
       {/**
        * testjpf is this taken care?!?!?!

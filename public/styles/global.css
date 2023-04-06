@@ -37,6 +37,20 @@ a:hover {
   text-decoration: underline;
 }
 
+button {
+  background: none;
+  border: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: 0px;
+}
+
 time {
   font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
     'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
