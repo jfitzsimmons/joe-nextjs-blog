@@ -9,7 +9,7 @@ type Props = {
 }
 export default function Tag({ tag, type }: Props) {
   const href =
-    type && type === 'reference' ? '/posts/field/tags/' : '/posts/tags/'
+    type && type === 'reference' ? '/posts/field/filter/' : '/posts/filter/'
   return (
     <Link
       href={`${href}[[...slug]]`}

@@ -16,7 +16,7 @@ import { getTag } from '../../../common/utils/tags'
 import { getCat } from '../../../common/utils/categories'
 import { Reference } from '../../types'
 import Canvas from '../../../common/components/Canvas'
-import { mountains } from '../../../utils/mountains'
+import mountainsAnimation from '../../../utils/mountains'
 import styles from './PostLayout.module.css'
 
 // not using author TESTJPF
@@ -105,7 +105,7 @@ export default function PostLayout({
                 </div>
               </header>
               <Canvas
-                draw={mountains}
+                draw={mountainsAnimation}
                 height={200}
                 width={width}
                 fader={0}

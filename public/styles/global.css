@@ -8,8 +8,7 @@ html {
 html,
 body {
   font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
-    'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
-    sans-serif;
+    'DejaVu Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
   background-color: #0d0707;
   color: #feee;
   font-weight: 200;
@@ -22,8 +21,8 @@ body {
 }
 
 a {
-  font-family: 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans',
-    'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
+  font-family: 'Segoe UI', Candara, 'DejaVu Sans', 'Bitstream Vera Sans',
+    'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
   color: #feec;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -52,9 +51,6 @@ li {
 }
 
 time {
-  font-family: 'Ubuntu', 'Segoe UI', Candara, 'Bitstream Vera Sans',
-    'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref',
-    sans-serif;
   color: #feec;
   letter-spacing: 2px;
 }

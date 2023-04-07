@@ -5,15 +5,16 @@ export function listPostRefs(
   page: number,
   limit: number,
   slug?: string,
-  meta?: string,
+  // meta?: string,
 ): PostContent[] {
   const refs = []
   const postsWithRefs = fetchPostContent()
     .filter((it) => it.references)
     .filter(
-      meta === 'tags'
-        ? (it) => !slug || (it.tags && it.tags.includes(slug))
-        : (it) => !slug || (it.category && it.category === slug),
+      (it) =>
+        !slug ||
+        (it.category && it.category === slug) ||
+        (it.tags && it.tags.includes(slug)),
     )
 
   postsWithRefs.forEach((p) => {

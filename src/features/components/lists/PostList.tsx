@@ -1,18 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
 import { PostContent } from '../../types'
+import { TagContent, FilterContent } from '../../../common/types'
 import PostItem from './PostItem'
 import TagLink from '../../../common/components/TagLink'
 import Pagination from '../../../common/components/Pagination'
-import { TagContent, FilterContent } from '../../../common/types'
 import { getCat } from '../../../common/utils/categories'
-import { orderBy } from '../../../utils/arrays'
+import orderArrayBy from '../../../utils/arrays'
 import styles from './PostList.module.css'
 
 type Props = {
   posts: PostContent[]
   tags?: TagContent[]
-  // cat?: FilterContent
   filter?: FilterContent
   type?: string
   pagination: {
@@ -26,10 +25,9 @@ export default function PostList({
   tags,
   filter,
   type,
-  // cat,
   pagination,
 }: Props) {
-  const orderedTags = tags ? orderBy(tags, ['slug'], ['asc']) : []
+  const orderedTags = tags ? orderArrayBy(tags, ['slug'], ['asc']) : []
   return (
     <div className={`${styles.container}`}>
       <div className={styles.posts}>
@@ -39,15 +37,15 @@ export default function PostList({
               `all posts`
             ) : (
               <>
-                {'latest'}{' '}
+                {'latest '}
                 <Link href={`/posts/${type}/${filter.slug}`}>
                   <a>
                     <span
                       className={styles.link}
                       style={{ color: `rgba(${filter.color}.9)` }}
                     >
-                      {' '}
-                      /{filter.name}
+                      {' /'}
+                      {filter.name}
                     </span>
                   </a>
                 </Link>
@@ -56,28 +54,28 @@ export default function PostList({
           </h1>
         )}
         <div className={styles.post_list}>
-          {posts.map((it) => (
-            <div key={it.slug}>
+          {posts.map((p) => (
+            <div key={p.slug}>
               {type === 'home' && (
                 <h1 className={styles.header_large}>
                   {filter.name}
-                  <Link href={`/posts/categories/${getCat(it.category).slug}`}>
+                  <Link href={`/posts/filter/${getCat(p.category).slug}`}>
                     <a>
                       <span
                         className={styles.link}
                         style={{
-                          color: `rgba(${getCat(it.category).color}.9)`,
+                          color: `rgba(${getCat(p.category).color}.9)`,
                         }}
                       >
                         {' '}
-                        /{it.category}
+                        /{p.category}
                       </span>
                     </a>
                   </Link>
                 </h1>
               )}
               <li className={`card ${styles.li}`}>
-                <PostItem post={it} />
+                <PostItem post={p} />
               </li>
             </div>
           ))}
@@ -87,7 +85,7 @@ export default function PostList({
             current={pagination.current}
             pages={pagination.pages}
             link={
-              type
+              type && type !== 'all'
                 ? {
                     href: () => `/posts/${type}/[[...slug]]`,
                     as: (page) =>
@@ -106,9 +104,9 @@ export default function PostList({
       </div>
       {orderedTags && (
         <ul className={`card ${styles.categories}`}>
-          {orderedTags.map((it) => (
-            <li key={it.slug}>
-              <TagLink tag={it} />
+          {orderedTags.map((t) => (
+            <li key={t.slug}>
+              <TagLink tag={t} />
             </li>
           ))}
         </ul>
@@ -119,7 +117,6 @@ export default function PostList({
 
 PostList.defaultProps = {
   tags: [],
-  // cat: "Insincere Engineer",
   filter: '',
   type: 'all',
 }

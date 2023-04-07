@@ -11,10 +11,10 @@ tags:
     name: mdx
   - slug: markdown
     name: markdown
-  - slug: music
-    name: music
-  - slug: art
-    name: art
+  - slug: musical
+    name: musical
+  - slug: artistic
+    name: artistic
   - slug: inspiration
     name: inspiration
   - slug: acoustic

@@ -23,8 +23,8 @@ export default function CategoryButton({ cat }: Props) {
   }
   return (
     <Link
-      href="/posts/categories/[[...slug]]"
-      as={`/posts/categories/${cat.slug}`}
+      href="/posts/filter/[[...slug]]"
+      as={`/posts/filter/${cat.slug}`}
     >
       <a
         ref={catBtn}

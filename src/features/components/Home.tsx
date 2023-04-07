@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import Canvas from '../../common/components/Canvas'
-// import { SocialList } from './SocialList'
-import { mountains } from '../../utils/mountains'
+// import SocialList from '../../common/components/SocialList'
+import mountainsAnimation from '../../utils/mountains'
 import styles from './Home.module.css'
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
             Insincere <span className={styles.fancy}>Engineer</span>
           </h1>
           <Canvas
-            draw={mountains}
+            draw={mountainsAnimation}
             height={dimensions.h}
             width={dimensions.w}
             fader={0}
@@ -35,11 +35,11 @@ export default function Home() {
             instance="home"
           />
         </div>
-        <div className={`card ${styles.card}`}>
+        <div className={`card ${styles.bottom}`}>
           <h2 className={styles.tagline}>
             A website so novel, it&apos;s arguably a complete waste of time!
           </h2>
-          {/** <SocialList /> * */}
+          {/** <SocialList /> */}
         </div>
       </div>
     </div>
