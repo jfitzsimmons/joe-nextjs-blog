@@ -7,14 +7,14 @@ import TwitterCardMeta from '../common/components/meta/TwitterCardMeta'
 import { listCats } from '../common/utils/categories'
 import { listTags } from '../common/utils/tags'
 import { latestPostContent } from '../features/utils/posts'
-import { TagContent } from '../common/types'
+import { FilterContent } from '../common/types'
 import { PostContent } from '../features/types'
 import Home from '../features/components/Home'
 import PostList from '../features/components/lists/PostList'
 
 type Props = {
   posts: PostContent[]
-  tags: TagContent[]
+  tags: FilterContent[]
 }
 
 export default function Index({ posts, tags }: Props) {

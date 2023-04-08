@@ -10,12 +10,12 @@ import { PostContent } from '../../../features/types'
 import { countPosts, listPostContent } from '../../../features/utils/posts'
 import { getCat, listCats } from '../../../common/utils/categories'
 import { childTags } from '../../../common/utils/tags'
-import { FilterContent, TagContent } from '../../../common/types'
+import { FilterContent } from '../../../common/types'
 
 type Props = {
   posts: PostContent[]
   category: FilterContent
-  tags: TagContent[]
+  tags: FilterContent[]
   page?: string
   pagination: {
     current: number
@@ -74,7 +74,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const props: {
     posts: PostContent[]
     category: FilterContent
-    tags: TagContent[]
+    tags: FilterContent[]
     pagination: { current: number; pages: number }
     page?: string
   } = { posts, category, tags, pagination }

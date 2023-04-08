@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { PostContent } from '../../types'
-import { TagContent, FilterContent } from '../../../common/types'
+import { FilterContent } from '../../../common/types'
 import PostItem from './PostItem'
 import TagLink from '../../../common/components/TagLink'
 import Pagination from '../../../common/components/Pagination'
@@ -11,7 +11,7 @@ import styles from './PostList.module.css'
 
 type Props = {
   posts: PostContent[]
-  tags?: TagContent[]
+  tags?: FilterContent[]
   filter?: FilterContent
   type?: string
   pagination: {
@@ -59,7 +59,9 @@ export default function PostList({
               {type === 'home' && (
                 <h1 className={styles.header_large}>
                   {filter.name}
-                  <Link href={`/posts/filter/${getCat(p.category).slug}`}>
+                  <Link
+                    href={`/posts/filter/categories/${getCat(p.category).slug}`}
+                  >
                     <a>
                       <span
                         className={styles.link}

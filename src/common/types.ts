@@ -16,12 +16,6 @@ export type FilterContent = {
   readonly parent?: string
 }
 
-export type TagContent = {
-  readonly slug: string
-  readonly name: string
-  readonly parent: string
-}
-
 export type Pagination = {
   page: number | null
   current: boolean

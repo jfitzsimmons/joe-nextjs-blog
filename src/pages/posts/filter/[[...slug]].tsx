@@ -10,12 +10,12 @@ import { PostContent } from '../../../features/types'
 import { countPosts, listPostContent } from '../../../features/utils/posts'
 import { getCat, listCats } from '../../../common/utils/categories'
 import { childTags, listTags, getTag } from '../../../common/utils/tags'
-import { FilterContent, TagContent } from '../../../common/types'
+import { FilterContent } from '../../../common/types'
 
 type Props = {
   posts: PostContent[]
   // category: FilterContent
-  tags: TagContent[]
+  tags: FilterContent[]
   filterType: string
   filter: FilterContent
   page?: string
@@ -34,7 +34,9 @@ export default function Index({
   filterType,
   filter,
 }: Props) {
-  const url = `/posts/filter/${filter.slug}${page ? `/${page}` : ''}`
+  const url = `/posts/filter/${filterType}/${filter.slug}${
+    page ? `/${page}` : ''
+  }`
   const title = filter.slug
   return (
     <Layout>
@@ -65,21 +67,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   // testjpf pass slug to here...
   // then use getCat getTag for filter objexts
   const queries = params.slug as string[]
-  //const filterType = params.filterType as string
-  // console.log('filterType', filterType)
-  console.dir(queries)
-  const [slug, page] = [queries[0], queries[1]]
-  const filterType = 'categories'
+  const [filterType, slug, page] = [queries[0], queries[1], queries[2]]
+  // const filterType = 'categories'
   // const [filter, page] = [queries[0], queries[1]]
-  // console.log('slug2', slug)
-  // console.log('filterType2', filterType)
-  const filter = filterType !== 'categories' ? getTag(slug) : getCat(slug)
+  // console.log('slug', slug)
+  // console.log('filterType', filterType)
+  const filter = filterType === 'tags' ? getTag(slug) : getCat(slug)
   const posts = listPostContent(
     page ? parseInt(page as string, 10) : 1,
     config.posts_per_page,
     slug,
+    filterType,
   )
-  // onsole.log('filter.slug', filter.slug)
   const category = filterType === 'categories' ? filter : null
   const tags = category && category.name ? childTags(category.name) : []
 
@@ -90,7 +89,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const props: {
     posts: PostContent[]
     category: FilterContent
-    tags: TagContent[]
+    tags: FilterContent[]
     pagination: { current: number; pages: number }
     page?: string
     filterType: string
@@ -106,7 +105,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [...listTags(), ...listCats()].flatMap((filter) => {
-    const pages = Math.ceil(countPosts(filter.slug) / config.posts_per_page)
+    const filterType = filter && filter.color ? 'categories' : 'tags'
+    const pages = Math.ceil(
+      countPosts(filter.slug, filterType) / config.posts_per_page,
+    )
     // testjpf instead of sending just filter.slug
     // send the whole filter
     // that will include color, parent, tags???
@@ -116,27 +118,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
      * then you can have a default filter / categories / tag pages
      * and all of them and there children will use THIS page!!!
      */
-    const filterType = filter && filter.parent ? 'tags' : 'categories'
-    // console.log(filterType, 'filterType')
+
+    // console.log(`filterType: ${filterType} | filter.slug: ${filter.slug}`)
     return Array.from(Array(pages).keys()).map((page) =>
       page === 0
         ? {
-            params: { slug: [filter.slug] },
+            params: { slug: [filterType, filter.slug] },
           }
         : {
-            params: { slug: [filter.slug, (page + 1).toString()] },
+            params: { slug: [filterType, filter.slug, (page + 1).toString()] },
           },
     )
-    /**
-     *         
-     * ? {
-            params: { slug: [category.slug] },
-          }
-        : {
-            params: { slug: [category.slug, (page + 1).toString()] },
-          }
-     */
   })
+  console.log(paths.length, 'TESTJPF')
+  console.log(paths[0].params)
+  console.dir(paths)
   return {
     paths,
     fallback: false,

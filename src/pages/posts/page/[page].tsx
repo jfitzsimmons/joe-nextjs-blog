@@ -10,11 +10,11 @@ import config from '../../../common/utils/config'
 import { PostContent } from '../../../features/types'
 import { countPosts, listPostContent } from '../../../features/utils/posts'
 import { listTags } from '../../../common/utils/tags'
-import { TagContent } from '../../../common/types'
+import { FilterContent } from '../../../common/types'
 
 type Props = {
   posts: PostContent[]
-  tags: TagContent[]
+  tags: FilterContent[]
   page: number
   pagination: {
     current: number

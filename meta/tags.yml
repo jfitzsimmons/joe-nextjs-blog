@@ -1,22 +1,4 @@
 tags:
-  - slug: document
-    name: document
-  - slug: mock
-    name: mock
-  - slug: style
-    name: style
-  - slug: license
-    name: license
-  - slug: mdx
-    name: mdx
-  - slug: markdown
-    name: markdown
-  - slug: musical
-    name: musical
-  - slug: artistic
-    name: artistic
-  - slug: inspiration
-    name: inspiration
   - slug: acoustic
     name: acoustic
     parent: music
@@ -31,9 +13,6 @@ tags:
     parent: music
   - slug: generative
     name: generative
-    parent: code
-  - slug: creative-code
-    name: creative-code
     parent: code
   - slug: wordpress
     name: WordPress

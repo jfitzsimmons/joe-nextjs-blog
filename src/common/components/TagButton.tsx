@@ -1,17 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
-import { TagContent } from '../types'
+import { FilterContent } from '../types'
 import styles from './TagButton.module.css'
 
 type Props = {
-  tag: TagContent
+  tag: FilterContent
 }
 export default function TagButton({ tag }: Props) {
   return (
-    <Link
-      href="/posts/filter/[[...slug]]"
-      as={`/posts/filter/${tag.slug}`}
-    >
+    <Link href={`/posts/filter/tags/${tag.slug}`}>
       <a className={styles.tag}>#{tag.name}</a>
     </Link>
   )

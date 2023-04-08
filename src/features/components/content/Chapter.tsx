@@ -30,10 +30,7 @@ export default function Chapter({ body, title, category }: Props) {
       <h2>{title}</h2>
       <div dangerouslySetInnerHTML={{ __html: body }} />
 
-      <Link
-        href="/posts/filter/[[...slug]]"
-        as={`/posts/filter/${cat.slug}`}
-      >
+      <Link href={`/posts/filter/categories/${cat.slug}`}>
         <a
           ref={catBtn}
           className={styles.cat_button}

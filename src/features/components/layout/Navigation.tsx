@@ -71,7 +71,7 @@ export default function Navigation() {
               key={it.slug}
               className={styles.nav__link}
             >
-              <Link href={`/posts/filter/${it.slug}`}>
+              <Link href={`/posts/filter/categories/${it.slug}`}>
                 <a
                   className={`${styles.link} ${
                     router.asPath.endsWith(`categories/${it.slug}`)
