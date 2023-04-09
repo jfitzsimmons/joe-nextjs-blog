@@ -6,10 +6,15 @@ import OpenGraphMeta from '../../common/components/meta/OpenGraphMeta'
 import TwitterCardMeta from '../../common/components/meta/TwitterCardMeta'
 import PostList from '../../features/components/lists/PostList'
 import config from '../../common/utils/config'
-import { countPosts, listPostContent } from '../../features/utils/posts'
+import {
+  countPosts,
+  latestPostContent,
+  listPostContent,
+} from '../../features/utils/posts'
 import { listTags } from '../../common/utils/tags'
 import { FilterContent } from '../../common/types'
 import { PostContent } from '../../features/types'
+import { listCats } from '../../common/utils/categories'
 
 type Props = {
   posts: PostContent[]
@@ -18,8 +23,9 @@ type Props = {
     current: number
     pages: number
   }
+  filterType: string
 }
-export default function Index({ posts, tags, pagination }: Props) {
+export default function Index({ posts, tags, pagination, filterType }: Props) {
   const url = '/posts'
   const title = 'All posts'
   return (
@@ -40,35 +46,44 @@ export default function Index({ posts, tags, pagination }: Props) {
         posts={posts}
         tags={tags}
         pagination={pagination}
-        type="all"
+        type={filterType}
       />
     </Layout>
   )
 }
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const queries = params.slug as string[]
-  console.log('queries')
-  console.log(queries)
+  const filterType = queries && queries[1] ? queries[1] : 'all'
+  const page = queries && queries[2]
+  const posts =
+    filterType === 'categories'
+      ? latestPostContent(listCats())
+      : listPostContent(
+          page ? parseInt(page as string, 10) : 1,
+          config.posts_per_page,
+        )
 
-  const page = queries && queries[0] ? queries[0] : '1'
-  const posts = listPostContent(
-    page ? parseInt(page as string, 10) : 1,
-    config.posts_per_page,
-  )
-  console.log('posts.length', posts.length)
+  const tags = listTags() // testjpf:::needs logic
+  // testjpf turn into util
+  const pages =
+    filterType === 'categories'
+      ? Math.ceil(listCats().length / config.posts_per_page)
+      : Math.ceil(countPosts() / config.posts_per_page)
 
-  const tags = listTags()
   const pagination = {
     current: page ? parseInt(page as string, 10) : 1,
-    pages: Math.ceil(countPosts() / config.posts_per_page),
+    pages,
   }
+  // console.log('pagination')
+  // console.dir(pagination)
 
   const props: {
     posts: PostContent[]
     tags: FilterContent[]
     pagination: { current: number; pages: number }
     page?: string
-  } = { posts, tags, pagination }
+    filterType: string
+  } = { posts, tags, pagination, filterType }
   if (page) {
     props.page = page
   }
@@ -78,7 +93,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = Math.ceil(countPosts() / config.posts_per_page)
+  const slugArrays = [
+    [],
+    ['filter'],
+    ['filter', 'categories'],
+    ['filter', 'tags'],
+  ]
+
   // console.log(pages, 'pages')
   // const posts = listPostContent(1, config.posts_per_page)
   // const tags = listTags()
@@ -95,6 +116,40 @@ export const getStaticPaths: GetStaticPaths = async () => {
    * meaning...
    *
    */
+
+  const paths = slugArrays.flatMap((sA) => {
+    // const filterType = filter && filter.color ? 'categories' : 'tags'
+
+    // testjpf instead of sending just filter.slug
+    // send the whole filter
+    // that will include color, parent, tags???
+    // sort that logic out later in the process
+    /**
+     * testjpf new!!! make slug include filterType as part of params (URL)
+     * then you can have a default filter / categories / tag pages
+     * and all of them and there children will use THIS page!!!
+     */
+
+    // console.log(`filterType: ${filterType} | filter.slug: ${filter.slug}`)
+    const pages =
+      sA[1] && sA[1] === 'categories'
+        ? Math.ceil(listCats().length / config.posts_per_page)
+        : Math.ceil(countPosts() / config.posts_per_page)
+    // console.log('sA[1]', sA[1])
+    // console.log('pages', pages)
+    return Array.from(Array(pages).keys()).map((page) => {
+      if (page === 0) {
+        return { params: { slug: sA } }
+      }
+      const withpaging = sA.slice()
+      withpaging.push((page + 1).toString())
+      // console.dir({ params: { slug: withpaging } })
+
+      return { params: { slug: withpaging } }
+    })
+  })
+
+  /** 
   const paths = Array.from(Array(pages).keys()).map((page) =>
     page === 0
       ? {
@@ -106,15 +161,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
           // before buoilding params
           // START TESTJPF here  otiional catch-all route
           // one for cats, tags, filter, and field
-          params: { slug: [] },
+          params: { slug: slugArray },
         }
       : {
-          params: { slug: [(page + 1).toString()] },
+          params: { slug: slugArray.push( (page + 1).toString()) },
         },
   )
-  console.log(paths[1].params)
-  console.dir(paths)
-  console.log('paths.length', paths.length)
+  */
+  //  console.log(paths[1].params)
+  // console.dir(paths)
+
   return {
     paths,
     fallback: false,

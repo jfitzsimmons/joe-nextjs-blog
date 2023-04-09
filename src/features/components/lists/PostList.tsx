@@ -31,28 +31,30 @@ export default function PostList({
   return (
     <div className={`${styles.container}`}>
       <div className={styles.posts}>
-        {type !== 'home' && (
-          <h1 className={styles.header_large}>
-            {type === 'all' ? (
-              `all posts`
-            ) : (
-              <>
-                {'latest '}
-                <Link href={`/posts/${type}/${filter.slug}`}>
-                  <a>
-                    <span
-                      className={styles.link}
-                      style={{ color: `rgba(${filter.color}.9)` }}
-                    >
-                      {' /'}
-                      {filter.name}
-                    </span>
-                  </a>
-                </Link>
-              </>
-            )}
-          </h1>
-        )}
+        {/** testjpf
+         * l
+         */}
+
+        <h1 className={styles.header_large}>
+          {type === 'all' && `all posts`}{' '}
+          {type !== 'all' && filter.slug !== 'home' && (
+            <>
+              {'latest '}
+              <Link href={`/posts/${type}/${filter.slug}`}>
+                <a>
+                  <span
+                    className={styles.link}
+                    style={{ color: `rgba(${filter.color}.9)` }}
+                  >
+                    {' /'}
+                    {filter.name}
+                  </span>
+                </a>
+              </Link>
+            </>
+          )}
+        </h1>
+
         <div className={styles.post_list}>
           {posts.map((p) => (
             <div key={p.slug}>
@@ -83,17 +85,23 @@ export default function PostList({
           ))}
         </div>
         {pagination && (
+          /**
+           * testjpf
+           * need to have logic here that bill build herf for us
+           * if filter.slug append / concat
+           * same with type?
+           */
           <Pagination
             current={pagination.current}
             pages={pagination.pages}
             link={
               type && type !== 'all'
                 ? {
-                    href: () => `/posts/${type}/[[...slug]]`,
+                    href: () => `/posts/filter/${type}/[[...slug]]`,
                     as: (page) =>
                       page === 1
-                        ? `/posts/${type}/${filter.slug}`
-                        : `/posts/${type}/${filter.slug}/${page}`,
+                        ? `/posts/filter/${type}/${filter.slug}`
+                        : `/posts/filter/${type}/${filter.slug}/${page}`,
                   }
                 : {
                     href: (page) =>
