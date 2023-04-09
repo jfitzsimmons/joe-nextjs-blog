@@ -108,6 +108,6 @@ export default function PostList({
 
 PostList.defaultProps = {
   tags: [],
-  filter: { slug: 'latest', name: 'latest' },
+  filter: { slug: '', name: '' },
   type: 'all',
 }
