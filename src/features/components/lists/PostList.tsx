@@ -28,16 +28,15 @@ export default function PostList({
   pagination,
 }: Props) {
   const orderedTags = tags ? orderArrayBy(tags, ['slug'], ['asc']) : []
+  const href = '/posts'
+  if (type !== 'all') href.concat(`/filter/${type}`)
+
   return (
     <div className={`${styles.container}`}>
       <div className={styles.posts}>
-        {/** testjpf
-         * l
-         */}
-
         <h1 className={styles.header_large}>
           {type === 'all' && `all posts`}{' '}
-          {type !== 'all' && filter.slug !== 'home' && (
+          {type !== 'all' && filter.slug !== 'latest' && (
             <>
               {'latest '}
               <Link href={`/posts/${type}/${filter.slug}`}>
@@ -54,11 +53,10 @@ export default function PostList({
             </>
           )}
         </h1>
-
         <div className={styles.post_list}>
           {posts.map((p) => (
             <div key={p.slug}>
-              {type === 'home' && (
+              {filter.slug === 'latest' && (
                 <h1 className={styles.header_large}>
                   {filter.name}
                   <Link
@@ -84,31 +82,14 @@ export default function PostList({
             </div>
           ))}
         </div>
-        {pagination && (
-          /**
-           * testjpf
-           * need to have logic here that bill build herf for us
-           * if filter.slug append / concat
-           * same with type?
-           */
+        {pagination && pagination.pages > 1 && (
           <Pagination
             current={pagination.current}
             pages={pagination.pages}
-            link={
-              type && type !== 'all'
-                ? {
-                    href: () => `/posts/filter/${type}/[[...slug]]`,
-                    as: (page) =>
-                      page === 1
-                        ? `/posts/filter/${type}/${filter.slug}`
-                        : `/posts/filter/${type}/${filter.slug}/${page}`,
-                  }
-                : {
-                    href: (page) =>
-                      page === 1 ? '/posts' : '/posts/page/[page]',
-                    as: (page) => (page === 1 ? null : `/posts/page/${page}`),
-                  }
-            }
+            link={{
+              href: () => `${href}/[[...slug]]`,
+              as: (page) => (page === 1 ? `${href}` : `${href}/page/${page}`),
+            }}
           />
         )}
       </div>
@@ -127,6 +108,6 @@ export default function PostList({
 
 PostList.defaultProps = {
   tags: [],
-  filter: '',
+  filter: { slug: 'latest', name: 'latest' },
   type: 'all',
 }

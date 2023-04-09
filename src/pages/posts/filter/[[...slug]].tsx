@@ -64,14 +64,8 @@ export default function Index({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // testjpf pass slug to here...
-  // then use getCat getTag for filter objexts
   const queries = params.slug as string[]
   const [filterType, slug, page] = [queries[0], queries[1], queries[2]]
-  // const filterType = 'categories'
-  // const [filter, page] = [queries[0], queries[1]]
-  // console.log('slug', slug)
-  // console.log('filterType', filterType)
   const filter = filterType === 'tags' ? getTag(slug) : getCat(slug)
   const posts = listPostContent(
     page ? parseInt(page as string, 10) : 1,
@@ -109,17 +103,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const pages = Math.ceil(
       countPosts(filter.slug, filterType) / config.posts_per_page,
     )
-    // testjpf instead of sending just filter.slug
-    // send the whole filter
-    // that will include color, parent, tags???
-    // sort that logic out later in the process
-    /**
-     * testjpf new!!! make slug include filterType as part of params (URL)
-     * then you can have a default filter / categories / tag pages
-     * and all of them and there children will use THIS page!!!
-     */
 
-    // console.log(`filterType: ${filterType} | filter.slug: ${filter.slug}`)
     return Array.from(Array(pages).keys()).map((page) =>
       page === 0
         ? {
@@ -130,9 +114,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
           },
     )
   })
-  console.log(paths.length, 'TESTJPF')
-  console.log(paths[0].params)
-  console.dir(paths)
+
   return {
     paths,
     fallback: false,
