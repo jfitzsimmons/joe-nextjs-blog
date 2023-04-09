@@ -35,9 +35,7 @@ export default function Layout({ children }: Props) {
         />
       </Head>
       <DynamicComponentWithNoSSR />
-      <nav className={styles.nav}>
-        <Navigation />
-      </nav>
+      <Navigation />
       <main className={styles.main}>{children}</main>
     </div>
   )

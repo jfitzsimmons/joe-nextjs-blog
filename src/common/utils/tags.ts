@@ -1,24 +1,24 @@
 import tags from '../../../meta/tags.yml'
-import { TagContent } from '../types'
+import { FilterContent } from '../types'
 
-function generateTagMap(): { [key: string]: TagContent } {
-  const result: { [key: string]: TagContent } = {}
+function generateTagMap(): { [key: string]: FilterContent } {
+  const result: { [key: string]: FilterContent } = {}
   tags.tags.forEach((t) => {
     result[t.slug] = t
   })
   return result
 }
 
-const tagMap: { [key: string]: TagContent } = generateTagMap()
+const tagMap: { [key: string]: FilterContent } = generateTagMap()
 
 export function getTag(slug: string) {
   return tagMap[slug]
 }
 
-export function listTags(): TagContent[] {
+export function listTags(): FilterContent[] {
   return tags.tags
 }
 
-export function childTags(p): TagContent[] {
+export function childTags(p): FilterContent[] {
   return tags.tags.filter((t) => t.parent === p)
 }

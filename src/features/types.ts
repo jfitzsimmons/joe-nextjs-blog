@@ -3,7 +3,7 @@ export type PostContent = {
   readonly title: string
   readonly slug: string
   readonly tags?: string[]
-  readonly category?: string
+  readonly category: string
   readonly description?: string
   readonly references?: object[]
   readonly fullPath: string

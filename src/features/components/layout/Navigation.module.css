@@ -1,3 +1,9 @@
+.nav {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
 .link {
   color: #feec;
   cursor: pointer;
@@ -138,7 +144,7 @@
       inset 10px 10px 40px 20px rgba(11, 4, 6, 0.8);
   }
   .ul:active {
-    box-shadow: 5px -5px 5px 0px rgba(211, 184, 196, 0.2),
+    box-shadow: 5px -5px 15px 0px rgba(211, 184, 196, 0.2),
       inset 10px 10px 40px 20px rgba(11, 4, 6, 0.9);
   }
   .ul li {

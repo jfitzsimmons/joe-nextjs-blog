@@ -48,7 +48,7 @@ export default function ReferenceItem({ field }: Props) {
       </Link>
       <ul className={`${styles.tag_list} ${styles.ul}`}>
         <li className={`card ${styles.li}`}>
-          <Link href={`/posts/field/categories/${category.name}`}>
+          <Link href={`/posts/field/filter/${category.name}`}>
             <a>
               <span
                 ref={catBtn}

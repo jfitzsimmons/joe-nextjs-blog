@@ -5,7 +5,7 @@ import Burger from './Burger'
 import { listCats } from '../../../common/utils/categories'
 import { listFields } from '../../utils/fields'
 import Canvas from '../../../common/components/Canvas'
-import { mountains } from '../../../utils/mountains'
+import mountainsAnimation from '../../../utils/mountains'
 import styles from './Navigation.module.css'
 
 export default function Navigation() {
@@ -20,14 +20,14 @@ export default function Navigation() {
   }
 
   return (
-    <>
+    <nav className={styles.nav}>
       <Burger
         active={active}
         onClick={() => setActive(!active)}
       />
       <div className={styles.logo_container}>
         <Canvas
-          draw={mountains}
+          draw={mountainsAnimation}
           height={150}
           width={120}
           fader={0}
@@ -71,7 +71,7 @@ export default function Navigation() {
               key={it.slug}
               className={styles.nav__link}
             >
-              <Link href={`/posts/categories/${it.slug}`}>
+              <Link href={`/posts/filter/categories/${it.slug}`}>
                 <a
                   className={`${styles.link} ${
                     router.asPath.endsWith(`categories/${it.slug}`)
@@ -121,6 +121,6 @@ export default function Navigation() {
           &#8679;
         </button>
       </div>
-    </>
+    </nav>
   )
 }

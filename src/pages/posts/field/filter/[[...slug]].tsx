@@ -9,13 +9,16 @@ import config from '../../../../common/utils/config'
 import { PostContent, Field, FieldContent } from '../../../../features/types'
 import { listPostRefs, countRefs } from '../../../../features/utils/references'
 import { getField } from '../../../../features/utils/fields'
-import { listCats, getCat } from '../../../../common/utils/categories'
-import { FilterContent } from '../../../../common/types'
+import { listCats } from '../../../../common/utils/categories'
+import { listTags } from '../../../../common/utils/tags'
+// import { FilterContent } from '../../../../common/types'
 
 type Props = {
   posts: Field[]
   field: FieldContent
-  category: FilterContent
+  // filter???
+  slug: string
+  // category: FilterContent
   page?: string
   pagination: {
     current: number
@@ -26,31 +29,32 @@ type Props = {
 export default function Index({
   posts,
   field,
-  category,
+  // category,
+  slug,
   pagination,
   page,
 }: Props) {
-  const url = `/posts/field/${category.name}${page ? `/${page}` : ''}`
-  const title = category.name
+  const url = `/posts/field/${slug}${page ? `/${page}` : ''}`
+  // const title = slug
   return (
     <Layout>
       <BasicMeta
         url={url}
-        title={title}
+        title={slug}
       />
       <OpenGraphMeta
         url={url}
-        title={title}
+        title={slug}
       />
       <TwitterCardMeta
         url={url}
-        title={title}
+        title={slug}
       />
       <FieldList
         fields={posts}
         pagination={pagination}
         field={field}
-        tag={category}
+        filter={slug}
       />
     </Layout>
   )
@@ -63,10 +67,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     page ? parseInt(page as string, 10) : 1,
     config.refs_per_page,
     slug,
-    'category',
+    //  'category',
   )
   const field = getField('references')
-  const category = getCat(slug)
+  // const filter = getCat(slug)
   const pagination = {
     current: page ? parseInt(page as string, 10) : 1,
     pages: Math.ceil(posts.length / config.refs_per_page),
@@ -74,10 +78,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const props: {
     posts: PostContent[]
     field: FieldContent
-    category: FilterContent
+    slug: string
     pagination: { current: number; pages: number }
     page?: string
-  } = { posts, field, /* tags, */ category, pagination }
+  } = { posts, field, /* tags, */ slug, pagination }
   if (page) {
     props.page = page
   }
@@ -87,17 +91,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = listCats().flatMap((category) => {
-    const pages = Math.ceil(
-      countRefs(category.slug, 'category') / config.refs_per_page,
-    )
+  const paths = [...listTags(), ...listCats()].flatMap((filter) => {
+    const pages = Math.ceil(countRefs(filter.slug) / config.refs_per_page)
     return Array.from(Array(pages).keys()).map((page) =>
       page === 0
         ? {
-            params: { slug: [category.slug] },
+            params: { slug: [filter.slug] },
           }
         : {
-            params: { slug: [category.slug, (page + 1).toString()] },
+            params: { slug: [filter.slug, (page + 1).toString()] },
           },
     )
   })
