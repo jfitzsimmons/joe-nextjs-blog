@@ -24,8 +24,15 @@ type Props = {
     pages: number
   }
   filterType: string
+  filter: FilterContent
 }
-export default function Index({ posts, tags, pagination, filterType }: Props) {
+export default function Index({
+  posts,
+  tags,
+  pagination,
+  filterType,
+  filter,
+}: Props) {
   const url = '/posts'
   const title = 'All posts'
   return (
@@ -47,12 +54,13 @@ export default function Index({ posts, tags, pagination, filterType }: Props) {
         tags={tags}
         pagination={pagination}
         type={filterType}
+        filter={filter}
       />
     </Layout>
   )
 }
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const queries = params.slug as string[]
+  const queries = params ? (params.slug as string[]) : []
   const filterType = queries && queries[1] ? queries[1] : 'all'
   const page = queries && queries[2]
   const posts =
@@ -70,12 +78,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       ? Math.ceil(listCats().length / config.posts_per_page)
       : Math.ceil(countPosts() / config.posts_per_page)
 
+  const filter =
+    filterType === 'categories' ? { slug: 'latest', name: 'latest' } : null
+
   const pagination = {
     current: page ? parseInt(page as string, 10) : 1,
     pages,
   }
-  // console.log('pagination')
-  // console.dir(pagination)
 
   const props: {
     posts: PostContent[]
@@ -83,9 +92,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     pagination: { current: number; pages: number }
     page?: string
     filterType: string
+    filter?: FilterContent
   } = { posts, tags, pagination, filterType }
   if (page) {
     props.page = page
+  }
+  if (filter) {
+    props.filter = filter
   }
   return {
     props,
@@ -100,76 +113,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
     ['filter', 'tags'],
   ]
 
-  // console.log(pages, 'pages')
-  // const posts = listPostContent(1, config.posts_per_page)
-  // const tags = listTags()
-
-  /**
-   * testjpf
-   * i think i can just harcode something herer for psosts
-   * posts/
-   * posts/categories/
-   * posts/filter
-   *
-   * NO LOOPING
-   * build slug array before here
-   * meaning...
-   *
-   */
-
   const paths = slugArrays.flatMap((sA) => {
-    // const filterType = filter && filter.color ? 'categories' : 'tags'
-
-    // testjpf instead of sending just filter.slug
-    // send the whole filter
-    // that will include color, parent, tags???
-    // sort that logic out later in the process
-    /**
-     * testjpf new!!! make slug include filterType as part of params (URL)
-     * then you can have a default filter / categories / tag pages
-     * and all of them and there children will use THIS page!!!
-     */
-
-    // console.log(`filterType: ${filterType} | filter.slug: ${filter.slug}`)
     const pages =
       sA[1] && sA[1] === 'categories'
         ? Math.ceil(listCats().length / config.posts_per_page)
         : Math.ceil(countPosts() / config.posts_per_page)
-    // console.log('sA[1]', sA[1])
-    // console.log('pages', pages)
+
     return Array.from(Array(pages).keys()).map((page) => {
       if (page === 0) {
         return { params: { slug: sA } }
       }
       const withpaging = sA.slice()
       withpaging.push((page + 1).toString())
-      // console.dir({ params: { slug: withpaging } })
 
       return { params: { slug: withpaging } }
     })
   })
-
-  /** 
-  const paths = Array.from(Array(pages).keys()).map((page) =>
-    page === 0
-      ? {
-          // testjpf works:
-          // you'll need to get logic
-          // build slug array before here
-          // * meaning...
-          // check if page === 0
-          // before buoilding params
-          // START TESTJPF here  otiional catch-all route
-          // one for cats, tags, filter, and field
-          params: { slug: slugArray },
-        }
-      : {
-          params: { slug: slugArray.push( (page + 1).toString()) },
-        },
-  )
-  */
-  //  console.log(paths[1].params)
-  // console.dir(paths)
 
   return {
     paths,

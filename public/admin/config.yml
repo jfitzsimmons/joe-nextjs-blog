@@ -1,327 +1,335 @@
 backend:
-  name: git-gateway #TEST JPF CHANGE BACK TO git-gateway / test-repo
+  name: git-gateway
   branch: master
-#local_backend: true #npx netlify-cms-proxy-server
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
 
 collections:
-  - name: "config"
-    label: "Config"
+  - name: 'config'
+    label: 'Config'
     delete: false
     editor:
       preview: false
     files:
-      - name: "general"
-        label: "Site Config"
-        file: "config.json"
-        description: "General site settings"
+      - name: 'general'
+        label: 'Site Config'
+        file: 'config.json'
+        description: 'General site settings'
         fields:
-          - label: "URL"
-            name: "base_url"
-            widget: "string"
-            hint: "Do not enter the trailing slash of the URL"
-          - label: "Site title"
-            name: "site_title"
-            widget: "string"
-          - label: "Site description"
-            name: "site_description"
-            widget: "string"
-          - label: "Site keywords"
-            name: "site_keywords"
-            widget: "list"
-            summary: "{{fields.keyword.keyword}}"
+          - label: 'URL'
+            name: 'base_url'
+            widget: 'string'
+            hint: 'Do not enter the trailing slash of the URL'
+          - label: 'Site title'
+            name: 'site_title'
+            widget: 'string'
+          - label: 'Site description'
+            name: 'site_description'
+            widget: 'string'
+          - label: 'Site keywords'
+            name: 'site_keywords'
+            widget: 'list'
+            summary: '{{fields.keyword.keyword}}'
             field:
               label: Keyword
               name: keyword
-              widget: "string"
-          - label: "Twitter account"
-            name: "twitter_account"
-            widget: "string"
-          - label: "GitHub account"
-            name: "github_account"
-            widget: "string"
-  - name: "meta"
-    label: "Meta"
+              widget: 'string'
+          - label: 'Twitter account'
+            name: 'twitter_account'
+            widget: 'string'
+          - label: 'GitHub account'
+            name: 'github_account'
+            widget: 'string'
+  - name: 'meta'
+    label: 'Meta'
     delete: false
     editor:
       preview: false
     files:
-      - name: "authors"
-        label: "Authors"
-        file: "meta/authors.yml"
-        description: "Author descriptions"
+      - name: 'authors'
+        label: 'Authors'
+        file: 'meta/authors.yml'
+        description: 'Author descriptions'
         fields:
           - name: authors
             label: Authors
-            label_singular: "Author"
+            label_singular: 'Author'
             widget: list
             fields:
-              - label: "Slug"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the author"
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "First and Last"
-              - label: "Introduction"
-                name: "introduction"
-                widget: "text"
-      - name: "tags"
-        label: "Tags"
-        file: "meta/tags.yml"
-        description: "List of tags"
+              - label: 'Slug'
+                name: 'slug'
+                widget: 'string'
+                hint: 'The part of a URL identifies the author'
+              - label: 'Name'
+                name: 'name'
+                widget: 'string'
+                hint: 'First and Last'
+              - label: 'Introduction'
+                name: 'introduction'
+                widget: 'text'
+      - name: 'tags'
+        label: 'Tags'
+        file: 'meta/tags.yml'
+        description: 'List of tags'
         fields:
           - name: tags
             label: Tags
-            label_singular: "Tag"
+            label_singular: 'Tag'
             widget: list
             fields:
-              - label: "Slug"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the tag"
-              - label: "Display Name"
-                name: "name"
-                widget: "string"
-                hint: "Tag name for displaying on the site"
-              - label: "Parent Category"
-                name: "parent"
+              - label: 'Slug'
+                name: 'slug'
+                widget: 'string'
+                hint: 'The part of a URL identifies the tag'
+              - label: 'Display Name'
+                name: 'name'
+                widget: 'string'
+                hint: 'Tag name for displaying on the site'
+              - label: 'Parent Category'
+                name: 'parent'
                 widget: relation
-                collection: "meta"
-                file: "categories"
+                collection: 'meta'
+                file: 'categories'
                 required: false
                 searchFields:
-                    - "categories.*.name"
+                  - 'categories.*.name'
                 displayFields:
-                    - "categories.*.name"
-                valueField: "categories.*.slug"
-      - name: "categories"
-        label: "Categories"
-        file: "meta/categories.yml"
-        description: "List of categories"
+                  - 'categories.*.name'
+                valueField: 'categories.*.slug'
+      - name: 'categories'
+        label: 'Categories'
+        file: 'meta/categories.yml'
+        description: 'List of categories'
         fields:
           - name: categories
             label: Categories
-            label_singular: "Category"
+            label_singular: 'Category'
             widget: list
             fields:
-              - label: "Slug"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the category"
-              - label: "Display Name"
-                name: "name"
-                widget: "string"
-                hint: "Category name for displaying on the site"
-              - label: "Color Hexcode"
-                name: "color"
-                widget: "string"
+              - label: 'Slug'
+                name: 'slug'
+                widget: 'string'
+                hint: 'The part of a URL identifies the category'
+              - label: 'Display Name'
+                name: 'name'
+                widget: 'string'
+                hint: 'Category name for displaying on the site'
+              - label: 'Color Hexcode'
+                name: 'color'
+                widget: 'string'
                 hint: "Color associated with category's style"
                 required: false
 
-  - name: "posts"
-    label: "Posts"
-    folder: "content/posts/"
-    extension: "json"
-    format: "json"
+  - name: 'posts'
+    label: 'Posts'
+    folder: 'content/posts/'
+    extension: 'json'
+    format: 'json'
     create: true
     editor:
       preview: false
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     identifier_field: slug
-    summary: "{{title}}"
+    summary: '{{title}}'
     fields:
-      - label: "Slug"
-        name: "slug"
-        widget: "string"
-        hint: "Ex: 2021-07-08_this-is-the-title"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Description"
-        name: "description"
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+        hint: 'Ex: 2021-07-08_this-is-the-title'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Description'
+        name: 'description'
         required: false
-        widget: "text"
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        dateFormat: "YYYY-MM-DD"
+        widget: 'text'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD'
+        dateFormat: 'YYYY-MM-DD'
         timeFormat: false
       - label: Author
-        name: "author"
+        name: 'author'
         widget: relation
-        collection: "meta"
-        file: "authors"
-        default: "Joe Fitzsimmons"
+        collection: 'meta'
+        file: 'authors'
+        default: 'Joe Fitzsimmons'
         searchFields:
-          - "authors.*.name"
+          - 'authors.*.name'
         displayFields:
-          - "authors.*.name"
-        valueField: "authors.*.slug"
+          - 'authors.*.name'
+        valueField: 'authors.*.slug'
       - label: Category
-        name: "category"
+        name: 'category'
         widget: relation
-        collection: "meta"
-        file: "categories"
+        collection: 'meta'
+        file: 'categories'
         searchFields:
-            - "categories.*.name"
+          - 'categories.*.name'
         displayFields:
-            - "categories.*.name"
-        valueField: "categories.*.slug"
-      - label: "Tags"
-        label_singular: "Tag"
-        name: "tags"
+          - 'categories.*.name'
+        valueField: 'categories.*.slug'
+      - label: 'Tags'
+        label_singular: 'Tag'
+        name: 'tags'
         widget: list
-        summary: "{{fields.tag}}"
+        summary: '{{fields.tag}}'
         field:
           label: Tag
           name: tag
           widget: relation
-          collection: "meta"
-          file: "tags"
+          collection: 'meta'
+          file: 'tags'
           searchFields:
-            - "tags.*.name"
+            - 'tags.*.name'
           displayFields:
-            - "tags.*.name"
-          valueField: "tags.*.slug"  
-      - label: "Chapters"
-        name: "chapters"
-        widget: "list"
+            - 'tags.*.name'
+          valueField: 'tags.*.slug'
+      - label: 'Chapters'
+        name: 'chapters'
+        widget: 'list'
         types:
           - label: 'New Chapter'
             name: 'newChapter'
             widget: object
             fields:
-            - label: 'Section'
-              name: 'section'
-              widget: object
-              fields:
-                - {label: Chapter Title, name: chapterTitle, widget: string, default: "Act 1"}
-                - label: "Featured Image"
-                  name: "thumbnail"
-                  required: false
-                  widget: "image"
-                  media_library:
-                    config:
-                      multiple: true
-                - {label: Body, name: body, widget: markdown}
-                - {label: Summary, name: summary, required: false, widget: text}
-                - label: Category
-                  name: "category"
-                  widget: relation
-                  collection: "meta"
-                  file: "categories"
-                  searchFields:
-                      - "categories.*.name"
-                  displayFields:
-                      - "categories.*.name"
-                  valueField: "categories.*.slug"
-                - label: Tags
-                  label_singular: "Tag"
-                  name: "tags"
-                  widget: list
-                  summary: "{{fields.tag}}"
-                  field:
-                    label: Tag
-                    name: tag
+              - label: 'Section'
+                name: 'section'
+                widget: object
+                fields:
+                  - {
+                      label: Chapter Title,
+                      name: chapterTitle,
+                      widget: string,
+                      default: 'Act 1',
+                    }
+                  - label: 'Featured Image'
+                    name: 'thumbnail'
+                    required: false
+                    widget: 'image'
+                    media_library:
+                      config:
+                        multiple: true
+                  - { label: Body, name: body, widget: markdown }
+                  - {
+                      label: Summary,
+                      name: summary,
+                      required: false,
+                      widget: text,
+                    }
+                  - label: Category
+                    name: 'category'
                     widget: relation
-                    collection: "meta"
-                    file: "tags"
+                    collection: 'meta'
+                    file: 'categories'
                     searchFields:
-                      - "tags.*.name"
+                      - 'categories.*.name'
                     displayFields:
-                      - "tags.*.name"
-                    valueField: "tags.*.slug"
+                      - 'categories.*.name'
+                    valueField: 'categories.*.slug'
+                  - label: Tags
+                    label_singular: 'Tag'
+                    name: 'tags'
+                    widget: list
+                    summary: '{{fields.tag}}'
+                    field:
+                      label: Tag
+                      name: tag
+                      widget: relation
+                      collection: 'meta'
+                      file: 'tags'
+                      searchFields:
+                        - 'tags.*.name'
+                      displayFields:
+                        - 'tags.*.name'
+                      valueField: 'tags.*.slug'
           - label: Old Chapter
-            name: "oldChapter"
+            name: 'oldChapter'
             widget: object
             field:
               label: Section
               name: section
               required: false
               widget: relation
-              collection: "posts"
-              searchFields: ["chapters.*.chapterTitle"]
-              displayFields: ["chapters.*.chapterTitle"]
-              valueField: "chapters.*"
-      - label: "References"
-        label_singular: "Reference"
-        name: "references"
+              collection: 'posts'
+              searchFields: ['chapters.*.chapterTitle']
+              displayFields: ['chapters.*.chapterTitle']
+              valueField: 'chapters.*'
+      - label: 'References'
+        label_singular: 'Reference'
+        name: 'references'
         widget: list
-        summary: "{{fields.references}}"
-        fields: 
-          - label: "Index"
-            name: "index"
+        summary: '{{fields.references}}'
+        fields:
+          - label: 'Index'
+            name: 'index'
             widget: number
             default: 0
-            value_type: "int"
+            value_type: 'int'
             step: 1
-          - label: "Title"
-            name: "title"
+          - label: 'Title'
+            name: 'title'
             widget: string
-          - label: "URL"
-            name: "url"
+          - label: 'URL'
+            name: 'url'
             widget: string
-          - label: "Source"
-            name: "source"
+          - label: 'Source'
+            name: 'source'
             widget: string
           - label: 'Date'
             name: 'date'
             widget: 'date'
             required: false
-  - name: "articles"
-    label: "Articles"
-    folder: "content/articles/"
-    extension: "mdx"
-    format: "frontmatter"
+  - name: 'articles'
+    label: 'Articles'
+    folder: 'content/articles/'
+    extension: 'mdx'
+    format: 'frontmatter'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     identifier_field: slug
-    summary: "{{title}}"
+    summary: '{{title}}'
     fields:
-      - label: "Slug"
-        name: "slug"
-        widget: "string"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        dateFormat: "YYYY-MM-DD"
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD'
+        dateFormat: 'YYYY-MM-DD'
         timeFormat: false
       - label: Author
-        name: "author"
+        name: 'author'
         widget: relation
-        collection: "meta"
-        file: "authors"
+        collection: 'meta'
+        file: 'authors'
         searchFields:
-          - "authors.*.name"
+          - 'authors.*.name'
         displayFields:
-          - "authors.*.name"
-        valueField: "authors.*.slug"
-      - label: "Featured Image"
-        name: "thumbnail"
-        widget: "image"
+          - 'authors.*.name'
+        valueField: 'authors.*.slug'
+      - label: 'Featured Image'
+        name: 'thumbnail'
+        widget: 'image'
         media_library:
           config:
             multiple: true
       - label: Sections
-        label_singular: "Section"
-        name: "sections"
+        label_singular: 'Section'
+        name: 'sections'
         widget: list
-        summary: "{{fields.section}}"
+        summary: '{{fields.section}}'
         field:
           label: Section
           name: section
           widget: relation
-          collection: "posts"
-          searchFields: ["chapters.*.chapterTitle"]
-          displayFields: ["{{chapterTitle}}"]
-          valueField: "{{chapter}}"
-        
+          collection: 'posts'
+          searchFields: ['chapters.*.chapterTitle']
+          displayFields: ['{{chapterTitle}}']
+          valueField: '{{chapter}}'
