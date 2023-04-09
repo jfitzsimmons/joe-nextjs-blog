@@ -5,9 +5,7 @@
   "slug": "2021-08-25_the-sublime-art-that-gave-me-sparks-of-inspiration",
   "description": "Stuff I didn't steal from",
   "category": "art",
-  "tags": [
-    "inspiration"
-  ],
+  "tags": ["vue"],
   "chapters": [
     {
       "type": "newChapter",

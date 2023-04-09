@@ -9,13 +9,15 @@ import config from '../../../common/utils/config'
 import { PostContent } from '../../../features/types'
 import { countPosts, listPostContent } from '../../../features/utils/posts'
 import { getCat, listCats } from '../../../common/utils/categories'
-import { childTags } from '../../../common/utils/tags'
+import { childTags, listTags, getTag } from '../../../common/utils/tags'
 import { FilterContent } from '../../../common/types'
 
 type Props = {
   posts: PostContent[]
-  category: FilterContent
+  // category: FilterContent
   tags: FilterContent[]
+  filterType: string
+  filter: FilterContent
   page?: string
   pagination: {
     current: number
@@ -25,13 +27,17 @@ type Props = {
 
 export default function Index({
   posts,
-  category,
+  // category,
   tags,
   pagination,
   page,
+  filterType,
+  filter,
 }: Props) {
-  const url = `/posts/categories/${category.name}${page ? `/${page}` : ''}`
-  const title = category.name
+  const url = `/posts/filter/${filterType}/${filter.slug}${
+    page ? `/${page}` : ''
+  }`
+  const title = filter.slug
   return (
     <Layout>
       <BasicMeta
@@ -48,8 +54,8 @@ export default function Index({
       />
       <PostList
         posts={posts}
-        filter={category}
-        type="categories"
+        filter={filter}
+        type={filterType}
         tags={tags}
         pagination={pagination}
       />
@@ -58,18 +64,27 @@ export default function Index({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  // testjpf pass slug to here...
+  // then use getCat getTag for filter objexts
   const queries = params.slug as string[]
-  const [slug, page] = [queries[0], queries[1]]
+  const [filterType, slug, page] = [queries[0], queries[1], queries[2]]
+  // const filterType = 'categories'
+  // const [filter, page] = [queries[0], queries[1]]
+  // console.log('slug', slug)
+  // console.log('filterType', filterType)
+  const filter = filterType === 'tags' ? getTag(slug) : getCat(slug)
   const posts = listPostContent(
     page ? parseInt(page as string, 10) : 1,
     config.posts_per_page,
     slug,
+    filterType,
   )
-  const category = getCat(slug)
-  const tags = childTags(category.name)
+  const category = filterType === 'categories' ? filter : null
+  const tags = category && category.name ? childTags(category.name) : []
+
   const pagination = {
     current: page ? parseInt(page as string, 10) : 1,
-    pages: Math.ceil(countPosts(slug, 'category') / config.posts_per_page),
+    pages: Math.ceil(countPosts(slug) / config.posts_per_page),
   }
   const props: {
     posts: PostContent[]
@@ -77,7 +92,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     tags: FilterContent[]
     pagination: { current: number; pages: number }
     page?: string
-  } = { posts, category, tags, pagination }
+    filterType: string
+    filter: FilterContent
+  } = { posts, category, tags, pagination, filterType, filter }
   if (page) {
     props.page = page
   }
@@ -87,20 +104,35 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = listCats().flatMap((category) => {
+  const paths = [...listTags(), ...listCats()].flatMap((filter) => {
+    const filterType = filter && filter.color ? 'categories' : 'tags'
     const pages = Math.ceil(
-      countPosts(category.slug, 'category') / config.posts_per_page,
+      countPosts(filter.slug, filterType) / config.posts_per_page,
     )
+    // testjpf instead of sending just filter.slug
+    // send the whole filter
+    // that will include color, parent, tags???
+    // sort that logic out later in the process
+    /**
+     * testjpf new!!! make slug include filterType as part of params (URL)
+     * then you can have a default filter / categories / tag pages
+     * and all of them and there children will use THIS page!!!
+     */
+
+    // console.log(`filterType: ${filterType} | filter.slug: ${filter.slug}`)
     return Array.from(Array(pages).keys()).map((page) =>
       page === 0
         ? {
-            params: { slug: [category.slug] },
+            params: { slug: [filterType, filter.slug] },
           }
         : {
-            params: { slug: [category.slug, (page + 1).toString()] },
+            params: { slug: [filterType, filter.slug, (page + 1).toString()] },
           },
     )
   })
+  console.log(paths.length, 'TESTJPF')
+  console.log(paths[0].params)
+  console.dir(paths)
   return {
     paths,
     fallback: false,

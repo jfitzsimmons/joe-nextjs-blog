@@ -4,17 +4,17 @@ import Layout from '../features/components/layout/Layout'
 import BasicMeta from '../common/components/meta/BasicMeta'
 import OpenGraphMeta from '../common/components/meta/OpenGraphMeta'
 import TwitterCardMeta from '../common/components/meta/TwitterCardMeta'
-import { latestPostContent } from '../features/utils/posts'
-import { PostContent } from '../features/types'
 import { listCats } from '../common/utils/categories'
 import { listTags } from '../common/utils/tags'
-import { TagContent } from '../common/types'
+import { latestPostContent } from '../features/utils/posts'
+import { FilterContent } from '../common/types'
+import { PostContent } from '../features/types'
 import Home from '../features/components/Home'
 import PostList from '../features/components/lists/PostList'
 
 type Props = {
   posts: PostContent[]
-  tags: TagContent[]
+  tags: FilterContent[]
 }
 
 export default function Index({ posts, tags }: Props) {
@@ -28,7 +28,7 @@ export default function Index({ posts, tags }: Props) {
         posts={posts}
         tags={tags}
         type="home"
-        filter={{ slug: 'latest', name: 'latest' }}
+        filter={{ slug: 'home', name: 'latest' }}
         pagination={{
           current: 0,
           pages: 0,

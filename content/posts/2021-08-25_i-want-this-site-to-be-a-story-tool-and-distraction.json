@@ -5,9 +5,7 @@
   "slug": "2021-08-25_i-want-this-site-to-be-a-story-tool-and-distraction",
   "description": "Maybe I'll learn to write",
   "category": "writing",
-  "tags": [
-    "document"
-  ],
+  "tags": ["vue"],
   "chapters": [
     {
       "type": "newChapter",

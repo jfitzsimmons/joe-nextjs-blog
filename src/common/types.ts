@@ -1,9 +1,3 @@
-export type FilterContent = {
-  readonly slug: string
-  readonly name: string
-  readonly color?: string
-}
-
 export type Config = {
   readonly base_url: string
   readonly site_title: string
@@ -15,10 +9,11 @@ export type Config = {
   readonly github_account: string
 }
 
-export type TagContent = {
+export type FilterContent = {
   readonly slug: string
   readonly name: string
-  readonly parent: string
+  readonly color?: string
+  readonly parent?: string
 }
 
 export type Pagination = {

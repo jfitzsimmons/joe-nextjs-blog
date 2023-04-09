@@ -8,12 +8,12 @@ import PostList from '../../features/components/lists/PostList'
 import config from '../../common/utils/config'
 import { countPosts, listPostContent } from '../../features/utils/posts'
 import { listTags } from '../../common/utils/tags'
-import { TagContent } from '../../common/types'
+import { FilterContent } from '../../common/types'
 import { PostContent } from '../../features/types'
 
 type Props = {
   posts: PostContent[]
-  tags: TagContent[]
+  tags: FilterContent[]
   pagination: {
     current: number
     pages: number
@@ -46,6 +46,10 @@ export default function Index({ posts, tags, pagination }: Props) {
   )
 }
 export const getStaticProps: GetStaticProps = async () => {
+  console.log(
+    'Math.ceil(countPosts() / config.posts_per_page),',
+    Math.ceil(countPosts() / config.posts_per_page),
+  )
   const posts = listPostContent(1, config.posts_per_page)
   const tags = listTags()
   const pagination = {

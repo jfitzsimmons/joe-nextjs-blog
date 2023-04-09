@@ -16,9 +16,9 @@
   height: 33vh;
   position: relative;
 }
-.card {
+.bottom {
   padding: 4vmin;
-  border-radius: 3px 0 4vmin 4vmin;
+  border-radius: 0 0 4vmin 4vmin;
 }
 .title {
   font-size: calc(2rem + 4vmin);

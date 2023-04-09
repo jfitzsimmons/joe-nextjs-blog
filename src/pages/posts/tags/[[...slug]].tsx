@@ -9,11 +9,11 @@ import config from '../../../common/utils/config'
 import { PostContent } from '../../../features/types'
 import { countPosts, listPostContent } from '../../../features/utils/posts'
 import { getTag, listTags } from '../../../common/utils/tags'
-import { TagContent } from '../../../common/types'
+import { FilterContent } from '../../../common/types'
 
 type Props = {
   posts: PostContent[]
-  tag: TagContent
+  tag: FilterContent
   page?: string
   pagination: {
     current: number
@@ -63,7 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   const props: {
     posts: PostContent[]
-    tag: TagContent
+    tag: FilterContent
     pagination: { current: number; pages: number }
     page?: string
   } = { posts, tag, pagination }
