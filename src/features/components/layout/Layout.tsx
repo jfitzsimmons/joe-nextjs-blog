@@ -22,16 +22,35 @@ export default function Layout({ children }: Props) {
           content="width=device-width, initial-scale=1"
         />
         <link
+          rel="shortcut icon"
+          href="./favicon.ico"
+        />
+        <link
           rel="manifest"
           href="/site.webmanifest"
         />
         <link
           rel="apple-touch-icon"
-          href="/icon.png"
+          href="./apple-touch-icon-iphone-60x60.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="60x60"
+          href="./apple-touch-icon-ipad-76x76.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="114x114"
+          href="./apple-touch-icon-iphone-retina-120x120.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="144x144"
+          href="./apple-touch-icon-ipad-retina-152x152.png"
         />
         <meta
           name="theme-color"
-          content="#000"
+          content="#100"
         />
       </Head>
       <DynamicComponentWithNoSSR />
