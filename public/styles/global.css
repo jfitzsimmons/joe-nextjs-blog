@@ -106,9 +106,11 @@ footer {
 }
 footer svg {
   stroke: #feec;
-  transition: 200ms;
+  fill: #fee5;
+  transition: all 200ms;
 }
 footer svg:hover {
   stroke: #feee;
-  transition: 200ms;
+  fill: #fee0;
+  transition: all 200ms;
 }

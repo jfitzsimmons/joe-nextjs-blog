@@ -30,7 +30,6 @@ export default function PostList({
   const orderedTags = tags ? orderArrayBy(tags, ['slug'], ['asc']) : []
   const href = '/posts'
   if (type !== 'all') href.concat(`/filter/${type}`)
-
   return (
     <div className={`${styles.container}`}>
       <div className={styles.posts}>
@@ -39,7 +38,7 @@ export default function PostList({
           {type !== 'all' && filter.slug !== 'latest' && (
             <>
               {'latest '}
-              <Link href={`/posts/${type}/${filter.slug}`}>
+              <Link href={`/posts/filter/${type}/${filter.slug}`}>
                 <a>
                   <span
                     className={styles.link}

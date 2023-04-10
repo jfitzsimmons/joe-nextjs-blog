@@ -110,10 +110,6 @@
   font-weight: 200;
 }
 
-.content a {
-  color: rgba(1, 88, 123, 0.8);
-}
-
 .content time {
   color: #feec;
   text-shadow: 0 0 0.1vmin #000;
