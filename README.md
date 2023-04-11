@@ -11,7 +11,7 @@ Part blog / part knowledge repository.
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Next.js](https://nextjs.org/)
-- [Netlify CMS](https://www.netlifycms.org/)
+- [Decap CMS](https://decapcms.org/)
 - [MDX](https://mdxjs.com/)
 
 ## License

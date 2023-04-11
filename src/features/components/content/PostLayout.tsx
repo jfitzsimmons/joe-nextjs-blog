@@ -87,7 +87,7 @@ export default function PostLayout({
       />
       <div
         className={styles.tab}
-        style={{ background: `rgba(${getCat(category).color}.8)` }}
+        style={{ backgroundColor: `rgba(${getCat(category).color}.9)` }}
       />
       <div className={styles.container}>
         <div className="post-card">
@@ -98,7 +98,16 @@ export default function PostLayout({
             >
               <header className={styles.header}>
                 <div className={styles.metadata}>
-                  <h1 className={styles.h1}>{title}</h1>
+                  <h1
+                    className={styles.h1}
+                    style={{
+                      textShadow: `1px 2px 2px rgba(${
+                        getCat(category).color
+                      }.8), 3px 5px 0px #0b040644`,
+                    }}
+                  >
+                    {title}
+                  </h1>
                   <div>
                     <Date date={date} />
                   </div>
@@ -106,7 +115,7 @@ export default function PostLayout({
               </header>
               <Canvas
                 draw={mountainsAnimation}
-                height={200}
+                height={400}
                 width={width}
                 fader={0}
                 animation={false}
@@ -135,8 +144,8 @@ export default function PostLayout({
           </div>
           {references && (
             <>
-              <h3>References</h3>
-              <ol className={`${styles.card} ${styles.ref_list} ${styles.ol}`}>
+              <h3 className={styles.h3}>References</h3>
+              <ol className={`card ${styles.ref_list} ${styles.ol}`}>
                 {references.map((it) => (
                   <li key={it.title}>
                     <a

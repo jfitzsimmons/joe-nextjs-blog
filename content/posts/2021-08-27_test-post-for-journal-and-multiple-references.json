@@ -6,7 +6,22 @@
         "chapterTitle": "Test Act 1",
         "body": "Test Body",
         "category": "journal",
-        "tags": ["vue"]
+        "tags": [
+          "vue"
+        ]
+      }
+    },
+    {
+      "type": "oldChapter",
+      "section": {
+        "chapterTitle": "A Favor House Atlantic - Vitamin String Quartet Tribute to Coheed and Cambria",
+        "body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut est id ante faucibus sollicitudin. Praesent blandit turpis dui, non vestibulum felis cursus eget. Praesent et velit fermentum, lacinia nunc eu, ullamcorper erat. Suspendisse dapibus quam eget suscipit tempor. Vestibulum id accumsan ante. Nullam interdum et velit et efficitur. Phasellus dignissim tortor magna, ac tempus arcu malesuada sed. Duis auctor tortor lacus, vitae pharetra mi dignissim nec. In auctor viverra augue ac scelerisque.</p><p>Donec blandit mattis tortor ut pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus congue nunc at sapien euismod facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur magna quam, bibendum et ornare vel, mattis sit amet ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/BfSh4unhD4g\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "summary": "I'm a sucker for all things strings.",
+        "tags": [
+          "orchestral",
+          "rendition"
+        ],
+        "category": "music"
       }
     }
   ],
@@ -44,7 +59,10 @@
   "slug": "2021-08-27_test-post-for-journal-and-multiple-references",
   "date": "2021-08-27",
   "title": "Test Post for journal and multiple references",
-  "tags": ["vue", "rendition"],
+  "tags": [
+    "vue",
+    "rendition"
+  ],
   "description": "Test Description",
   "category": "journal"
 }
