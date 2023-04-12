@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { parseISO } from 'date-fns'
 // import Author from './Author'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import Copyright from './Copyright'
 import Date from '../../../common/components/Date'
 import Layout from '../layout/Layout'
@@ -34,7 +35,7 @@ type Props = {
 }
 type Chapter = {
   section?: {
-    body: string
+    body: MDXRemoteSerializeResult
     chapterTitle: string
     category: string
   }

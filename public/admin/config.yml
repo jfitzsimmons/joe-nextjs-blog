@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: main
-#local_backend: true #npx netlify-cms-proxy-server
+local_backend: true #npx netlify-cms-proxy-server
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
@@ -128,7 +128,7 @@ collections:
     create: true
     editor:
       preview: false
-    slug: '{{slug}}'
+    slug: '{{slug}}' #change to fix annoyingingly having to keep manually adding slugs to CMS admin
     identifier_field: slug
     summary: '{{title}}'
     fields:
