@@ -15,8 +15,44 @@ export function fetchPostContent() {
     .filter((it) => it.endsWith('.json'))
     .map((fileName) => {
       const fullPath = path.join(postsDirectory, fileName)
+      /**
+       * in here you'll need something that finds the chapters
+       */
       const fileContents = fs.readFileSync(fullPath, 'utf8')
+
+      // Use gray-matter to parse the post metadata section /testjpf just the chapter section bodies
+      /**
+       * testjpf
+       * 
+       * reinstall graymatter
+       * 
+       * foreach chapter in file, get chapter body, parse with matter()
+       * save over that chpater body
+       * 
+       * MISLEAD
+       * 
+       * I think this needs to be after const result = JSON.parse(fileContents)
+       * 
+       * loop through result, do the same (foreach chapter in result)
+
+   
+      const matterResult = matter(fileContents, {
+        engines: {
+          yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
+        },
+      });
+      const matterData = matterResult.data as {
+        date: string;
+        title: string;
+        tags: string[];
+        slug: string;
+        fullPath: string,
+      };
+      matterData.fullPath = fullPath;
+       */
+
       const result = JSON.parse(fileContents)
+
       result.fullPath = fullPath
       result.slug = fileName.replace(/\.json$/, '')
 

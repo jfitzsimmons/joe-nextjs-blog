@@ -1,10 +1,10 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: main
+local_backend: true #npx netlify-cms-proxy-server
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
-
 collections:
   - name: 'config'
     label: 'Config'
@@ -120,7 +120,6 @@ collections:
                 widget: 'string'
                 hint: "Color associated with category's style"
                 required: false
-
   - name: 'posts'
     label: 'Posts'
     folder: 'content/posts/'
@@ -129,7 +128,7 @@ collections:
     create: true
     editor:
       preview: false
-    slug: '{{slug}}'
+    slug: '{{slug}}' #change to fix annoyingingly having to keep manually adding slugs to CMS admin
     identifier_field: slug
     summary: '{{title}}'
     fields:
@@ -254,9 +253,9 @@ collections:
               required: false
               widget: relation
               collection: 'posts'
-              searchFields: ['chapters.*.chapterTitle']
-              displayFields: ['chapters.*.chapterTitle']
-              valueField: 'chapters.*'
+              searchFields: ['chapters.*.section.chapterTitle']
+              displayFields: ['chapters.*.section.chapterTitle']
+              valueField: 'chapters.*.section'
       - label: 'References'
         label_singular: 'Reference'
         name: 'references'
