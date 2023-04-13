@@ -23,3 +23,23 @@ tags:
   - slug: vue
     name: Vue
     parent: code
+  - slug: videos
+    name: Videos
+  - slug: songs
+    name: songs
+    parent: music
+  - slug: guitar
+    name: guitar
+    parent: music
+  - slug: jazz
+    name: jazz
+    parent: music
+  - slug: quotes
+    name: quotes
+  - slug: advice
+    name: advice
+  - slug: letters
+    name: letters
+    parent: writing
+  - slug: stolen
+    name: stolen

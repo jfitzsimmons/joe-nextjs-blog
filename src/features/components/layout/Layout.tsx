@@ -23,7 +23,7 @@ export default function Layout({ children }: Props) {
         />
         <link
           rel="shortcut icon"
-          href="./favicon.ico"
+          href="/favicon.ico"
         />
         <link
           rel="manifest"
@@ -31,22 +31,7 @@ export default function Layout({ children }: Props) {
         />
         <link
           rel="apple-touch-icon"
-          href="./apple-touch-icon-iphone-60x60.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="60x60"
-          href="./apple-touch-icon-ipad-76x76.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="114x114"
-          href="./apple-touch-icon-iphone-retina-120x120.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="144x144"
-          href="./apple-touch-icon-ipad-retina-152x152.png"
+          href="/apple-touch-icon.png"
         />
         <meta
           name="theme-color"

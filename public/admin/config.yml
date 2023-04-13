@@ -128,20 +128,16 @@ collections:
     create: true
     editor:
       preview: false
-    slug: '{{slug}}' #change to fix annoyingingly having to keep manually adding slugs to CMS admin
-    identifier_field: slug
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    identifier_field: title
     summary: '{{title}}'
     fields:
-      - label: 'Slug'
-        name: 'slug'
-        widget: 'string'
-        hint: 'Ex: 2021-07-08_this-is-the-title'
+      - { label: 'Slug', name: 'slug', widget: 'hidden', default: '{{slug}}' }
       - label: 'Title'
         name: 'title'
         widget: 'string'
       - label: 'Description'
         name: 'description'
-        required: false
         widget: 'text'
       - label: 'Publish Date'
         name: 'date'
@@ -220,6 +216,7 @@ collections:
                     }
                   - label: Category
                     name: 'category'
+                    required: false
                     widget: relation
                     collection: 'meta'
                     file: 'categories'
@@ -231,6 +228,7 @@ collections:
                   - label: Tags
                     label_singular: 'Tag'
                     name: 'tags'
+                    required: false
                     widget: list
                     summary: '{{fields.tag}}'
                     field:
@@ -259,7 +257,9 @@ collections:
       - label: 'References'
         label_singular: 'Reference'
         name: 'references'
+        required: false
         widget: list
+        default: []
         summary: '{{fields.references}}'
         fields:
           - label: 'Index'
