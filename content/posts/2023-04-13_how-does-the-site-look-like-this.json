@@ -1,0 +1,36 @@
+{
+  "chapters": [
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Random Cosmos",
+        "body": "Random Cosmos\n\n<CodePen hash=\"VwbbdMg\" user=\"jfitzsimmons\" height=\"500\" defaultTab=\"result\" preview=\"false\"/>",
+        "category": "code",
+        "tags": [
+          "generative"
+        ]
+      }
+    },
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Mountain Fog",
+        "body": "Mountain Fog\n\n<CodePen hash=\"rNWbxEw\" user=\"jfitzsimmons\" height=\"500\" defaultTab=\"result\" preview=\"false\"/>",
+        "category": "code",
+        "tags": [
+          "generative"
+        ]
+      }
+    }
+  ],
+  "references": [],
+  "author": "fitzsimmons",
+  "slug": "{{slug}}",
+  "date": "2023-04-13",
+  "title": "How does the site look like this",
+  "tags": [
+    "generative"
+  ],
+  "description": "generative graphics",
+  "category": "code"
+}

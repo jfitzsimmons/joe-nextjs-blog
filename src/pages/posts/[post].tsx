@@ -76,8 +76,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     chapter.section.body = await serialize(chapter.section.body)
   }
 
-  // const testjpf = data
-
   return {
     props: {
       title: data.title,

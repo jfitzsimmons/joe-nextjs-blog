@@ -4100,6 +4100,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
+  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
+
 clean-deep@^3.0.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/clean-deep/-/clean-deep-3.4.0.tgz#c465c4de1003ae13a1a859e6c69366ab96069f75"
@@ -11537,6 +11542,21 @@ react-schemaorg@^2.0.0:
   resolved "https://registry.yarnpkg.com/react-schemaorg/-/react-schemaorg-2.0.0.tgz#9d168816e3630382d366fbc5fc4c337617467dbb"
   integrity sha512-UqciFKA203ewNjn0zC09uYKuJSvMD8L75L1s/cW4rc7cS64w8l7vaI3SYkuoI/nwCBkJRmOkSJedWDUZBlYZwg==
 
+react-social-media-embed@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/react-social-media-embed/-/react-social-media-embed-2.3.5.tgz#23e3f1cb57c9364f1b6538e0a8afaddc5415841c"
+  integrity sha512-hGxe0iA6nQXnVgk8HllQOtrJ03V+CSQm3Baop6dZn1lqMF9PvZqTYYQgPW28WobVe9nAumPs0qoIaV+OymByvw==
+  dependencies:
+    classnames "^2.3.2"
+    react-sub-unsub "^2.1.6"
+    react-twitter-embed "^4.0.4"
+    react-youtube "^10.1.0"
+
+react-sub-unsub@^2.1.6:
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/react-sub-unsub/-/react-sub-unsub-2.1.11.tgz#173d0803e1d7b29611cb29d95f47ed7798e93642"
+  integrity sha512-FNKy0uD5wSieRE+l5RXaS0bUu6cR8XAXLDwOJnvSDGBMHcWVb1dod8ZkXYjPKtKR74tjYCEpMWcEAWCOoWNXxQ==
+
 react-test-renderer@^16.0.0-0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.14.0.tgz#e98360087348e260c56d4fe2315e970480c228ae"
@@ -11555,6 +11575,13 @@ react-twitter-embed@^3.0.3:
     enzyme-adapter-react-16 "^1.11.0"
     exenv "^1.2.2"
     react-proptype-conditional-require "^1.0.4"
+    scriptjs "^2.5.9"
+
+react-twitter-embed@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/react-twitter-embed/-/react-twitter-embed-4.0.4.tgz#4a6b8354acc266876ff1110b9f648518ea20db6d"
+  integrity sha512-2JIL7qF+U62zRzpsh6SZDXNI3hRNVYf5vOZ1WRcMvwKouw+xC00PuFaD0aEp2wlyGaZ+f4x2VvX+uDadFQ3HVA==
+  dependencies:
     scriptjs "^2.5.9"
 
 react-youtube@^10.1.0:

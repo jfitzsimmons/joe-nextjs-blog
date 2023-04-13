@@ -3,7 +3,7 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import InstagramEmbed from 'react-instagram-embed'
+import { InstagramEmbed } from 'react-social-media-embed'
 import YouTube from 'react-youtube'
 import CodePen from 'react-codepen-embed'
 import styles from './Chapter.module.css'

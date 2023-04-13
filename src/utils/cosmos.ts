@@ -16,6 +16,7 @@ function shuffle(array) {
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
+    // testjpf ???
     // eslint-disable-next-line no-param-reassign
     ;[array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
