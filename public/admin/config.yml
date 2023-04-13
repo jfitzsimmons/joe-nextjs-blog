@@ -132,7 +132,6 @@ collections:
     identifier_field: title
     summary: '{{title}}'
     fields:
-      - { label: 'Slug', name: 'slug', widget: 'hidden', default: '{{slug}}' }
       - label: 'Title'
         name: 'title'
         widget: 'string'
