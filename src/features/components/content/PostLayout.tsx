@@ -143,7 +143,7 @@ export default function PostLayout({
               </ul>
             </article>
           </div>
-          {references && (
+          {references && references.length > 0 && (
             <>
               <h3 className={styles.h3}>References</h3>
               <ol className={`card ${styles.ref_list} ${styles.ol}`}>

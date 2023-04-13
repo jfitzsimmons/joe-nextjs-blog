@@ -18,18 +18,8 @@
       }
     }
   ],
-  "references": [
-    {
-      "index": 0,
-      "date": "2023-04-12T16:57:49.575Z",
-      "title": "test",
-      "url": "duckduckgo.com",
-      "source": "github.com"
-    }
-  ],
-  "author": "fitzsimmons",
-  "slug": "2023-04-12_figuring_out_what_to_post",
-  "date": "2023-04-12",
+  "author": "Joe Fitzsimmons",
+  "date": "2023-04-13",
   "title": "Figuring out what to Post",
   "tags": [
     "generative"

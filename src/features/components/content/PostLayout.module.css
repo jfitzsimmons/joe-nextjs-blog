@@ -155,9 +155,9 @@
 
 .content h2::before {
   position: absolute;
-  margin-left: -0.9em;
+  margin-left: calc(-0.9em + 1vmin);
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: calc(1.3rem + 2vmin);
   color: #fee8;
   display: none;
   content: '#';

@@ -3,15 +3,20 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-// import { serialize } from 'next-mdx-remote/serialize'
-import { getCat } from '../../../common/utils/categories'
+import InstagramEmbed from 'react-instagram-embed'
+import YouTube from 'react-youtube'
+import CodePen from 'react-codepen-embed'
 import styles from './Chapter.module.css'
+import { getCat } from '../../../common/utils/categories'
+
+const components = { InstagramEmbed, YouTube, CodePen }
 
 type Props = {
   body: MDXRemoteSerializeResult
   title: string
   category: string
 }
+
 export default function Chapter({ body, title, category }: Props) {
   const cat = getCat(category)
   const catBtn = useRef(null)
@@ -30,14 +35,18 @@ export default function Chapter({ body, title, category }: Props) {
       : 'rgba(21, 132, 125, 0.2)'
   }
   return (
-    <div className={`${styles.act}  ${styles[`act_${category}`]}`}>
+    <div className={`${styles.act}`}>
       <h2>{title}</h2>
+
       {body && (
-        <MDXRemote
-          {...body}
-          components={{}}
-        />
+        <div>
+          <MDXRemote
+            {...body}
+            components={components}
+          />
+        </div>
       )}
+
       <Link href={`/posts/filter/categories/${cat.slug}`}>
         <a
           ref={catBtn}

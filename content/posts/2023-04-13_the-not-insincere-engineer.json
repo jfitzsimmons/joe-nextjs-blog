@@ -1,0 +1,38 @@
+{
+  "chapters": [
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Sincere Engineer -- Overbite [pop / punk/ garage] (2019)",
+        "body": "Honestly, I'm not that insincere. I stole this name from the band Sincere Engineer and I did so sincerely. It may make me a fraud, but Fraudulent Engineer doesn't rhyme.\n\nSee them play live from The Rock Room:\n\n<YouTube videoId={\"ugUpRdq1gCg\"} containerClassName={\"youtube-container\"} />\n\nBuy their stuff:\n\n[Website for the band Sincere Engineer](https://sincereengineer.com/)",
+        "category": "music",
+        "tags": [
+          "videos",
+          "songs"
+        ]
+      }
+    },
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Encore: Sincere Engineer on Audiotree Live (Full Session) ",
+        "body": "<YouTube videoId={\"CYuPJT6HR2Y\"} containerClassName={\"youtube-container\"} />\n\n> Sincere Engineer is an emo/pop punk project fronted by Deanna Belos. Belos started out writing solo acoustic tunes before transitioning to the fast-paced, full band sound of her debut Rhombithian. Rhombithian is a humorous examination of youth, social anxiety and self-motivation (or lack thereof) jam packed with crunchy, noodly guitars and gang vocals.",
+        "category": "music",
+        "tags": [
+          "videos",
+          "songs"
+        ]
+      }
+    }
+  ],
+  "references": [],
+  "author": "Joe Fitzsimmons",
+  "date": "2023-04-13",
+  "title": "The Not Insincere Engineer",
+  "tags": [
+    "videos",
+    "songs"
+  ],
+  "description": "Honestly, I'm not that insincere. It may make me a fraud, but Fraudulent Engineer doesn't rhyme.",
+  "category": "music"
+}

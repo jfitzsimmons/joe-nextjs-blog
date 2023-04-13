@@ -82,7 +82,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       title: data.title,
       dateString: data.date,
-      slug: data.slug,
+      slug,
       description: data.description,
       tags: data.tags,
       category: data.category,
