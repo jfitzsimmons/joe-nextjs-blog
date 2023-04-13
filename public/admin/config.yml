@@ -1,10 +1,10 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: main
+#local_backend: true #npx netlify-cms-proxy-server ||| make env var testjpf???
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
-
 collections:
   - name: 'config'
     label: 'Config'
@@ -120,7 +120,6 @@ collections:
                 widget: 'string'
                 hint: "Color associated with category's style"
                 required: false
-
   - name: 'posts'
     label: 'Posts'
     folder: 'content/posts/'
@@ -129,20 +128,16 @@ collections:
     create: true
     editor:
       preview: false
-    slug: '{{slug}}'
-    identifier_field: slug
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    identifier_field: title
     summary: '{{title}}'
     fields:
-      - label: 'Slug'
-        name: 'slug'
-        widget: 'string'
-        hint: 'Ex: 2021-07-08_this-is-the-title'
+      - { label: 'Slug', name: 'slug', widget: 'hidden', default: '{{slug}}' }
       - label: 'Title'
         name: 'title'
         widget: 'string'
       - label: 'Description'
         name: 'description'
-        required: false
         widget: 'text'
       - label: 'Publish Date'
         name: 'date'
@@ -221,6 +216,7 @@ collections:
                     }
                   - label: Category
                     name: 'category'
+                    required: false
                     widget: relation
                     collection: 'meta'
                     file: 'categories'
@@ -232,6 +228,7 @@ collections:
                   - label: Tags
                     label_singular: 'Tag'
                     name: 'tags'
+                    required: false
                     widget: list
                     summary: '{{fields.tag}}'
                     field:
@@ -254,13 +251,15 @@ collections:
               required: false
               widget: relation
               collection: 'posts'
-              searchFields: ['chapters.*.chapterTitle']
-              displayFields: ['chapters.*.chapterTitle']
-              valueField: 'chapters.*'
+              searchFields: ['chapters.*.section.chapterTitle']
+              displayFields: ['chapters.*.section.chapterTitle']
+              valueField: 'chapters.*.section'
       - label: 'References'
         label_singular: 'Reference'
         name: 'references'
+        required: false
         widget: list
+        default: []
         summary: '{{fields.references}}'
         fields:
           - label: 'Index'

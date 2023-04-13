@@ -1,0 +1,56 @@
+{
+  "chapters": [
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Cosmic Sunset by Jin",
+        "body": "His colour-explosive art pieces combine millions of dots meticulously placed over countless hours on black paper with gel pens. Each of his hand drawn art pieces takes approximately a month to finish. \n\n[Art by Jin](https://jindotart.com/)\n\n[Cosmic Sunset by Jin](https://jindotart.com/product/cosmic-sunset/)",
+        "category": "art",
+        "tags": [
+          "pyschedelic",
+          "pointillism"
+        ]
+      }
+    },
+    {
+      "type": "newChapter",
+      "section": {
+        "chapterTitle": "Light Leak -- Karl Shakur [Photograph]",
+        "body": "Light Leak • The beautiful country of Austria showing off all its layers. \n\n<InstagramEmbed url=\"https://instagr.am/p/B1yhznEHw-8/\" />",
+        "category": "art",
+        "tags": [
+          "photographs",
+          "nature"
+        ]
+      }
+    }
+  ],
+  "references": [
+    {
+      "index": 0,
+      "date": "2023-04-13T15:54:55.409Z",
+      "title": "Art by Jin ",
+      "url": "https://jindotart.com/",
+      "source": "Art by Jin "
+    },
+    {
+      "index": 1,
+      "date": "2019-08-30T05:00:00.000Z",
+      "title": "Light Leak",
+      "url": "https://instagr.am/p/B1yhznEHw-8/",
+      "source": "Karl_Shakur - Instagram"
+    }
+  ],
+  "author": "fitzsimmons",
+  "slug": "{{slug}}",
+  "date": "2023-04-13",
+  "title": "Why does the site look this way?",
+  "tags": [
+    "pyschedelic",
+    "pointillism",
+    "photographs",
+    "nature"
+  ],
+  "description": "Psychedelic pointillism and photos of The Alps",
+  "category": "art"
+}

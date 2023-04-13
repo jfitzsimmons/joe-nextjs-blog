@@ -1,5 +1,6 @@
 import React from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import { serialize } from 'next-mdx-remote/serialize'
 import fs from 'fs'
 import { parseISO } from 'date-fns'
 import { fetchPostContent } from '../../features/utils/posts'
@@ -38,6 +39,8 @@ export default function Post({
   description,
   references,
 }: Props) {
+  // console.log('chapters')
+  // console.dir(chapters)
   return (
     <PostLayout
       title={title}
@@ -65,11 +68,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params.post as string
   const source = fs.readFileSync(slugToPostContent[slug].fullPath, 'utf8')
   const data = JSON.parse(source)
+
+  // testjpf: FIXX ESLINT ISSUE
+  // eslint-disable-next-line no-restricted-syntax
+  for (const chapter of data.chapters) {
+    // eslint-disable-next-line no-param-reassign, no-await-in-loop
+    chapter.section.body = await serialize(chapter.section.body)
+  }
+
   return {
     props: {
       title: data.title,
       dateString: data.date,
-      slug: data.slug,
+      slug,
       description: data.description,
       tags: data.tags,
       category: data.category,

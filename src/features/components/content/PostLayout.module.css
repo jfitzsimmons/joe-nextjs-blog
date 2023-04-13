@@ -34,7 +34,7 @@
   border-radius: 0 0 4vmin 4vmin;
 }
 .mountains {
-  height: 200px;
+  height: 400px;
   position: relative;
   box-sizing: border-box;
   box-shadow: 0 0 1vmin 0 rgba(11, 4, 6, 0.1);
@@ -51,9 +51,15 @@
   width: 100%;
 }
 .h1 {
-  font-size: calc(1.5rem + 2vmin);
+  background-color: #fffe;
+  font-size: calc(1.6rem + 4vmin);
   margin: 0;
-  text-align: center;
+  letter-spacing: 6px;
+  max-width: 840px;
+  color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
 }
 .tag_list {
   list-style: none;
@@ -65,6 +71,10 @@
 .tag_list li {
   display: inline-block;
   margin-left: 0.5rem;
+}
+.h3 {
+  font-size: 3rem;
+  text-shadow: var(--dark-shadow);
 }
 .ref_list {
   padding: 4vmin;
@@ -145,9 +155,9 @@
 
 .content h2::before {
   position: absolute;
-  margin-left: -0.9em;
+  margin-left: calc(-0.9em + 1vmin);
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: calc(1.3rem + 2vmin);
   color: #fee8;
   display: none;
   content: '#';
@@ -213,6 +223,7 @@
 .content ul {
   padding: 0 0 0 1.5rem;
   margin: 1.5rem 0 0 0;
+  list-style-type: disc;
 }
 
 .content ol li,
@@ -244,7 +255,7 @@
   margin: 2vmin auto 0rem;
   display: flex;
   width: 100%;
-  max-width: 560px;
+  max-width: 1000px;
 }
 
 @media (min-width: 769px) and (min-height: 460px) {

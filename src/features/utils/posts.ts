@@ -17,6 +17,7 @@ export function fetchPostContent() {
       const fullPath = path.join(postsDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
       const result = JSON.parse(fileContents)
+
       result.fullPath = fullPath
       result.slug = fileName.replace(/\.json$/, '')
 

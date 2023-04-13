@@ -2,23 +2,15 @@
   "author": "fitzsimmons",
   "date": "2021-07-08",
   "category": "music",
-  "tags": [
-    "rock",
-    "rendition",
-    "acoustic",
-    "orchestral"
-  ],
+  "tags": ["rock", "rendition", "acoustic", "orchestral"],
   "chapters": [
     {
       "type": "newChapter",
       "section": {
         "chapterTitle": "Coheed and Cambria perform Mother Superior inside a shoe repair shop.",
-        "body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut est id ante faucibus sollicitudin. Praesent blandit turpis dui, non vestibulum felis cursus eget. Praesent et velit fermentum, lacinia nunc eu, ullamcorper erat. Suspendisse dapibus quam eget suscipit tempor. Vestibulum id accumsan ante. Nullam interdum et velit et efficitur. Phasellus dignissim tortor magna, ac tempus arcu malesuada sed. Duis auctor tortor lacus, vitae pharetra mi dignissim nec. In auctor viverra augue ac scelerisque.</p><p>Donec blandit mattis tortor ut pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus congue nunc at sapien euismod facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur magna quam, bibendum et ornare vel, mattis sit amet ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/Gj-M4iU6ckU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "body": "## I love Coheed and Cambria and I don't care who know 1111\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n## written by Cicero in 45 BC",
         "summary": "Coheed is my Star Wars.",
-        "tags": [
-          "rock",
-          "acoustic"
-        ],
+        "tags": ["rock", "acoustic"],
         "category": "music"
       }
     },
@@ -26,12 +18,9 @@
       "type": "newChapter",
       "section": {
         "chapterTitle": "A Favor House Atlantic - Vitamin String Quartet Tribute to Coheed and Cambria",
-        "body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut est id ante faucibus sollicitudin. Praesent blandit turpis dui, non vestibulum felis cursus eget. Praesent et velit fermentum, lacinia nunc eu, ullamcorper erat. Suspendisse dapibus quam eget suscipit tempor. Vestibulum id accumsan ante. Nullam interdum et velit et efficitur. Phasellus dignissim tortor magna, ac tempus arcu malesuada sed. Duis auctor tortor lacus, vitae pharetra mi dignissim nec. In auctor viverra augue ac scelerisque.</p><p>Donec blandit mattis tortor ut pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus congue nunc at sapien euismod facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur magna quam, bibendum et ornare vel, mattis sit amet ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/BfSh4unhD4g\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "body": "## I love Coheed and Cambria and I don't care who know 222 \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n## written by Cicero in 45 BC",
         "summary": "I'm a sucker for all things strings.",
-        "tags": [
-          "orchestral",
-          "rendition"
-        ],
+        "tags": ["orchestral", "rendition"],
         "category": "music"
       }
     }

@@ -22,16 +22,20 @@ export default function Layout({ children }: Props) {
           content="width=device-width, initial-scale=1"
         />
         <link
+          rel="shortcut icon"
+          href="/favicon.ico"
+        />
+        <link
           rel="manifest"
           href="/site.webmanifest"
         />
         <link
           rel="apple-touch-icon"
-          href="/icon.png"
+          href="/apple-touch-icon.png"
         />
         <meta
           name="theme-color"
-          content="#000"
+          content="#100"
         />
       </Head>
       <DynamicComponentWithNoSSR />
