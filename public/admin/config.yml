@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: main
-local_backend: true #npx netlify-cms-proxy-server
+#local_backend: true #npx netlify-cms-proxy-server ||| make env var testjpf???
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
