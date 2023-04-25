@@ -9,7 +9,7 @@ import { getCat } from '../../../common/utils/categories'
 import orderArrayBy from '../../../utils/arrays'
 import styles from './PostList.module.css'
 
-type Props = {
+export type Props = {
   posts: PostContent[]
   tags?: FilterContent[]
   filter?: FilterContent

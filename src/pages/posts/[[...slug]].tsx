@@ -35,6 +35,15 @@ export default function Index({
 }: Props) {
   const url = '/posts'
   const title = 'All posts'
+  /**
+   * testjpf
+   * a test could be...
+   * browser test would be go to url and see if headings are correct
+   * but
+   * jest would be fill postlist component with dummy data??
+   * especially type and filter???
+   * google 'use jest to test getStaticPaths / Props'
+   */
   return (
     <Layout>
       <BasicMeta
